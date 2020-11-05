@@ -1,0 +1,31 @@
+div.balance-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    background: #ddfaff;
+}
+
+table.transaction-container {
+    width: 100%;
+    margin: 0 auto;
+    border-spacing: 0;
+}
+
+table.transaction-container thead tr {
+    background-color: rgb(90, 90, 90);
+    color: white;
+    height: 40px;
+}
+
+table.transaction-container tbody {
+    text-align: center;
+}
+
+table.transaction-container tbody tr:nth-child(odd){
+    background-color: lightgray;
+}
+
+table.transaction-container tbody tr:nth-child(even){
+    background-color: white;
+}
