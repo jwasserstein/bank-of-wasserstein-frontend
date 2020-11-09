@@ -1,5 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {logOut} from '../store/actions/auth';
 import './Banner.css';
 
 const Banner = props => {
@@ -9,13 +11,16 @@ const Banner = props => {
 				<Link to='/'>BANK OF WASSERSTEIN</Link>
 			</div>
 			<div className="banner-right">
-				{props.user ? 
-					<span><a className='name'>{props.user}</a> | <Link to='/login'>Sign Out</Link></span> :
+				{props.authReducer.username ? 
+					<span><a className='name'>{props.authReducer.username}</a> | <Link to='/login' onClick={props.logOut}>Sign Out</Link></span> :
 					<span><Link to='/login'>Sign In</Link></span>}
-					
 			</div>
 		</div>
 	);
 }
 
-export default Banner;
+function mapStateToProps(state){
+	return {...state};
+}
+
+export default connect(mapStateToProps, {logOut})(Banner);
