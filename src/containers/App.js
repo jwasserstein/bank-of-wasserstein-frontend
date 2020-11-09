@@ -10,6 +10,8 @@ import './App.css';
 
 const store = configureStore();
 
+
+// If token already exists and isn't expired, log in
 if(localStorage.getItem('token')){
 	const decoded = jwtdecode(localStorage.getItem('token'));
 	if(Date.now()/1000 - decoded.iat < 3600){

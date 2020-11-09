@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {logIn, logOut} from '../store/actions/auth';
-import './LoginPage.css';
+import {Form, Input, Button, Segment} from 'semantic-ui-react';
 
 class LoginPage extends Component {
 	constructor(props){
@@ -25,11 +25,21 @@ class LoginPage extends Component {
 	
 	render() {
 		return (
-			<form onSubmit={this.onSubmit}>
-				<label>Username: <input type='text' placeholder='username' name='username' value={this.state.username} onChange={this.onChange} /></label>
-				<label>Password: <input type='password' placeholder='password' name='password' value={this.state.password} onChange={this.onChange} /></label>
-				<button type='submit'>Submit</button>
-			</form>
+			<Segment style={{width: '50%', margin: '0 auto'}}>
+				<Form onSubmit={this.onSubmit}>
+					<Form.Field>
+						<label>Username:</label>
+						<input type='text' placeholder='username' name='username' value={this.state.username} onChange={this.onChange} />
+					</Form.Field>
+
+					<Form.Field>
+						<label>Password:</label>
+						<input type='password' placeholder='password' name='password' value={this.state.password} onChange={this.onChange} />
+					</Form.Field>
+
+					<Button type='submit'>Submit</Button>
+				</Form>
+			</Segment>
 		);
 	}
 }

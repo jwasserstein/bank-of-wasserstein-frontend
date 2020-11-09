@@ -5,7 +5,7 @@ export function logIn(username, password) {
 	return dispatch => {
 		return new Promise(async (resolve, reject) => {
 			const resp = await apiCall('post', 'https://testcontainer-sadjv2.run-us-west2.goorm.io/api/auth/signin', {username, password}, '');
-			if(resp.error){
+			if(resp.error){ // refactor this to check for status code
 				return reject(resp.error);
 			}
 			localStorage.setItem('token', resp.token);

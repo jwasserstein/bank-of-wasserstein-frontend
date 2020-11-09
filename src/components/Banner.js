@@ -2,20 +2,19 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {logOut} from '../store/actions/auth';
-import './Banner.css';
+import {Menu} from 'semantic-ui-react';
 
 const Banner = props => {
 	return (
-		<div className="banner">
-			<div className="banner-left">
-				<Link to='/'>BANK OF WASSERSTEIN</Link>
-			</div>
-			<div className="banner-right">
-				{props.authReducer.username ? 
-					<span><a className='name'>{props.authReducer.username}</a> | <Link to='/login' onClick={props.logOut}>Sign Out</Link></span> :
-					<span><Link to='/login'>Sign In</Link></span>}
-			</div>
-		</div>
+		<Menu>
+			<Menu.Item as={Link} to='/' header>Bank of Wasserstein</Menu.Item>
+			<Menu.Menu position='right'>
+					{props.authReducer.username ? 
+						[<Menu.Item as={Link} to='/' key='username'>{props.authReducer.username}</Menu.Item>,
+						<Menu.Item as={Link} to='/login' onClick={props.logOut} key='signout'>Sign Out</Menu.Item>] :
+						<Menu.Item as={Link} to='/login'>Sign In</Menu.Item>}
+			</Menu.Menu>
+		</Menu>
 	);
 }
 
