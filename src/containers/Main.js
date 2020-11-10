@@ -1,6 +1,6 @@
 import {Route} from 'react-router-dom';
 import LoginPage from '../components/LoginPage';
-import TransactionPage from '../components/TransactionPage';
+import TransactionPage from '../containers/TransactionPage';
 import withAuth from '../hocs/withAuth';
 
 const Main = () => (
