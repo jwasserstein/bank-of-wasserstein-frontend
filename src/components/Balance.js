@@ -10,7 +10,7 @@ const Balance = props => (
 
 function mapStateToProps(state){
 	return {
-		lastTransaction: state.transactionReducer.transactions[state.transactionReducer.transactions.length-1]
+		lastTransaction: state.transactionReducer.transactions[0]
 	};
 }
 

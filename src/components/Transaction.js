@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {Table} from 'semantic-ui-react';
 import {connect} from 'react-redux';
 import {getTransactions} from '../store/actions/transactions';
+import dayjs from 'dayjs';
+import {Link} from 'react-router-dom';
 
 class Transaction extends Component {
 	componentDidMount(){
@@ -9,14 +11,18 @@ class Transaction extends Component {
 	}
 	
 	render(){
-		let transactionRows = 'Loading';
+		let transactionRows = 'Loading...';
 		if(this.props.transactions){
 			transactionRows = this.props.transactions.map(t => (
 				<Table.Row key={t.transactionNumber}>
-					<Table.Cell>{t.date}</Table.Cell>
-					<Table.Cell>{t.transactionType} {t.description}</Table.Cell>
-					<Table.Cell>{t.description.split(' ')[0] === 'deposit' ? t.amount : '(' + t.amount + ')'}</Table.Cell>
-					<Table.Cell>{t.accountBalance}</Table.Cell>
+					<Table.Cell>{dayjs(t.date).format('MM/DD/YYYY h:mA')}</Table.Cell>
+					<Table.Cell>
+						<Link to={`/transactions/${t.transactionNumber}`}>
+							{t.description}
+						</Link>
+					</Table.Cell>
+					<Table.Cell>{t.amount.toFixed(2)}</Table.Cell>
+					<Table.Cell>{t.accountBalance.toFixed(2)}</Table.Cell>
 				</Table.Row>
 			));
 		}

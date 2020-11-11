@@ -9,7 +9,7 @@ export function getTransactions(userId, token){
 				if(resp.err){ //refactor this to use status code
 					return reject(resp.err);
 				}
-				const transactions = resp.sort((a, b) => a.transactionNumber - b.transactionNumber);
+				const transactions = resp.sort((a, b) => b.transactionNumber - a.transactionNumber);
 				dispatch({
 					type: GET_TRANSACTIONS,
 					transactions
