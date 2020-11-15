@@ -11,7 +11,8 @@ const Banner = props => (
 				{props.authReducer.username ? 
 					[<Menu.Item as={Link} to='/' key='username'>{props.authReducer.username}</Menu.Item>,
 					<Menu.Item as={Link} to='/login' onClick={props.logOut} key='signout'>Sign Out</Menu.Item>] :
-					<Menu.Item as={Link} to='/login'>Sign In</Menu.Item>}
+					[<Menu.Item as={Link} to='/login' key='signin'>Sign In</Menu.Item>,
+					 <Menu.Item as={Link} to='/signup' key='signup'>Sign Up</Menu.Item>]}
 		</Menu.Menu>
 	</Menu>
 );
