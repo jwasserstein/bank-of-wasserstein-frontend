@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Table, Form, Button} from 'semantic-ui-react';
+import {Table, Form, Button, Message} from 'semantic-ui-react';
 import {signUp} from '../store/actions/auth';
 
 class SignUp extends Component {
@@ -11,7 +11,8 @@ class SignUp extends Component {
 			email: '',
 			password: '',
 			repeatPassword: '',
-			loading: false
+			loading: false,
+			error: ''
 		};
 	}
 	
@@ -27,11 +28,11 @@ class SignUp extends Component {
 		}
 		this.props.signUp(this.state.username, this.state.email, this.state.password)
 			.then(() => {
-				this.setState({...this.state, loading: false});
+				this.setState({...this.state, loading: false, error: ''});
 				this.props.history.push('/');
 			})
 			.catch(err => {
-				this.setState({...this.state, loading: false})
+				this.setState({...this.state, loading: false, error: err});
 				console.log(err)
 			});
 	}
@@ -49,6 +50,11 @@ class SignUp extends Component {
 				<Table.Body>
 					<Table.Row>
 						<Table.Cell>
+							{this.state.error && (
+								<Message negative>
+									{this.state.error}
+								</Message>
+							)}
 							<Form onSubmit={this.onSubmit}>
 								<Form.Field>
 									<label>Username:</label>

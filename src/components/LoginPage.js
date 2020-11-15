@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {logIn, logOut} from '../store/actions/auth';
-import {Form, Input, Button, Table} from 'semantic-ui-react';
+import {Form, Input, Button, Table, Message} from 'semantic-ui-react';
 
 class LoginPage extends Component {
 	constructor(props){
@@ -9,7 +9,8 @@ class LoginPage extends Component {
 		this.state = {
 			username: '',
 			password: '',
-			loading: false
+			loading: false,
+			error: ''
 		};
 	}
 	
@@ -22,11 +23,11 @@ class LoginPage extends Component {
 		this.setState({...this.state, loading: true})
 		this.props.logIn(e.target.username.value, e.target.password.value)
 			.then(() => {
-				this.setState({...this.state, loading: false});
+				this.setState({...this.state, loading: false, error: ''});
 				this.props.history.push('/');
 			})
 			.catch(err => {
-				this.setState({...this.state, loading: false});
+				this.setState({...this.state, loading: false, error: err});
 				console.log('Error logging in: ', err);
 			});
 	}
@@ -44,6 +45,11 @@ class LoginPage extends Component {
 				<Table.Body>
 					<Table.Row>
 						<Table.Cell>
+							{this.state.error && (
+								<Message negative>
+									{this.state.error}
+								</Message>
+							)}
 							<Form onSubmit={this.onSubmit}>
 								<Form.Field>
 									<label>Username:</label>
