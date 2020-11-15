@@ -60,7 +60,7 @@ class SignUp extends Component {
 									<input type='password' placeholder='password' name='repeatPassword' value={this.state.repeatPassword} onChange={this.onChange} required />
 								</Form.Field>
 
-								<Button type='submit'>Submit</Button>
+								<Button color='teal' type='submit'>Submit</Button>
 							</Form>
 						</Table.Cell>
 					</Table.Row>

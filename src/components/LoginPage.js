@@ -47,7 +47,7 @@ class LoginPage extends Component {
 									<input type='password' placeholder='password' name='password' value={this.state.password} onChange={this.onChange} />
 								</Form.Field>
 
-								<Button type='submit'>Submit</Button>
+								<Button color='teal' type='submit'>Submit</Button>
 							</Form>
 						</Table.Cell>
 					</Table.Row>
