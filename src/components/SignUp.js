@@ -10,7 +10,8 @@ class SignUp extends Component {
 			username: '',
 			email: '',
 			password: '',
-			repeatPassword: ''
+			repeatPassword: '',
+			loading: false
 		};
 	}
 	
@@ -20,12 +21,19 @@ class SignUp extends Component {
 	
 	onSubmit = e => {
 		e.preventDefault();
+		this.setState({...this.state, loading: true});
 		if(this.state.password !== this.state.repeatPassword){
 			return console.log("Passwords don't match");
 		}
 		this.props.signUp(this.state.username, this.state.email, this.state.password)
-			.then(() => this.props.history.push('/'))
-			.catch(err => console.log(err));
+			.then(() => {
+				this.setState({...this.state, loading: false});
+				this.props.history.push('/');
+			})
+			.catch(err => {
+				this.setState({...this.state, loading: false})
+				console.log(err)
+			});
 	}
 	
 	render() {
@@ -60,7 +68,7 @@ class SignUp extends Component {
 									<input type='password' placeholder='password' name='repeatPassword' value={this.state.repeatPassword} onChange={this.onChange} required />
 								</Form.Field>
 
-								<Button color='teal' type='submit'>Submit</Button>
+								<Button color='teal' type='submit' loading={this.state.loading}>Submit</Button>
 							</Form>
 						</Table.Cell>
 					</Table.Row>
