@@ -1,19 +1,56 @@
 import React, {Component} from 'react';
-import {Table} from 'semantic-ui-react';
+import {Table, Placeholder} from 'semantic-ui-react';
 import {connect} from 'react-redux';
 import {getTransactions} from '../store/actions/transactions';
 import dayjs from 'dayjs';
 import {Link} from 'react-router-dom';
 
 class Transaction extends Component {
+	constructor(props){
+		super(props);
+		this.transactionRows = [];
+		for(let i = 0; i < 10; i++){
+			this.transactionRows.push(
+				<Table.Row key={`loading-${i}`}>
+					<Table.Cell>
+						<Placeholder>
+							<Placeholder.Paragraph>
+								<Placeholder.Line />
+							</Placeholder.Paragraph>
+						</Placeholder>
+					</Table.Cell>
+					<Table.Cell>
+						<Placeholder>
+							<Placeholder.Paragraph>
+								<Placeholder.Line />
+							</Placeholder.Paragraph>
+						</Placeholder>
+					</Table.Cell>
+					<Table.Cell>
+						<Placeholder>
+							<Placeholder.Paragraph>
+								<Placeholder.Line />
+							</Placeholder.Paragraph>
+						</Placeholder>
+					</Table.Cell>
+					<Table.Cell>
+						<Placeholder>
+							<Placeholder.Paragraph>
+								<Placeholder.Line />
+							</Placeholder.Paragraph>
+						</Placeholder>
+					</Table.Cell>
+				</Table.Row>
+			);
+		}
+	}
 	componentDidMount(){
 		this.props.getTransactions(this.props.userId, localStorage.getItem('token'));
 	}
 	
 	render(){
-		let transactionRows = 'Loading...';
-		if(this.props.transactions){
-			transactionRows = this.props.transactions.map(t => (
+		if(this.props.transactions && this.props.transactions.length){
+			this.transactionRows = this.props.transactions.map(t => (
 				<Table.Row key={t.transactionNumber}>
 					<Table.Cell>{dayjs(t.date).format('MM/DD/YYYY h:mA')}</Table.Cell>
 					<Table.Cell>
@@ -27,7 +64,6 @@ class Transaction extends Component {
 			));
 		}
 		
-
 		return (
 			<Table celled striped>
 				<Table.Header>
@@ -39,7 +75,7 @@ class Transaction extends Component {
 					</Table.Row>
 				</Table.Header>
 				<Table.Body>
-					{transactionRows}
+					{this.transactionRows}
 				</Table.Body>
 			</Table>
 		);

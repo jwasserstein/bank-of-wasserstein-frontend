@@ -1,10 +1,14 @@
 import React from 'react';
-import {Segment} from 'semantic-ui-react';
+import {Segment, Placeholder} from 'semantic-ui-react';
 import {connect} from 'react-redux';
 
 const Balance = props => (
 	<Segment textAlign='center' compact style={{margin: '0 auto 14px auto'}}>
-		<span style={{fontWeight: 'bold'}}>Available Balance</span>: {props.lastTransaction ? '$' + props.lastTransaction.accountBalance : 'Loading...'}
+			<span style={{fontWeight: 'bold'}}>Available Balance</span>: {props.lastTransaction ? '$' + props.lastTransaction.accountBalance : (<Placeholder>
+											<Placeholder.Paragraph>
+												<Placeholder.Line />
+											</Placeholder.Paragraph>
+										</Placeholder>)}
 	</Segment>
 );
 
