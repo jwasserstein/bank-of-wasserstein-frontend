@@ -45,7 +45,9 @@ class Transaction extends Component {
 		}
 	}
 	componentDidMount(){
-		this.props.getTransactions(this.props.userId, localStorage.getItem('token'));
+		if(!this.props.transactions || !this.props.transactions.length){
+			this.props.getTransactions(this.props.userId, localStorage.getItem('token'));
+		}
 	}
 	
 	render(){
