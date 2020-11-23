@@ -1,4 +1,3 @@
-import {Table} from 'semantic-ui-react';
 import Balance from '../components/Balance';
 import Transaction from '../components/Transaction';
 

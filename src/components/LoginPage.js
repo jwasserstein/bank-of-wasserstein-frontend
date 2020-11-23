@@ -53,12 +53,12 @@ class LoginPage extends Component {
 							<Form onSubmit={this.onSubmit}>
 								<Form.Field>
 									<label>Username:</label>
-									<input type='text' placeholder='username' name='username' value={this.state.username} onChange={this.onChange} required/>
+									<Input type='text' placeholder='username' name='username' value={this.state.username} onChange={this.onChange} required/>
 								</Form.Field>
 
 								<Form.Field>
 									<label>Password:</label>
-									<input type='password' placeholder='password' name='password' value={this.state.password} onChange={this.onChange} required/>
+									<Input type='password' placeholder='password' name='password' value={this.state.password} onChange={this.onChange} required/>
 								</Form.Field>
 
 								<Button color='teal' type='submit' loading={this.state.loading}>Submit</Button>

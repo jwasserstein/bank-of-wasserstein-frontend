@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getTransactions} from '../store/actions/transactions';
-import {Segment, Statistic, Button} from 'semantic-ui-react';
+import {Segment, Statistic} from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
 import dayjs from 'dayjs';
 
