@@ -1,11 +1,31 @@
+import React, {Component} from 'react';
 import Balance from '../components/Balance';
 import Transaction from '../components/Transaction';
+import {connect} from 'react-redux';
+import {getTransactions} from '../store/actions/transactions';
 
-const TransactionPage = () => (
-	<div>
-		<Balance />	
-		<Transaction />
-	</div>
-);
+class TransactionPage extends Component {
+	componentDidMount(){
+		if(!this.props.transactions || !this.props.transactions.length){
+			this.props.getTransactions(this.props.userId, localStorage.getItem('token'));
+		}
+	}
+	
+	render(){
+		return (
+			<div>
+				<Balance lastTransaction={this.props.transactions[0]}/>	
+				<Transaction transactions={this.props.transactions} userId={this.props.userId}/>
+			</div>
+		);
+	}
+}
 
-export default TransactionPage;
+function mapStateToProps(state){
+	return {
+		transactions: state.transactionReducer.transactions,
+		userId: state.authReducer.userId
+	};
+}
+
+export default connect(mapStateToProps, {getTransactions})(TransactionPage);

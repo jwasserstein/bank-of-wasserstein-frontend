@@ -1,6 +1,5 @@
 import React from 'react';
 import {Segment, Placeholder} from 'semantic-ui-react';
-import {connect} from 'react-redux';
 
 const Balance = props => (
 	<Segment textAlign='center' compact style={{margin: '0 auto 14px auto'}}>
@@ -12,10 +11,4 @@ const Balance = props => (
 	</Segment>
 );
 
-function mapStateToProps(state){
-	return {
-		lastTransaction: state.transactionReducer.transactions[0]
-	};
-}
-
-export default connect(mapStateToProps)(Balance);
+export default Balance;
