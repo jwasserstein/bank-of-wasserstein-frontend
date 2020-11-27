@@ -71,10 +71,4 @@ class LoginPage extends Component {
 	}
 }
 
-function mapStateToProps(state){
-	return {
-		...state,
-	};
-}
-
-export default connect(mapStateToProps, {logIn, logOut})(LoginPage);
+export default connect(null, {logIn, logOut})(LoginPage);
