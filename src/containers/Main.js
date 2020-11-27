@@ -2,7 +2,7 @@ import {Route} from 'react-router-dom';
 import LoginPage from './LoginPage';
 import TransactionPage from './TransactionPage';
 import withAuth from '../hocs/withAuth';
-import ShowTransactionPage from '../components/ShowTransactionPage';
+import ShowTransactionPage from './ShowTransactionPage';
 import SignUp from '../components/SignUp';
 
 const Main = () => (
