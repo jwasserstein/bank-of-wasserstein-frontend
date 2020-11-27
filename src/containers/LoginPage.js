@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {logIn, logOut} from '../store/actions/auth';
+import {logIn} from '../store/actions/auth';
 import {Form, Input, Button, Table, Message} from 'semantic-ui-react';
 
 class LoginPage extends Component {
@@ -71,4 +71,4 @@ class LoginPage extends Component {
 	}
 }
 
-export default connect(null, {logIn, logOut})(LoginPage);
+export default connect(null, {logIn})(LoginPage);
