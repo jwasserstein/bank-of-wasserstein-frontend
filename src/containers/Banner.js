@@ -8,8 +8,8 @@ const Banner = props => (
 	<Menu color='teal'>
 		<Menu.Item as={Link} to='/' header>Bank of Wasserstein</Menu.Item>
 		<Menu.Menu position='right'>
-				{props.authReducer.username ? 
-					[<Menu.Item as={Link} to='/' key='username'>{props.authReducer.username}</Menu.Item>,
+				{props.username ? 
+					[<Menu.Item as={Link} to='/' key='username'>{props.username}</Menu.Item>,
 					<Menu.Item as={Link} to='/login' onClick={props.logOut} key='signout'>Sign Out</Menu.Item>] :
 					[<Menu.Item as={Link} to='/login' key='signin'>Sign In</Menu.Item>,
 					 <Menu.Item as={Link} to='/signup' key='signup'><Button color='teal'>Sign Up</Button></Menu.Item>]}
@@ -18,7 +18,9 @@ const Banner = props => (
 );
 
 function mapStateToProps(state){
-	return {...state};
+	return {
+		username: state.authReducer.username
+	};
 }
 
 export default connect(mapStateToProps, {logOut})(Banner);
