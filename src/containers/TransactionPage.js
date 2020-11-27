@@ -14,7 +14,7 @@ class TransactionPage extends Component {
 	render(){
 		return (
 			<div>
-				<Balance />	
+				<Balance lastTransaction={this.props.transactions[0]}/>	
 				<Transaction transactions={this.props.transactions} userId={this.props.userId}/>
 			</div>
 		);

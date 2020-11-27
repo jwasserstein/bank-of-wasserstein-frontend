@@ -12,10 +12,4 @@ const Balance = props => (
 	</Segment>
 );
 
-function mapStateToProps(state){
-	return {
-		lastTransaction: state.transactionReducer.transactions[0]
-	};
-}
-
-export default connect(mapStateToProps)(Balance);
+export default Balance;
