@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 
 const Transaction = props => {
 	let transactionRows;
-	if(props.transactions && props.transactions.length){
+	if(props.lastUpdated){
 		transactionRows = props.transactions.map(t => (
 			<Table.Row key={t.transactionNumber}>
 				<Table.Cell>{dayjs(t.date).format('MM/DD/YYYY h:mA')}</Table.Cell>

@@ -6,7 +6,7 @@ import {getTransactions} from '../store/actions/transactions';
 
 class TransactionPage extends Component {
 	componentDidMount(){
-		if(!this.props.transactions || !this.props.transactions.length){
+		if(!this.props.lastUpdated){
 			this.props.getTransactions(this.props.userId, localStorage.getItem('token'));
 		}
 	}
@@ -14,8 +14,8 @@ class TransactionPage extends Component {
 	render(){
 		return (
 			<div>
-				<Balance lastTransaction={this.props.transactions[0]}/>	
-				<Transaction transactions={this.props.transactions} userId={this.props.userId}/>
+				<Balance transactions={this.props.transactions} lastUpdated={this.props.lastUpdated}/>
+				<Transaction transactions={this.props.transactions} userId={this.props.userId} lastUpdated={this.props.lastUpdated}/>
 			</div>
 		);
 	}
@@ -24,7 +24,8 @@ class TransactionPage extends Component {
 function mapStateToProps(state){
 	return {
 		transactions: state.transactionReducer.transactions,
-		userId: state.authReducer.userId
+		userId: state.authReducer.userId,
+		lastUpdated: state.transactionReducer.lastUpdated
 	};
 }
 

@@ -4,7 +4,7 @@ export async function apiCall(type, url, data, token) {
 			method: type,
 			headers: {
 				'Content-Type': 'application/json',
-				'authorization': `Bearer ${token}`
+				'Authorization': `Bearer ${token}`
 			}
 		});
 		const d = await resp.json();
@@ -14,7 +14,7 @@ export async function apiCall(type, url, data, token) {
 			method: type,
 			headers: {
 				'Content-Type': 'application/json',
-				'authorization': `Bearer ${token}`
+				'Authorization': `Bearer ${token}`
 			},
 			body: JSON.stringify(data)
 		});
