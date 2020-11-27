@@ -7,7 +7,7 @@ import dayjs from 'dayjs';
 
 class ShowTransactionPage extends Component {
 	componentDidMount(){
-		if(!this.props.transactions || !this.props.transactions.length){
+		if(!this.props.lastUpdated){
 			this.props.getTransactions(this.props.userId, localStorage.token);
 		}
 	}
@@ -55,7 +55,8 @@ class ShowTransactionPage extends Component {
 function mapStateToProps(state){
 	return {
 		transactions: state.transactionReducer.transactions,
-		userId: state.authReducer.userId
+		userId: state.authReducer.userId,
+		lastUpdated: state.transactionReducer.lastUpdated
 	}
 }
 
