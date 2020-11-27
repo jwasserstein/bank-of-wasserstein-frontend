@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Table, Placeholder} from 'semantic-ui-react';
 import dayjs from 'dayjs';
 import {Link} from 'react-router-dom';
