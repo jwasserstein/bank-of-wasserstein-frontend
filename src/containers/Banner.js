@@ -7,6 +7,8 @@ import {Menu, Button} from 'semantic-ui-react';
 const Banner = props => (
 	<Menu color='teal'>
 		<Menu.Item as={Link} to='/' header>Bank of Wasserstein</Menu.Item>
+		{props.username && [<Menu.Item as={Link} to='/transactions/new' key='newTransaction'>New Transaction</Menu.Item>]}
+		
 		<Menu.Menu position='right'>
 				{props.username ? 
 					[<Menu.Item as={Link} to='/' key='username'>{props.username}</Menu.Item>,
