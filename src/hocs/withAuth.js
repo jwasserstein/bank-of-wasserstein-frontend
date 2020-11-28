@@ -4,13 +4,13 @@ import {connect} from 'react-redux';
 function withAuth(ComponentToRender){
 	class Authenticate extends Component {
 		componentDidMount(){
-			if(!this.props.authReducer.userId){
+			if(!this.props.userId){
 				this.props.history.push('/login');
 			}
 		}
 		
 		componentDidUpdate(){
-			if(!this.props.authReducer.userId){
+			if(!this.props.userId){
 				this.props.history.push('/login');
 			}
 		}
@@ -21,7 +21,9 @@ function withAuth(ComponentToRender){
 	}
 	
 	function mapStateToProps(state){
-		return {...state};
+		return {
+			userId: state.authReducer.userId
+		};
 	}
 	
 	return connect(mapStateToProps)(Authenticate);
