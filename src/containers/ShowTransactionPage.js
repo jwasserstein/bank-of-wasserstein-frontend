@@ -13,7 +13,7 @@ class ShowTransactionPage extends Component {
 	}
 	
 	render() {
-		const transaction = this.props.transactions.filter(t => t.transactionNumber == this.props.match.params.transactionId)[0];
+		const transaction = this.props.transactions.find(t => t.transactionNumber === +this.props.match.params.transactionId);
 		
 		if(transaction){
 			return (
