@@ -16,7 +16,11 @@ function withAuth(ComponentToRender){
 		}
 		
 		render(){
-			return <ComponentToRender />;
+			if(!this.props.userId){
+				return <div>Loading...</div>;
+			} else {
+				return <ComponentToRender />;
+			}
 		}
 	}
 	
