@@ -24,7 +24,7 @@ class SignUp extends Component {
 		e.preventDefault();
 		this.setState({...this.state, loading: true});
 		if(this.state.password !== this.state.repeatPassword){
-			return console.log("Passwords don't match");
+			return this.setState({...this.state, loading: false, error: "Your passwords don't match"});
 		}
 		this.props.signUp(this.state.username, this.state.email, this.state.password)
 			.then(() => {
@@ -32,8 +32,7 @@ class SignUp extends Component {
 				this.props.history.push('/');
 			})
 			.catch(err => {
-				this.setState({...this.state, loading: false, error: err});
-				console.log(err)
+				this.setState({...this.state, loading: false, error: err.message});
 			});
 	}
 	
