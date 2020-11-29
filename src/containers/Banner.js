@@ -5,7 +5,7 @@ import {logOut} from '../store/actions/auth';
 import {Menu, Button} from 'semantic-ui-react';
 
 const Banner = props => (
-	<Menu color='teal'>
+	<Menu>
 		<Menu.Item as={Link} to='/' header>Bank of Wasserstein</Menu.Item>
 		<Menu.Menu position='right'>
 				{props.username ? 
