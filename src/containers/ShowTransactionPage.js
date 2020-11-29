@@ -21,7 +21,7 @@ class ShowTransactionPage extends Component {
 					<Segment compact style={{margin: '0 auto'}}>
 						<h3 style={{textAlign: 'center'}}>Transaction Details</h3>
 						<Statistic size='mini'>
-							<Statistic.Value>{dayjs(transaction.date).format('MM/DD/YYYY h:mA')}</Statistic.Value>
+							<Statistic.Value>{dayjs(transaction.date).format('MM/DD/YYYY h:mmA')}</Statistic.Value>
 							<Statistic.Label>Date</Statistic.Label>
 						</Statistic>
 						<Statistic size='mini'>
