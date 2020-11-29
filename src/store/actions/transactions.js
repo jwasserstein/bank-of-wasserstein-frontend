@@ -21,3 +21,49 @@ export function getTransactions(userId, token){
 		});
 	};
 }
+
+export function generateTransactions(num, userId, token){
+	return dispatch => {
+		return new Promise(async (resolve, reject) => {
+			try {
+				const resp = await apiCall('post', `https://testcontainer-sadjv2.run-us-west2.goorm.io/api/transactions/${userId}/generate/${num}`, {}, token);
+				
+				if(resp.err) {
+					return reject(resp.err);
+				}
+				
+				const transactions = resp.sort((a, b) => b.transactionNumber - a.transactionNumber);
+				dispatch({
+					type: GET_TRANSACTIONS,
+					transactions
+				});
+				return resolve();
+			} catch(err) {
+				return reject(err.message);
+			}
+		});
+	}
+}
+
+export function createTransaction(transaction, userId, token){
+	return dispatch => {
+		return new Promise(async (resolve, reject) => {
+			try {
+				const resp = await apiCall('post', `https://testcontainer-sadjv2.run-us-west2.goorm.io/api/transactions/${userId}`, transaction, token);
+				
+				if(resp.err){
+					return reject(resp.err);
+				}
+				
+				const transactions = resp.sort((a, b) => b.transactionNumber - a.transactionNumber);
+				dispatch({
+					type: GET_TRANSACTIONS,
+					transactions
+				});
+				return resolve();
+			} catch(err){
+				return reject(err);
+			}
+		});
+	}
+}

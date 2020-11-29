@@ -1,17 +1,19 @@
-import {Route} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import LoginPage from './LoginPage';
 import TransactionPage from './TransactionPage';
 import withAuth from '../hocs/withAuth';
 import ShowTransactionPage from './ShowTransactionPage';
 import SignUpPage from './SignUpPage';
+import NewTransactionPage from './NewTransactionPage';
 
 const Main = () => (
-	<div>
-		<Route exact path='/' component={withAuth(TransactionPage)} />
-		<Route exact path='/login' component={LoginPage} />
-		<Route exact path='/transactions/:transactionId' component={ShowTransactionPage} />
-		<Route exact path='/signup' component={SignUpPage} />
-	</div>
+	<Switch>
+		<Route path='/transactions/new' component={NewTransactionPage} />
+		<Route path='/transactions/:transactionId' component={ShowTransactionPage} />
+		<Route path='/signup' component={SignUpPage} />
+		<Route path='/login' component={LoginPage} />
+		<Route path='/' component={withAuth(TransactionPage)} />
+	</Switch>
 );
 
 export default Main;
