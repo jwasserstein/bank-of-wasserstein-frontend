@@ -8,7 +8,7 @@ const Transaction = props => {
 	if(props.lastUpdated){
 		transactionRows = props.transactions.map(t => (
 			<Table.Row key={t.transactionNumber}>
-				<Table.Cell>{dayjs(t.date).format('MM/DD/YYYY h:mA')}</Table.Cell>
+				<Table.Cell>{dayjs(t.date).format('MM/DD/YYYY h:mmA')}</Table.Cell>
 				<Table.Cell>
 					<Link to={`/transactions/${t.transactionNumber}`}>
 						{t.description}
