@@ -2,3 +2,4 @@ export const LOG_IN = 'LOG_IN';
 export const LOG_OUT = 'LOG_OUT';
 export const GET_TRANSACTIONS = 'GET_TRANSACTIONS';
 export const REMOVE_TRANSACTIONS = 'REMOVE_TRANSACTIONS';
+export const ADD_TRANSACTIONS = 'ADD_TRANSACTIONS';
