@@ -1,4 +1,4 @@
-import {GET_TRANSACTIONS, ADD_TRANSACTIONS} from '../actionTypes';
+import {GET_TRANSACTIONS} from '../actionTypes';
 import {apiCall} from '../../services/api';
 
 export function getTransactions(userId, token){
@@ -34,7 +34,7 @@ export function generateTransactions(num, userId, token){
 				
 				const transactions = resp.sort((a, b) => b.transactionNumber - a.transactionNumber);
 				dispatch({
-					type: ADD_TRANSACTIONS,
+					type: GET_TRANSACTIONS,
 					transactions
 				});
 				return resolve();
@@ -55,9 +55,10 @@ export function createTransaction(transaction, userId, token){
 					return reject(resp.err);
 				}
 				
+				const transactions = resp.sort((a, b) => b.transactionNumber - a.transactionNumber);
 				dispatch({
-					type: ADD_TRANSACTIONS,
-					transactions: [resp]
+					type: GET_TRANSACTIONS,
+					transactions
 				});
 				return resolve();
 			} catch(err){
