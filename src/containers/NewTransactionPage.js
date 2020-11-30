@@ -9,7 +9,7 @@ class NewTransactionPage extends Component {
 		this.state = {
 			numTransactions: '',
 			amount: '',
-			recipient: '',
+			counterparty: '',
 			err: '',
 			loading: false
 		};
@@ -46,7 +46,7 @@ class NewTransactionPage extends Component {
 		e.preventDefault();
 		this.create({
 			amount: this.state.amount,
-			recipient: 'Deposit',
+			counterparty: 'Deposit',
 			description: 'Deposit'
 		});
 	}
@@ -55,7 +55,7 @@ class NewTransactionPage extends Component {
 		e.preventDefault();
 		this.create({
 			amount: -1*this.state.amount,
-			recipient: 'Withdrawal',
+			counterparty: 'Withdrawal',
 			description: 'Withdrawal'
 		});
 	}
@@ -64,8 +64,8 @@ class NewTransactionPage extends Component {
 		e.preventDefault();
 		this.create({
 			amount: this.state.amount,
-			recipient: this.state.recipient,
-			description: 'Transfer to ' + this.state.recipient
+			counterparty: this.state.counterparty,
+			description: 'Transfer to ' + this.state.counterparty
 		});
 	}
 	
@@ -107,7 +107,7 @@ class NewTransactionPage extends Component {
 										<Form.Input name='amount' value={this.state.amount} onChange={this.onChange} placeholder='Amount...' label='Amount:' />
 									</Form.Field>
 									<Form.Field>
-										<Form.Input name='recipient' value={this.state.recipient} onChange={this.onChange} placeholder='Recipient...' label='Recipient:' />
+										<Form.Input name='counterparty' value={this.state.counterparty} onChange={this.onChange} placeholder='Recipient...' label='Recipient:' />
 									</Form.Field>
 									<Button color='teal' type='submit' loading={this.state.loading}>Transfer</Button>
 								</Form>
