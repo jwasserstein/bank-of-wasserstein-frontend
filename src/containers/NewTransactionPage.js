@@ -16,6 +16,9 @@ class NewTransactionPage extends Component {
 		};
 		this.generate = this.generate.bind(this);
 		this.create = this.create.bind(this);
+		this.deposit = this.deposit.bind(this);
+		this.withdrawal = this.withdrawal.bind(this);
+		this.transfer = this.transfer.bind(this);
 		this.onChange = this.onChange.bind(this);
 	}
 	
@@ -45,31 +48,69 @@ class NewTransactionPage extends Component {
 			.catch(err => this.setState({...this.state, loading: false, err: err.message}));
 	}
 	
+	deposit(e){
+		this.setState({...this.state, 
+					   recipient: 'Deposit',
+					   description: 'Deposit'}, () => this.create(e));
+	}
+	
+	withdrawal(e){
+		this.setState({...this.state, 
+					   recipient: 'Withdrawal', 
+					   description: 'Withdrawal',
+					   amount: -1*Math.abs(this.state.amount)}, () => this.create(e));
+	}
+	
+	transfer(e){
+		this.setState({...this.state, 
+					   description: 'Transfer to ' + this.state.recipient,
+					   amount: -1*Math.abs(this.state.amount)}, () => this.create(e));
+	}
+	
 	onChange(e){
 		this.setState({...this.state, [e.target.name]: e.target.value});
 	}
 	
 	render() {
-		const panes = [{menuItem: 'Deposit', render: () => {}},
-					   {menuItem: 'Withdrawl', render: () => {}},
+		const panes = [{menuItem: 'Deposit', render: () => (
+							<Tab.Pane>
+								<p>Deposit money into your account.</p>
+								<Form onSubmit={this.deposit}>
+									<Form.Field>
+										<Form.Input name='amount' value={this.state.amount} onChange={this.onChange} placeholder='Amount...' label='Amount:' />
+									</Form.Field>
+									<Button color='teal' type='submit' loading={this.state.loading}>Deposit</Button>
+								</Form>
+							</Tab.Pane>
+						)},
+					   {menuItem: 'Withdrawal', render: () => (
+							<Tab.Pane>
+							   	<p>Withdraw money into your account.</p>
+								<Form onSubmit={this.withdrawal}>
+									<Form.Field>
+										<Form.Input name='amount' value={this.state.amount} onChange={this.onChange} placeholder='Amount...' label='Amount:' />
+									</Form.Field>
+									<Button color='teal' type='submit' loading={this.state.loading}>Withdrawal</Button>
+								</Form>
+							</Tab.Pane>
+					   )},
 					   {menuItem: 'Transfer', render: () => (
 							<Tab.Pane>
-								<Form onSubmit={this.create}>
+							 	<p>Transfer money to another user.</p>
+								<Form onSubmit={this.transfer}>
 									<Form.Field>
 										<Form.Input name='amount' value={this.state.amount} onChange={this.onChange} placeholder='Amount...' label='Amount:' />
 									</Form.Field>
 									<Form.Field>
 										<Form.Input name='recipient' value={this.state.recipient} onChange={this.onChange} placeholder='Recipient...' label='Recipient:' />
 									</Form.Field>
-									<Form.Field>
-										<Form.Input name='description' value={this.state.description} onChange={this.onChange} placeholder='Description...' label='Description:' />
-									</Form.Field>
-									<Button color='teal' type='submit' loading={this.state.loading}>Create</Button>
+									<Button color='teal' type='submit' loading={this.state.loading}>Transfer</Button>
 								</Form>
 							</Tab.Pane>
 						)},
 						{menuItem: 'Automatically Generate Transactions', render: () => (
 							<Tab.Pane>
+								<p>Automatically generate transactions with fake data.</p>
 								<Form onSubmit={this.generate}>
 									<Form.Field>
 										<Form.Input name='numTransactions' value={this.state.numTransactions} onChange={this.onChange} placeholder='Number of transactions to generate...' label='Number of Transactions:' />
