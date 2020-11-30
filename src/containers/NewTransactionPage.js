@@ -10,7 +10,6 @@ class NewTransactionPage extends Component {
 			numTransactions: '',
 			amount: '',
 			recipient: '',
-			description: '',
 			err: '',
 			loading: false
 		};
@@ -33,14 +32,9 @@ class NewTransactionPage extends Component {
 			.catch(err => this.setState({...this.state, loading: false, err: err.message}));
 	}
 	
-	create(e){
-		e.preventDefault();
+	create(transaction){
 		this.setState({...this.state, loading: true});
-		this.props.createTransaction({
-			amount: this.state.amount,
-			recipient: this.state.recipient,
-			description: this.state.description
-		}, this.props.userId, localStorage.getItem('token'))
+		this.props.createTransaction(transaction, this.props.userId, localStorage.getItem('token'))
 			.then(() => {
 				this.setState({...this.state, loading: false, err: ''});
 				this.props.history.push('/');
@@ -49,22 +43,30 @@ class NewTransactionPage extends Component {
 	}
 	
 	deposit(e){
-		this.setState({...this.state, 
-					   recipient: 'Deposit',
-					   description: 'Deposit'}, () => this.create(e));
+		e.preventDefault();
+		this.create({
+			amount: this.state.amount,
+			recipient: 'Deposit',
+			description: 'Deposit'
+		});
 	}
 	
 	withdrawal(e){
-		this.setState({...this.state, 
-					   recipient: 'Withdrawal', 
-					   description: 'Withdrawal',
-					   amount: -1*Math.abs(this.state.amount)}, () => this.create(e));
+		e.preventDefault();
+		this.create({
+			amount: -1*this.state.amount,
+			recipient: 'Withdrawal',
+			description: 'Withdrawal'
+		});
 	}
 	
 	transfer(e){
-		this.setState({...this.state, 
-					   description: 'Transfer to ' + this.state.recipient,
-					   amount: -1*Math.abs(this.state.amount)}, () => this.create(e));
+		e.preventDefault();
+		this.create({
+			amount: this.state.amount,
+			recipient: this.state.recipient,
+			description: 'Transfer to ' + this.state.recipient
+		});
 	}
 	
 	onChange(e){
@@ -86,8 +88,8 @@ class NewTransactionPage extends Component {
 						)},
 					   {menuItem: 'Withdrawal', render: () => (
 							<Tab.Pane>
-							   	<p>Withdraw money into your account.</p>
 							    {this.state.err && (<Message negative>{this.state.err}</Message>)}
+							   	<p>Withdraw money from your account.</p>
 								<Form onSubmit={this.withdrawal}>
 									<Form.Field>
 										<Form.Input name='amount' value={this.state.amount} onChange={this.onChange} placeholder='Amount...' label='Amount:' />
