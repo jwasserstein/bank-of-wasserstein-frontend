@@ -6,8 +6,8 @@ export function getTransactions(userId, token){
 		return new Promise(async (resolve, reject) => {
 			try {
 				const resp = await apiCall('get', `https://testcontainer-sadjv2.run-us-west2.goorm.io/api/transactions/${userId}`, {}, token);
-				if(resp.err){ //refactor this to use status code
-					return reject(resp.err);
+				if(resp.error){
+					return reject(new Error(resp.error));
 				}
 				const transactions = resp.sort((a, b) => b.transactionNumber - a.transactionNumber);
 				dispatch({
@@ -16,7 +16,7 @@ export function getTransactions(userId, token){
 				});
 				return resolve();
 			} catch(err) {
-				return reject(err.message);
+				return reject(err);
 			}
 		});
 	};
@@ -28,8 +28,8 @@ export function generateTransactions(num, userId, token){
 			try {
 				const resp = await apiCall('post', `https://testcontainer-sadjv2.run-us-west2.goorm.io/api/transactions/${userId}/generate/${num}`, {}, token);
 				
-				if(resp.err) {
-					return reject(resp.err);
+				if(resp.error) {
+					return reject(new Error(resp.error));
 				}
 				
 				const transactions = resp.sort((a, b) => b.transactionNumber - a.transactionNumber);
@@ -39,7 +39,7 @@ export function generateTransactions(num, userId, token){
 				});
 				return resolve();
 			} catch(err) {
-				return reject(err.message);
+				return reject(err);
 			}
 		});
 	}
@@ -51,8 +51,8 @@ export function createTransaction(transaction, userId, token){
 			try {
 				const resp = await apiCall('post', `https://testcontainer-sadjv2.run-us-west2.goorm.io/api/transactions/${userId}`, transaction, token);
 				
-				if(resp.err){
-					return reject(resp.err);
+				if(resp.error){
+					return reject(new Error(resp.error));
 				}
 				
 				const transactions = resp.sort((a, b) => b.transactionNumber - a.transactionNumber);
