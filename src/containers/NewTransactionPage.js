@@ -9,8 +9,7 @@ class NewTransactionPage extends Component {
 		this.state = {
 			numTransactions: '',
 			amount: '',
-			accountNumber: '',
-			routingNumber: '',
+			recipient: '',
 			description: '',
 			err: '',
 			loading: false
@@ -36,8 +35,7 @@ class NewTransactionPage extends Component {
 		this.setState({...this.state, loading: true});
 		this.props.createTransaction({
 			amount: this.state.amount,
-			receivingAccount: this.state.accountNumber,
-			receivingRouting: this.state.routingNumber,
+			recipient: this.state.recipient,
 			description: this.state.description
 		}, this.props.userId, localStorage.getItem('token'))
 			.then(() => {
@@ -52,17 +50,16 @@ class NewTransactionPage extends Component {
 	}
 	
 	render() {
-		const panes = [{menuItem: 'Create Manual Transaction', render: () => (
+		const panes = [{menuItem: 'Deposit', render: () => {}},
+					   {menuItem: 'Withdrawl', render: () => {}},
+					   {menuItem: 'Transfer', render: () => (
 							<Tab.Pane>
 								<Form onSubmit={this.create}>
 									<Form.Field>
 										<Form.Input name='amount' value={this.state.amount} onChange={this.onChange} placeholder='Amount...' label='Amount:' />
 									</Form.Field>
 									<Form.Field>
-										<Form.Input name='accountNumber' value={this.state.accountNumber} onChange={this.onChange} placeholder='Recipient Account Number...' label='Recipient Account Number:' />
-									</Form.Field>
-									<Form.Field>
-										<Form.Input name='routingNumber' value={this.state.routingNumber} onChange={this.onChange} placeholder='Recipient Routing Number...' label='Recipient Routing Number:' />
+										<Form.Input name='recipient' value={this.state.recipient} onChange={this.onChange} placeholder='Recipient...' label='Recipient:' />
 									</Form.Field>
 									<Form.Field>
 										<Form.Input name='description' value={this.state.description} onChange={this.onChange} placeholder='Description...' label='Description:' />
