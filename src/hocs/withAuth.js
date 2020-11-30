@@ -19,7 +19,7 @@ function withAuth(ComponentToRender){
 			if(!this.props.userId){
 				return <div>Loading...</div>;
 			} else {
-				return <ComponentToRender />;
+				return <ComponentToRender {...this.props} />;
 			}
 		}
 	}
