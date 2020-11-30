@@ -8,8 +8,8 @@ import NewTransactionPage from './NewTransactionPage';
 
 const Main = () => (
 	<Switch>
-		<Route path='/transactions/new' component={NewTransactionPage} />
-		<Route path='/transactions/:transactionId' component={ShowTransactionPage} />
+		<Route path='/transactions/new' component={withAuth(NewTransactionPage)} />
+		<Route path='/transactions/:transactionId' component={withAuth(ShowTransactionPage)} />
 		<Route path='/signup' component={SignUpPage} />
 		<Route path='/login' component={LoginPage} />
 		<Route path='/' component={withAuth(TransactionPage)} />
