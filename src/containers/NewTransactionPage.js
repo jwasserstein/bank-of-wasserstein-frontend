@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {generateTransactions, createTransaction} from '../store/actions/transactions';
-import {Button, Tab, Form} from 'semantic-ui-react';
+import {Button, Tab, Form, Message} from 'semantic-ui-react';
 
 class NewTransactionPage extends Component {
 	constructor(props){
@@ -74,6 +74,7 @@ class NewTransactionPage extends Component {
 	render() {
 		const panes = [{menuItem: 'Deposit', render: () => (
 							<Tab.Pane>
+								{this.state.err && (<Message negative>{this.state.err}</Message>)}
 								<p>Deposit money into your account.</p>
 								<Form onSubmit={this.deposit}>
 									<Form.Field>
@@ -86,6 +87,7 @@ class NewTransactionPage extends Component {
 					   {menuItem: 'Withdrawal', render: () => (
 							<Tab.Pane>
 							   	<p>Withdraw money into your account.</p>
+							    {this.state.err && (<Message negative>{this.state.err}</Message>)}
 								<Form onSubmit={this.withdrawal}>
 									<Form.Field>
 										<Form.Input name='amount' value={this.state.amount} onChange={this.onChange} placeholder='Amount...' label='Amount:' />
@@ -96,6 +98,7 @@ class NewTransactionPage extends Component {
 					   )},
 					   {menuItem: 'Transfer', render: () => (
 							<Tab.Pane>
+							    {this.state.err && (<Message negative>{this.state.err}</Message>)}
 							 	<p>Transfer money to another user.</p>
 								<Form onSubmit={this.transfer}>
 									<Form.Field>
@@ -110,6 +113,7 @@ class NewTransactionPage extends Component {
 						)},
 						{menuItem: 'Automatically Generate Transactions', render: () => (
 							<Tab.Pane>
+								{this.state.err && (<Message negative>{this.state.err}</Message>)}
 								<p>Automatically generate transactions with fake data.</p>
 								<Form onSubmit={this.generate}>
 									<Form.Field>
