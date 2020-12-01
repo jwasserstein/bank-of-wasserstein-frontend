@@ -28,7 +28,6 @@ class LoginPage extends Component {
 			})
 			.catch(err => {
 				this.setState({...this.state, loading: false, error: err});
-				console.log('Error logging in: ', err);
 			});
 	}
 	
