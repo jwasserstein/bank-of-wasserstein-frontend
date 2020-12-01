@@ -63,7 +63,7 @@ class NewTransactionPage extends Component {
 	transfer(e){
 		e.preventDefault();
 		this.create({
-			amount: this.state.amount,
+			amount: -1*this.state.amount,
 			counterparty: this.state.counterparty,
 			description: 'Transfer to ' + this.state.counterparty
 		});
