@@ -81,7 +81,7 @@ class NewTransactionPage extends Component {
 							<Tab.Pane>
 								{this.state.err && (<Message negative>{this.state.err}</Message>)}
 								<p>Deposit money into your account.</p>
-								<Form onSubmit={this.deposit}>
+								<Form onSubmit={this.deposit} autocomplete='off'>
 									<Form.Field>
 										<Form.Input type='number' name='amount' value={this.state.amount} onChange={this.onChange} placeholder='Amount...' label='Amount:' min='0.01' step='0.01' required />
 									</Form.Field>
@@ -93,7 +93,7 @@ class NewTransactionPage extends Component {
 							<Tab.Pane>
 							    {this.state.err && (<Message negative>{this.state.err}</Message>)}
 							   	<p>Withdraw money from your account.</p>
-								<Form onSubmit={this.withdrawal}>
+								<Form onSubmit={this.withdrawal} autocomplete='off'>
 									<Form.Field>
 										<Form.Input type='number' name='amount' value={this.state.amount} onChange={this.onChange} placeholder='Amount...' label='Amount:' min='0.01' step='0.01' required />
 									</Form.Field>
@@ -105,7 +105,7 @@ class NewTransactionPage extends Component {
 							<Tab.Pane>
 							    {this.state.err && (<Message negative>{this.state.err}</Message>)}
 							 	<p>Transfer money to another user.</p>
-								<Form onSubmit={this.transfer}>
+								<Form onSubmit={this.transfer} autocomplete='off'>
 									<Form.Field>
 										<Form.Input type='number' name='amount' value={this.state.amount} onChange={this.onChange} placeholder='Amount...' label='Amount:' min='0.01' step='0.01' required />
 									</Form.Field>
@@ -120,7 +120,7 @@ class NewTransactionPage extends Component {
 							<Tab.Pane>
 								{this.state.err && (<Message negative>{this.state.err}</Message>)}
 								<p>Automatically generate transactions with fake data.</p>
-								<Form onSubmit={this.generate}>
+								<Form onSubmit={this.generate} autocomplete='off'>
 									<Form.Field>
 										<Form.Input type='number' name='numTransactions' value={this.state.numTransactions} onChange={this.onChange} placeholder='Number of transactions to generate...' label='Number of Transactions:' min='1' step='1' required />
 									</Form.Field>

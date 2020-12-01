@@ -54,7 +54,7 @@ class SignUp extends Component {
 									{this.state.error}
 								</Message>
 							)}
-							<Form onSubmit={this.onSubmit}>
+							<Form onSubmit={this.onSubmit} autocomplete='off'>
 								<Form.Field>
 									<label>Username:</label>
 									<input type='text' placeholder='username' name='username' value={this.state.username} onChange={this.onChange} required />
