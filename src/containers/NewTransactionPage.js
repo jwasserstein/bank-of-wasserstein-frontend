@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {generateTransactions, createTransaction} from '../store/actions/transactions';
-import {Button, Tab, Form} from 'semantic-ui-react';
+import {Button, Tab, Form, Message} from 'semantic-ui-react';
 
 class NewTransactionPage extends Component {
 	constructor(props){
@@ -9,14 +9,15 @@ class NewTransactionPage extends Component {
 		this.state = {
 			numTransactions: '',
 			amount: '',
-			accountNumber: '',
-			routingNumber: '',
-			description: '',
+			counterparty: '',
 			err: '',
 			loading: false
 		};
 		this.generate = this.generate.bind(this);
 		this.create = this.create.bind(this);
+		this.deposit = this.deposit.bind(this);
+		this.withdrawal = this.withdrawal.bind(this);
+		this.transfer = this.transfer.bind(this);
 		this.onChange = this.onChange.bind(this);
 	}
 	
@@ -31,15 +32,9 @@ class NewTransactionPage extends Component {
 			.catch(err => this.setState({...this.state, loading: false, err: err.message}));
 	}
 	
-	create(e){
-		e.preventDefault();
+	create(transaction){
 		this.setState({...this.state, loading: true});
-		this.props.createTransaction({
-			amount: this.state.amount,
-			receivingAccount: this.state.accountNumber,
-			receivingRouting: this.state.routingNumber,
-			description: this.state.description
-		}, this.props.userId, localStorage.getItem('token'))
+		this.props.createTransaction(transaction, this.props.userId, localStorage.getItem('token'))
 			.then(() => {
 				this.setState({...this.state, loading: false, err: ''});
 				this.props.history.push('/');
@@ -47,35 +42,87 @@ class NewTransactionPage extends Component {
 			.catch(err => this.setState({...this.state, loading: false, err: err.message}));
 	}
 	
+	deposit(e){
+		e.preventDefault();
+		this.create({
+			amount: this.state.amount,
+			counterparty: 'Deposit',
+			type: 'Deposit',
+			description: 'Deposit'
+		});
+	}
+	
+	withdrawal(e){
+		e.preventDefault();
+		this.create({
+			amount: -1*this.state.amount,
+			counterparty: 'Withdrawal',
+			type: 'Withdrawal',
+			description: 'Withdrawal'
+		});
+	}
+	
+	transfer(e){
+		e.preventDefault();
+		this.create({
+			amount: -1*this.state.amount,
+			counterparty: this.state.counterparty,
+			type: 'Transfer',
+			description: 'Transfer to ' + this.state.counterparty
+		});
+	}
+	
 	onChange(e){
 		this.setState({...this.state, [e.target.name]: e.target.value});
 	}
 	
 	render() {
-		const panes = [{menuItem: 'Create Manual Transaction', render: () => (
+		const panes = [{menuItem: 'Deposit', render: () => (
 							<Tab.Pane>
-								<Form onSubmit={this.create}>
+								{this.state.err && (<Message negative>{this.state.err}</Message>)}
+								<p>Deposit money into your account.</p>
+								<Form onSubmit={this.deposit}>
 									<Form.Field>
-										<Form.Input name='amount' value={this.state.amount} onChange={this.onChange} placeholder='Amount...' label='Amount:' />
+										<Form.Input type='number' name='amount' value={this.state.amount} onChange={this.onChange} placeholder='Amount...' label='Amount:' min='0.01' step='0.01' required />
+									</Form.Field>
+									<Button color='teal' type='submit' loading={this.state.loading}>Deposit</Button>
+								</Form>
+							</Tab.Pane>
+						)},
+					   {menuItem: 'Withdrawal', render: () => (
+							<Tab.Pane>
+							    {this.state.err && (<Message negative>{this.state.err}</Message>)}
+							   	<p>Withdraw money from your account.</p>
+								<Form onSubmit={this.withdrawal}>
+									<Form.Field>
+										<Form.Input type='number' name='amount' value={this.state.amount} onChange={this.onChange} placeholder='Amount...' label='Amount:' min='0.01' step='0.01' required />
+									</Form.Field>
+									<Button color='teal' type='submit' loading={this.state.loading}>Withdrawal</Button>
+								</Form>
+							</Tab.Pane>
+					   )},
+					   {menuItem: 'Transfer', render: () => (
+							<Tab.Pane>
+							    {this.state.err && (<Message negative>{this.state.err}</Message>)}
+							 	<p>Transfer money to another user.</p>
+								<Form onSubmit={this.transfer}>
+									<Form.Field>
+										<Form.Input type='number' name='amount' value={this.state.amount} onChange={this.onChange} placeholder='Amount...' label='Amount:' min='0.01' step='0.01' required />
 									</Form.Field>
 									<Form.Field>
-										<Form.Input name='accountNumber' value={this.state.accountNumber} onChange={this.onChange} placeholder='Recipient Account Number...' label='Recipient Account Number:' />
+										<Form.Input name='counterparty' value={this.state.counterparty} onChange={this.onChange} placeholder='Recipient...' label='Recipient:' required />
 									</Form.Field>
-									<Form.Field>
-										<Form.Input name='routingNumber' value={this.state.routingNumber} onChange={this.onChange} placeholder='Recipient Routing Number...' label='Recipient Routing Number:' />
-									</Form.Field>
-									<Form.Field>
-										<Form.Input name='description' value={this.state.description} onChange={this.onChange} placeholder='Description...' label='Description:' />
-									</Form.Field>
-									<Button color='teal' type='submit' loading={this.state.loading}>Create</Button>
+									<Button color='teal' type='submit' loading={this.state.loading}>Transfer</Button>
 								</Form>
 							</Tab.Pane>
 						)},
 						{menuItem: 'Automatically Generate Transactions', render: () => (
 							<Tab.Pane>
+								{this.state.err && (<Message negative>{this.state.err}</Message>)}
+								<p>Automatically generate transactions with fake data.</p>
 								<Form onSubmit={this.generate}>
 									<Form.Field>
-										<Form.Input name='numTransactions' value={this.state.numTransactions} onChange={this.onChange} placeholder='Number of transactions to generate...' label='Number of Transactions:' />
+										<Form.Input type='number' name='numTransactions' value={this.state.numTransactions} onChange={this.onChange} placeholder='Number of transactions to generate...' label='Number of Transactions:' min='1' step='1' required />
 									</Form.Field>
 									<Button color='teal' type='submit' loading={this.state.loading}>Generate</Button>
 								</Form>

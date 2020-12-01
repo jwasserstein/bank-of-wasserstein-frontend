@@ -36,9 +36,8 @@ class ShowTransactionPage extends Component {
 						<h3 style={{textAlign: 'center'}}>Description</h3>
 						<div>{transaction.description}</div>
 
-						<h3 style={{textAlign: 'center'}}>Receiving Account</h3>
-						<div><strong>Account Number</strong>: {transaction.receivingAccount}</div>
-						<div><strong>Routing Number</strong>: {transaction.receivingRouting}</div>
+						<h3 style={{textAlign: 'center'}}>Counterparty</h3>
+						<div><strong>Counterparty</strong>: {transaction.counterparty}</div>
 					</Segment>
 					<Link to='/' className='ui teal button' style={{marginTop: '10px'}}>Back</Link>					
 				</div>
