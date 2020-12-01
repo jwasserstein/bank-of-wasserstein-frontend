@@ -83,7 +83,7 @@ class NewTransactionPage extends Component {
 								<p>Deposit money into your account.</p>
 								<Form onSubmit={this.deposit}>
 									<Form.Field>
-										<Form.Input name='amount' value={this.state.amount} onChange={this.onChange} placeholder='Amount...' label='Amount:' />
+										<Form.Input type='number' name='amount' value={this.state.amount} onChange={this.onChange} placeholder='Amount...' label='Amount:' min='0.01' step='0.01' required />
 									</Form.Field>
 									<Button color='teal' type='submit' loading={this.state.loading}>Deposit</Button>
 								</Form>
@@ -95,7 +95,7 @@ class NewTransactionPage extends Component {
 							   	<p>Withdraw money from your account.</p>
 								<Form onSubmit={this.withdrawal}>
 									<Form.Field>
-										<Form.Input name='amount' value={this.state.amount} onChange={this.onChange} placeholder='Amount...' label='Amount:' />
+										<Form.Input type='number' name='amount' value={this.state.amount} onChange={this.onChange} placeholder='Amount...' label='Amount:' min='0.01' step='0.01' required />
 									</Form.Field>
 									<Button color='teal' type='submit' loading={this.state.loading}>Withdrawal</Button>
 								</Form>
@@ -107,10 +107,10 @@ class NewTransactionPage extends Component {
 							 	<p>Transfer money to another user.</p>
 								<Form onSubmit={this.transfer}>
 									<Form.Field>
-										<Form.Input name='amount' value={this.state.amount} onChange={this.onChange} placeholder='Amount...' label='Amount:' />
+										<Form.Input type='number' name='amount' value={this.state.amount} onChange={this.onChange} placeholder='Amount...' label='Amount:' min='0.01' step='0.01' required />
 									</Form.Field>
 									<Form.Field>
-										<Form.Input name='counterparty' value={this.state.counterparty} onChange={this.onChange} placeholder='Recipient...' label='Recipient:' />
+										<Form.Input name='counterparty' value={this.state.counterparty} onChange={this.onChange} placeholder='Recipient...' label='Recipient:' required />
 									</Form.Field>
 									<Button color='teal' type='submit' loading={this.state.loading}>Transfer</Button>
 								</Form>
@@ -122,7 +122,7 @@ class NewTransactionPage extends Component {
 								<p>Automatically generate transactions with fake data.</p>
 								<Form onSubmit={this.generate}>
 									<Form.Field>
-										<Form.Input name='numTransactions' value={this.state.numTransactions} onChange={this.onChange} placeholder='Number of transactions to generate...' label='Number of Transactions:' />
+										<Form.Input type='number' name='numTransactions' value={this.state.numTransactions} onChange={this.onChange} placeholder='Number of transactions to generate...' label='Number of Transactions:' min='1' step='1' required />
 									</Form.Field>
 									<Button color='teal' type='submit' loading={this.state.loading}>Generate</Button>
 								</Form>
