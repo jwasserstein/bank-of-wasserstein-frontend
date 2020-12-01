@@ -47,6 +47,7 @@ class NewTransactionPage extends Component {
 		this.create({
 			amount: this.state.amount,
 			counterparty: 'Deposit',
+			type: 'Deposit',
 			description: 'Deposit'
 		});
 	}
@@ -56,6 +57,7 @@ class NewTransactionPage extends Component {
 		this.create({
 			amount: -1*this.state.amount,
 			counterparty: 'Withdrawal',
+			type: 'Withdrawal',
 			description: 'Withdrawal'
 		});
 	}
@@ -65,6 +67,7 @@ class NewTransactionPage extends Component {
 		this.create({
 			amount: -1*this.state.amount,
 			counterparty: this.state.counterparty,
+			type: 'Transfer',
 			description: 'Transfer to ' + this.state.counterparty
 		});
 	}
