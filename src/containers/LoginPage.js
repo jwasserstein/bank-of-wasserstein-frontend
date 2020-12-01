@@ -49,7 +49,7 @@ class LoginPage extends Component {
 									{this.state.error}
 								</Message>
 							)}
-							<Form onSubmit={this.onSubmit} autocomplete='off'>
+							<Form onSubmit={this.onSubmit} autoComplete='off'>
 								<Form.Field>
 									<label>Username:</label>
 									<Input type='text' placeholder='username' name='username' value={this.state.username} onChange={this.onChange} required/>
