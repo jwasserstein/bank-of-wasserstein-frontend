@@ -5,7 +5,7 @@ export function getTransactions(userId, token){
 	return dispatch => {
 		return new Promise(async (resolve, reject) => {
 			try {
-				const resp = await apiCall('get', `https://testcontainer-sadjv2.run-us-west2.goorm.io/api/transactions/${userId}`, {}, token);
+				const resp = await apiCall('get', `http://localhost:3001/api/transactions/${userId}`, {}, token);
 				if(resp.error){
 					return reject(new Error(resp.error));
 				}
@@ -26,7 +26,7 @@ export function generateTransactions(num, userId, token){
 	return dispatch => {
 		return new Promise(async (resolve, reject) => {
 			try {
-				const resp = await apiCall('post', `https://testcontainer-sadjv2.run-us-west2.goorm.io/api/transactions/${userId}/generate/${num}`, {}, token);
+				const resp = await apiCall('post', `http://localhost:3001/api/transactions/${userId}/generate/${num}`, {}, token);
 				
 				if(resp.error) {
 					return reject(new Error(resp.error));
@@ -49,7 +49,7 @@ export function createTransaction(transaction, userId, token){
 	return dispatch => {
 		return new Promise(async (resolve, reject) => {
 			try {
-				const resp = await apiCall('post', `https://testcontainer-sadjv2.run-us-west2.goorm.io/api/transactions/${userId}`, transaction, token);
+				const resp = await apiCall('post', `http://localhost:3001/api/transactions/${userId}`, transaction, token);
 				
 				if(resp.error){
 					return reject(new Error(resp.error));
