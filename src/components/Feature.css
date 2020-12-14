@@ -36,3 +36,13 @@
     font-size: 18px;
     color: #7C7C7C;
 }
+
+@media (max-width: 900px){
+    .feature {
+        flex-direction: column;
+    }
+
+    .feature:nth-of-type(2) {
+        flex-direction: column;
+    }
+}
