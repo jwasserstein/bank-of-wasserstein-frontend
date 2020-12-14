@@ -1,0 +1,14 @@
+.join {
+    margin: 0 auto 80px auto;
+    text-align: center;
+}
+
+.join h3 {
+    font-weight: 700;
+    font-size: 36px;
+    margin: 10px 0;
+}
+
+.join a {
+    text-decoration: none;
+}
