@@ -1,0 +1,1 @@
+- Refactor LandingPage.js to fix height responsiveness.  main-container has hard-coded height: 700px.
