@@ -13,3 +13,14 @@ main {
     width: 100%;
     margin: auto;
 }
+
+footer {
+    background-color: #E2F1DD;
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    box-sizing: border-box;
+}
