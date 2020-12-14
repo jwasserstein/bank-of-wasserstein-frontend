@@ -1,0 +1,43 @@
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 60px;
+}
+
+header a h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+header a {
+    text-decoration: none;
+    color: black;
+}
+
+header a:hover:not(.signup-btn){
+    text-decoration: underline;
+}
+
+.login-btn {
+    margin-right: 10px;
+}
+
+.signup-btn {
+    display: inline-block;
+    text-align: center;
+    line-height: 40px;
+    margin: auto;
+    background-color: black;
+    width: 85px;
+    height: 40px;
+    border-radius: 5px;
+    color: white;
+}
+
+.signup-btn:hover {
+    background-color: #3E3E3E;
+}
