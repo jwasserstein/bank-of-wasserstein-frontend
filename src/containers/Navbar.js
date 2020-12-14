@@ -7,18 +7,15 @@ import './Navbar.css';
 const Navbar = props => (
 	<header>
 		<Link to='/'><h1>BANK OF WASSERSTEIN</h1></Link>
-		
 		{props.username ?
 			<div>
-				<Link to='/' class='login-btn'>{props.username}</Link>
-				<Link to='/login' class='signup-btn'>Sign Out</Link>
+				<Link to='/' className='login-btn'>{props.username}</Link>
+				<Link to='/login' className='signup-btn'>Sign Out</Link>
 			</div> : 
 			<div>
-				<Link to='/login' class='login-btn'>Log In</Link>
-				<Link to='/signup' class='signup-btn'>Sign Up</Link>
+				<Link to='/login' className='login-btn'>Log In</Link>
+				<Link to='/signup' className='signup-btn'>Sign Up</Link>
 			</div>}
-			
-		
 	</header>
 );
 

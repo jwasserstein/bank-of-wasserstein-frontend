@@ -1,12 +1,11 @@
 import React from 'react';
 import {Provider} from 'react-redux';
 import {BrowserRouter as Router} from 'react-router-dom';
-import Banner from './Banner';
+import Navbar from './Navbar';
 import Main from './Main';
 import {configureStore} from '../store';
 import jwtdecode from 'jwt-decode';
 import {LOG_IN} from '../store/actionTypes';
-import './App.css';
 
 const store = configureStore();
 
@@ -25,7 +24,7 @@ const App = () => (
 	<Provider store={store}>
 		<Router>
 			<div className="App">
-				<Banner/>
+				<Navbar />
 				<Main />
 			</div>
 		</Router>
