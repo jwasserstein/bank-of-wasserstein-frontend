@@ -4,3 +4,12 @@ main {
     height: 100vh;
     min-height: 800px;
 }
+
+.secondary-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin: auto;
+}
