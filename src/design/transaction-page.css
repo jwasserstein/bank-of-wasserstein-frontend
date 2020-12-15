@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 60px;
+}
+
+header a h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+header a {
+    text-decoration: none;
+    color: black;
+}
+
+header a:hover:not(.signup-btn){
+    text-decoration: underline;
+}
+
+main {
+    background-color: #E2F1DD;
+    width: 100vw;
+    height: 100vh;
+    min-height: 800px;
+}
+
+.login-btn {
+    margin-right: 10px;
+}
+
+.signup-btn {
+    display: inline-block;
+    text-align: center;
+    line-height: 40px;
+    margin: auto;
+    background-color: black;
+    width: 85px;
+    height: 40px;
+    border-radius: 5px;
+    color: white;
+}
+
+.signup-btn:hover {
+    background-color: #3E3E3E;
+}
+
+.TransactionPage-container {
+    box-sizing: border-box;
+    max-width: 550px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    padding: 0 12px;
+}
+
+.TransactionPage-message {
+    text-align: center;
+    margin: 150px 0 30px 0;
+}
+
+.TransactionPage-transaction {
+    border-bottom: 1px solid #BFBFBF;
+    padding: 12px 0;
+}
+
+.TransactionPage-transaction:last-of-type {
+    border: none;
+}
+
+.TransactionPage-recipient {
+    margin-bottom: 5px;
+}
+
+.TransactionPage-amount {
+    float: right;
+}
+
+.TransactionPage-date {
+    font-size: 14px;
+    color: #575757;
+}
+
+.TransactionPage-balance {
+    float: right;
+}
+
+.TransactionPage-btn-container {
+    display: flex;
+    justify-content: flex-start;
+    max-width: 550px;
+    margin: 10px auto;
+}
+
+.TransactionPage-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000000;
+    border: none;
+    border-radius: 7px;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.TransactionPage-btn:hover {
+    background-color: #3E3E3E;
+    cursor: pointer;
+}
