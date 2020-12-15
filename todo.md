@@ -2,3 +2,4 @@
 - Pull state out of Navbar.js, make each page stateful and pass everything down as props
 - Prepend all class names with the component they belong to
 - Add prominent display of account balance to TransactionPage
+- Set autofocus to the first textbox for all forms
