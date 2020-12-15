@@ -6,7 +6,7 @@ import './Navbar.css';
 
 const Navbar = props => (
 	<header>
-		<Link to='/'><h1>BANK OF WASSERSTEIN</h1></Link>
+		<Link to='/landing'><h1>BANK OF WASSERSTEIN</h1></Link>
 		{props.username ?
 			<div>
 				<Link to='/' className='login-btn'>{props.username}</Link>
