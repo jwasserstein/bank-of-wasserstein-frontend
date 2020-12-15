@@ -1,3 +1,4 @@
 - Refactor LandingPage.js to fix height responsiveness.  main-container has hard-coded height: 700px.
 - Pull state out of Navbar.js, make each page stateful and pass everything down as props
 - Prepend all class names with the component they belong to
+- Add prominent display of account balance to TransactionPage
