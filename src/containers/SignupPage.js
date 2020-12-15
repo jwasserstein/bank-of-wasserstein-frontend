@@ -6,7 +6,7 @@ import Navbar from './Navbar';
 import ErrorMessage from '../components/ErrorMessage';
 import './SignupPage.css';
 
-class SignUp extends Component {
+class SignupPage extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
@@ -62,4 +62,4 @@ class SignUp extends Component {
 	}
 }
 
-export default connect(null, {signUp})(SignUp);
+export default connect(null, {signUp})(SignupPage);
