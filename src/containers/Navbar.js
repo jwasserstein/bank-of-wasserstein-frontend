@@ -10,7 +10,7 @@ const Navbar = props => (
 		{props.username ?
 			<div>
 				<Link to='/' className='login-btn'>{props.username}</Link>
-				<Link to='/login' className='signup-btn'>Sign Out</Link>
+				<Link to='/login' className='signup-btn' onClick={props.logOut}>Sign Out</Link>
 			</div> : 
 			<div>
 				<Link to='/login' className='login-btn'>Log In</Link>

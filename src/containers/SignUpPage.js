@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Table, Form, Button, Message} from 'semantic-ui-react';
 import {signUp} from '../store/actions/auth';
+import SignupForm from '../components/SignupForm';
+import Navbar from './Navbar';
+import ErrorMessage from '../components/ErrorMessage';
+import './SignupPage.css';
 
 class SignUp extends Component {
 	constructor(props){
@@ -38,47 +41,23 @@ class SignUp extends Component {
 	
 	render() {
 		return (
-			<Table style={{width: '50%', margin: '0 auto'}}>
-				<Table.Header>
-					<Table.Row>
-						<Table.HeaderCell textAlign='center'>
-							<h3>Sign Up</h3>
-						</Table.HeaderCell>
-					</Table.Row>
-				</Table.Header>
-				<Table.Body>
-					<Table.Row>
-						<Table.Cell>
-							{this.state.error && (
-								<Message negative>
-									{this.state.error}
-								</Message>
-							)}
-							<Form onSubmit={this.onSubmit} autoComplete='off'>
-								<Form.Field>
-									<label>Username:</label>
-									<input type='text' placeholder='username' name='username' value={this.state.username} onChange={this.onChange} required />
-								</Form.Field>
-								<Form.Field>
-									<label>Email:</label>
-									<input type='email' placeholder='email' name='email' value={this.state.email} onChange={this.onChange} required />
-								</Form.Field>
-
-								<Form.Field>
-									<label>Password:</label>
-									<input type='password' placeholder='password' name='password' value={this.state.password} onChange={this.onChange} required />
-								</Form.Field>
-								<Form.Field>
-									<label>Repeat Password:</label>
-									<input type='password' placeholder='password' name='repeatPassword' value={this.state.repeatPassword} onChange={this.onChange} required />
-								</Form.Field>
-
-								<Button color='teal' type='submit' loading={this.state.loading}>Submit</Button>
-							</Form>
-						</Table.Cell>
-					</Table.Row>
-				</Table.Body>
-			</Table>
+			<main>
+				<Navbar />
+				<h2 className='SignupPage-message'>Make an account.</h2>
+				<SignupForm onSubmit={this.onSubmit} 
+							onChange={this.onChange}
+							username={this.state.username} 
+							password={this.state.password}
+							repeatPassword={this.state.repeatPassword}
+							email={this.state.email}
+							loading={this.state.loading}
+							/>
+				{this.state.error && (
+					<ErrorMessage>
+						{this.state.error}
+					</ErrorMessage>
+				)}
+			</main>
 		);
 	}
 }
