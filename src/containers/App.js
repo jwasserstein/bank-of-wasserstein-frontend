@@ -5,7 +5,6 @@ import Main from './Main';
 import {configureStore} from '../store';
 import jwtdecode from 'jwt-decode';
 import {LOG_IN} from '../store/actionTypes';
-import './App.css';
 
 const store = configureStore();
 
