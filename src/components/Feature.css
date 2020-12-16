@@ -12,7 +12,7 @@
 }
 
 .Feature .Feature-image-placeholder {
-    width: 100%;
+    width: 90%;
     max-width: 350px;
     height: 350px;
     margin: 0 50px;
@@ -21,7 +21,7 @@
 }
 
 .Feature .Feature-text {
-    width: 100%;
+    width: 90%;
     max-width: 350px;
     margin: 0 50px;
     text-align: center;
@@ -49,6 +49,6 @@
     }
 
     .Feature .Feature-text, .Feature .Feature-image-placeholder {
-        margin: 0 10px;
+        margin: 0;
     }
 }
