@@ -5,3 +5,4 @@
 - Set autofocus to the first textbox for all forms
 - Check that NewTransactionPage is centered
 - When transaction list exceeds <main> elements, the background turns white.  Make the whole body green and just make the later slides of the landing page white
+- Organize container and component folders

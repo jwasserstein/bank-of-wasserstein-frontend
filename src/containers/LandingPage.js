@@ -15,8 +15,8 @@ const LandingPage = () => {
             <Feature title='Make Deposits.' description='Deposit your spare cash with our easy-to-use system.' />
             <Feature title='Make Withdrawals.' description='Access your cash when you need it, from the convenience of your laptop.' />
             <Feature title='Make Transfers.' description='Transfer money to your friends with the click of a button.' />
+            <Join key='join' />
         </section>,
-        <Join key='join' />,
         <footer key='footer'>
             For demonstration purposes only, not a real bank.  Made by Justin Wasserstein in 2020.
         </footer>
