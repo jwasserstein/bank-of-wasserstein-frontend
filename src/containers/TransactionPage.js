@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
-import Balance from '../components/Balance';
-import Transaction from '../components/Transaction';
+// import Balance from '../components/Balance';
 import {connect} from 'react-redux';
 import {getTransactions} from '../store/actions/transactions';
+import TransactionList from '../components/TransactionList';
+import Navbar from './Navbar';
+import TransactionButtons from '../components/TransactionButtons';
+import './TransactionPage.css';
 
 class TransactionPage extends Component {
 	componentDidMount(){
@@ -14,8 +17,10 @@ class TransactionPage extends Component {
 	render(){
 		return (
 			<div>
-				<Balance transactions={this.props.transactions} lastUpdated={this.props.lastUpdated}/>
-				<Transaction transactions={this.props.transactions} userId={this.props.userId} lastUpdated={this.props.lastUpdated}/>
+				<Navbar />
+				<h2 className='TransactionPage-message'>Review your transactions.</h2>
+				<TransactionButtons accountBalance={this.props.transactions[0] ? this.props.transactions[0].accountBalance : 0} />
+				<TransactionList transactions={this.props.transactions} />
 			</div>
 		);
 	}
@@ -23,9 +28,7 @@ class TransactionPage extends Component {
 
 function mapStateToProps(state){
 	return {
-		transactions: state.transactionReducer.transactions,
-		userId: state.authReducer.userId,
-		lastUpdated: state.transactionReducer.lastUpdated
+		transactions: state.transactionReducer.transactions
 	};
 }
 

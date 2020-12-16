@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 60px;
+}
+
+header a h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+header a {
+    text-decoration: none;
+    color: black;
+}
+
+header a:hover:not(.signup-btn){
+    text-decoration: underline;
+}
+
+main {
+    background-color: #E2F1DD;
+    width: 100vw;
+    height: 100vh;
+    min-height: 800px;
+}
+
+.login-btn {
+    margin-right: 10px;
+}
+
+.signup-btn {
+    display: inline-block;
+    text-align: center;
+    line-height: 40px;
+    margin: auto;
+    background-color: black;
+    width: 85px;
+    height: 40px;
+    border-radius: 5px;
+    color: white;
+}
+
+.signup-btn:hover {
+    background-color: #3E3E3E;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+    margin: auto;
+}
+
+.coins-growing {
+    border-radius: 10px;
+    height: auto;
+    width: 500px;
+    margin-left: 100px;
+}
+
+.main-text {
+    width: 300px;
+    text-align: center;
+    margin-right: 100px;
+}
+
+.main-container h2 {
+    font-weight: 700;
+    font-size: 48px;
+    margin: 10px;
+}
+
+.main-container p {
+    font-weight: 700;
+    font-size: 18px;
+    color: #7C7C7C;
+}
+
+.secondary-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin: auto;
+}
+
+.feature {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 80px;
+}
+
+.feature:nth-of-type(2) {
+    flex-direction: row-reverse;
+}
+
+.feature .image-placeholder {
+    width: 350px;
+    height: 350px;
+    margin: 0 50px;
+    background: #C4C4C4;
+    border-radius: 10px;
+}
+
+.feature .feature-text {
+    width: 350px;
+    margin: 0 50px;
+    text-align: center;
+}
+
+.feature .feature-text h3 {
+    font-weight: 700;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.feature .feature-text p {
+    font-weight: 700;
+    font-size: 18px;
+    color: #7C7C7C;
+}
+
+.join {
+    margin: 0 auto 80px auto;
+    text-align: center;
+}
+
+.join h3 {
+    font-weight: 700;
+    font-size: 36px;
+    margin: 10px 0;
+}
+
+.join a {
+    text-decoration: none;
+}
+
+footer {
+    background-color: #E2F1DD;
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1100px){
+    .coins-growing {
+        margin-left: 25px;
+    }
+    
+    .main-text {
+        margin-right: 25px;
+    }
+}
+
+@media (max-width: 900px){
+    .main-container {
+        flex-direction: column-reverse;
+    }
+
+    .coins-growing {
+        margin: 30px 0 10px 0;
+    }
+    
+    .main-text {
+        margin: 0;
+    }
+
+    .feature {
+        flex-direction: column;
+    }
+
+    .feature:nth-of-type(2) {
+        flex-direction: column;
+    }
+}

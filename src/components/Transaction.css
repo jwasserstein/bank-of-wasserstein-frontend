@@ -1,0 +1,25 @@
+.TransactionPage-transaction {
+    border-bottom: 1px solid #BFBFBF;
+    padding: 12px 0;
+}
+
+.TransactionPage-transaction:last-of-type {
+    border: none;
+}
+
+.TransactionPage-recipient {
+    margin-bottom: 5px;
+}
+
+.TransactionPage-amount {
+    float: right;
+}
+
+.TransactionPage-date {
+    font-size: 14px;
+    color: #575757;
+}
+
+.TransactionPage-balance {
+    float: right;
+}

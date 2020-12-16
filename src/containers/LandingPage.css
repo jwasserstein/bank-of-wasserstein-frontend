@@ -1,0 +1,25 @@
+.LandingPage-main {
+    width: 100vw;
+    height: 100vh;
+    min-height: 800px;
+}
+
+.LandingPage-secondary-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin: auto;
+    background-color: white;
+}
+
+.LandingPage-footer {
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    box-sizing: border-box;
+}
