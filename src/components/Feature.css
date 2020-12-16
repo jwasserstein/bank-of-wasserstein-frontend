@@ -12,7 +12,8 @@
 }
 
 .Feature .Feature-image-placeholder {
-    width: 350px;
+    width: 100%;
+    max-width: 350px;
     height: 350px;
     margin: 0 50px;
     background: #C4C4C4;
@@ -20,7 +21,8 @@
 }
 
 .Feature .Feature-text {
-    width: 350px;
+    width: 100%;
+    max-width: 350px;
     margin: 0 50px;
     text-align: center;
 }
@@ -44,5 +46,9 @@
 
     .Feature:nth-of-type(2) {
         flex-direction: column;
+    }
+
+    .Feature .Feature-text, .Feature .Feature-image-placeholder {
+        margin: 0 10px;
     }
 }

@@ -2,3 +2,6 @@
 - Pull state out of Navbar.js, make each page stateful and pass everything down as props
 - Check that NewTransactionPage is centered
 - Organize container and component folders
+- Fix responsiveness issues on mobile
+- Add pictures to placeholders on landing page
+- Replace width with max-width for responsiveness
