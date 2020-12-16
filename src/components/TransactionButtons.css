@@ -1,11 +1,11 @@
-.TransactionPage-btn-container {
+.TransactionButtons-btn-container {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     max-width: 550px;
     margin: 10px auto;
 }
 
-.TransactionPage-btn {
+.TransactionButtons-btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +17,7 @@
     padding: 10px;
 }
 
-.TransactionPage-btn:hover {
+.TransactionButtons-btn:hover {
     background-color: #3E3E3E;
     cursor: pointer;
 }

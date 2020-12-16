@@ -17,10 +17,10 @@ class TransactionPage extends Component {
 	render(){
 		return (
 			<div>
-				<Navbar key='Navbar' />
-				<h2 className='TransactionPage-message' key='TransactionPage-message'>Review your transactions.</h2>
-				<TransactionButtons key='TransactionButtons' />
-				<TransactionList transactions={this.props.transactions} key='TransactionList' />
+				<Navbar />
+				<h2 className='TransactionPage-message'>Review your transactions.</h2>
+				<TransactionButtons accountBalance={this.props.transactions[0] ? this.props.transactions[0].accountBalance : 0} />
+				<TransactionList transactions={this.props.transactions} />
 			</div>
 		);
 	}
