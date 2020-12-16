@@ -80,7 +80,7 @@ class NewTransactionPage extends Component {
 	
 	render() {
 		return (
-			<main>
+			<div>
 				<Navbar />
 				<h2 className='NewTransactionPage-message'>Select a transaction type.</h2>
 				<TransactionType transactionType={this.state.transactionType} onChange={this.onChange} />
@@ -93,7 +93,7 @@ class NewTransactionPage extends Component {
 						{this.state.err}
 					</ErrorMessage>
 				)}
-			</main>
+			</div>
 		);
 	}
 }

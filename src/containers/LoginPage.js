@@ -36,7 +36,7 @@ class LoginPage extends Component {
 	
 	render() {
 		return (
-			<main>
+			<div>
 				<Navbar />
 				<h2 className='LoginPage-message' key='LoginPage-message'>Log in to Bank of Wasserstein.</h2>
 				<LoginForm onSubmit={this.onSubmit} 
@@ -49,7 +49,7 @@ class LoginPage extends Component {
 						{this.state.error}
 					</ErrorMessage>
 				)}
-			</main>
+			</div>
 		);
 	}
 }

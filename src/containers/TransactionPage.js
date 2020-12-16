@@ -16,12 +16,12 @@ class TransactionPage extends Component {
 	
 	render(){
 		return (
-			<main>
-				<Navbar />
-				<h2 className='TransactionPage-message'>Review your transactions.</h2>
-				<TransactionButtons />
-				<TransactionList transactions={this.props.transactions} />
-			</main>
+			<div>
+				<Navbar key='Navbar' />
+				<h2 className='TransactionPage-message' key='TransactionPage-message'>Review your transactions.</h2>
+				<TransactionButtons key='TransactionButtons' />
+				<TransactionList transactions={this.props.transactions} key='TransactionList' />
+			</div>
 		);
 	}
 }

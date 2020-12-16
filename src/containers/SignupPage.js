@@ -41,7 +41,7 @@ class SignupPage extends Component {
 	
 	render() {
 		return (
-			<main>
+			<div>
 				<Navbar />
 				<h2 className='SignupPage-message'>Make an account.</h2>
 				<SignupForm onSubmit={this.onSubmit} 
@@ -57,7 +57,7 @@ class SignupPage extends Component {
 						{this.state.error}
 					</ErrorMessage>
 				)}
-			</main>
+			</div>
 		);
 	}
 }

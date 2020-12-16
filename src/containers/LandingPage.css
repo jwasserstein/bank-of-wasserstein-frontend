@@ -1,3 +1,9 @@
+.LandingPage-main {
+    width: 100vw;
+    height: 100vh;
+    min-height: 800px;
+}
+
 .LandingPage-secondary-container {
     display: flex;
     flex-direction: column;
@@ -8,7 +14,7 @@
     background-color: white;
 }
 
-footer {
+.LandingPage-footer {
     text-align: center;
     font-size: 18px;
     display: flex;
