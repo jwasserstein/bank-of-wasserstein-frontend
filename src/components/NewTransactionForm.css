@@ -1,0 +1,42 @@
+.NewTransactionForm-form {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.NewTransactionForm-field {
+    height: 30px;
+    padding-left: 10px;
+    border: 1px solid #000000;
+    border-radius: 7px;
+    margin: 5px 0;
+}
+
+.NewTransactionForm-form-btn {
+    margin: 10px 0 0 0;
+    height: 40px;
+    background: #000000;
+    border: none;
+    border-radius: 7px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.NewTransactionForm-form-btn:hover {
+    background-color: #3E3E3E;
+    cursor: pointer;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

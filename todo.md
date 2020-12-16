@@ -3,3 +3,5 @@
 - Prepend all class names with the component they belong to
 - Add prominent display of account balance to TransactionPage
 - Set autofocus to the first textbox for all forms
+- Check that NewTransactionPage is centered
+- When transaction list exceeds <main> elements, the background turns white.  Make the whole body green and just make the later slides of the landing page white
