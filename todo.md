@@ -1,8 +1,6 @@
 - Refactor LandingPage.js to fix height responsiveness.  main-container has hard-coded height: 700px.
 - Pull state out of Navbar.js, make each page stateful and pass everything down as props
-- Prepend all class names with the component they belong to
 - Add prominent display of account balance to TransactionPage
 - Set autofocus to the first textbox for all forms
 - Check that NewTransactionPage is centered
-- When transaction list exceeds <main> elements, the background turns white.  Make the whole body green and just make the later slides of the landing page white
 - Organize container and component folders

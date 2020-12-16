@@ -1,4 +1,4 @@
-.main-container {
+.Hero-main-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -7,51 +7,51 @@
     margin: auto;
 }
 
-.coins-growing {
+.Hero-coins-growing {
     border-radius: 10px;
     height: auto;
     width: 500px;
     margin-left: 100px;
 }
 
-.main-text {
+.Hero-main-text {
     width: 300px;
     text-align: center;
     margin-right: 100px;
 }
 
-.main-container h2 {
+.Hero-main-container h2 {
     font-weight: 700;
     font-size: 48px;
     margin: 10px;
 }
 
-.main-container p {
+.Hero-main-container p {
     font-weight: 700;
     font-size: 18px;
     color: #7C7C7C;
 }
 
 @media (max-width: 1100px){
-    .coins-growing {
+    .Hero-coins-growing {
         margin-left: 25px;
     }
     
-    .main-text {
+    .Hero-main-text {
         margin-right: 25px;
     }
 }
 
 @media (max-width: 900px){
-    .main-container {
+    .Hero-main-container {
         flex-direction: column-reverse;
     }
 
-    .coins-growing {
+    .Hero-coins-growing {
         margin: 30px 0 10px 0;
     }
     
-    .main-text {
+    .Hero-main-text {
         margin: 0;
     }
 }

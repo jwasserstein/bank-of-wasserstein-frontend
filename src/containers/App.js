@@ -1,7 +1,6 @@
 import React from 'react';
 import {Provider} from 'react-redux';
 import {BrowserRouter as Router} from 'react-router-dom';
-// import Navbar from './Navbar';
 import Main from './Main';
 import {configureStore} from '../store';
 import jwtdecode from 'jwt-decode';
@@ -25,7 +24,6 @@ const App = () => (
 	<Provider store={store}>
 		<Router>
 			<div className="App">
-				{/* <Navbar /> */}
 				<Main />
 			</div>
 		</Router>

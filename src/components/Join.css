@@ -1,14 +1,26 @@
-.join {
+.Join {
     margin: 0 auto 80px auto;
     text-align: center;
 }
 
-.join h3 {
+.Join h3 {
     font-weight: 700;
     font-size: 36px;
     margin: 10px 0;
 }
 
-.join a {
+.Join a {
     text-decoration: none;
+}
+
+.Join-btn {
+    display: inline-block;
+    text-align: center;
+    line-height: 40px;
+    margin: auto;
+    background-color: black;
+    width: 85px;
+    height: 40px;
+    border-radius: 5px;
+    color: white;
 }

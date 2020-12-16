@@ -22,11 +22,11 @@ header a:hover:not(.signup-btn){
     text-decoration: underline;
 }
 
-.login-btn {
+.Navbar-login-btn {
     margin-right: 10px;
 }
 
-.signup-btn {
+.Navbar-signup-btn {
     display: inline-block;
     text-align: center;
     line-height: 40px;
@@ -38,6 +38,6 @@ header a:hover:not(.signup-btn){
     color: white;
 }
 
-.signup-btn:hover {
+.Navbar-signup-btn:hover {
     background-color: #3E3E3E;
 }

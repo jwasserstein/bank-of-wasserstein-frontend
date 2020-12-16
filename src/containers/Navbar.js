@@ -9,12 +9,12 @@ const Navbar = props => (
 		<Link to='/landing'><h1>BANK OF WASSERSTEIN</h1></Link>
 		{props.username ?
 			<div>
-				<Link to='/' className='login-btn'>{props.username}</Link>
-				<Link to='/login' className='signup-btn' onClick={props.logOut}>Sign Out</Link>
+				<Link to='/' className='Navbar-login-btn'>{props.username}</Link>
+				<Link to='/login' className='Navbar-signup-btn' onClick={props.logOut}>Sign Out</Link>
 			</div> : 
 			<div>
-				<Link to='/login' className='login-btn'>Log In</Link>
-				<Link to='/signup' className='signup-btn'>Sign Up</Link>
+				<Link to='/login' className='Navbar-login-btn'>Log In</Link>
+				<Link to='/signup' className='Navbar-signup-btn'>Sign Up</Link>
 			</div>}
 	</header>
 );
