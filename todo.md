@@ -5,5 +5,6 @@
 - Fix responsiveness issues on mobile
 - Add pictures to placeholders on landing page
 - Rename "Account Balance" to "Balance" to save space
-- Clean up Navbar css
 - Fix coins-growing image squishing
+- Change routes around so you hit landing page first
+- Change links to make it clear you're going to the transaction list page

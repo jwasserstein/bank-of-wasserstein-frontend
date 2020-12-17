@@ -4,7 +4,7 @@ import './Balance.css';
 const Balance = props => {
 	return (
 		<div className="Balance">
-            <strong>Account Balance</strong>: ${props.accountBalance.toFixed(2)}
+            <strong>Balance</strong>: ${props.accountBalance.toFixed(2)}
         </div>
 	);
 }
