@@ -27,7 +27,7 @@ class LoginPage extends Component {
 		this.props.logIn(e.target.username.value, e.target.password.value)
 			.then(() => {
 				this.setState({...this.state, loading: false, error: ''});
-				this.props.history.push('/');
+				this.props.history.push('/transactions');
 			})
 			.catch(err => {
 				this.setState({...this.state, loading: false, error: err});

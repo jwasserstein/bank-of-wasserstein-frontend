@@ -32,7 +32,7 @@ class SignupPage extends Component {
 		this.props.signUp(this.state.username, this.state.email, this.state.password)
 			.then(() => {
 				this.setState({...this.state, loading: false, error: ''});
-				this.props.history.push('/');
+				this.props.history.push('/transactions');
 			})
 			.catch(err => {
 				this.setState({...this.state, loading: false, error: err.message});

@@ -22,7 +22,7 @@ class Navbar extends Component{
 	render() {
 		return (
 			<header className={'Navbar ' + this.state.menuActive}>
-				<Link to='/landing' className='Navbar-brand'><h1>BANK OF WASSERSTEIN</h1></Link>
+				<Link to='/' className='Navbar-brand'><h1>BANK OF WASSERSTEIN</h1></Link>
 				<div className='Navbar-burger' onClick={this.toggleMenu}>
 					<span className='Navbar-bar'></span>
 					<span className='Navbar-bar'></span>
@@ -30,7 +30,7 @@ class Navbar extends Component{
 				</div>
 				{this.props.username ?
 					<div className='Navbar-links'>
-						<Link to='/' className='Navbar-login-btn'>{this.props.username}</Link>
+						<Link to='/transactions' className='Navbar-login-btn'>{this.props.username}</Link>
 						<Link to='/login' className='Navbar-signup-btn' onClick={this.props.logOut}>Sign Out</Link>
 					</div> : 
 					<div className='Navbar-links'>

@@ -11,8 +11,8 @@ const Main = () => (
 		<Route path='/transactions/new' component={withAuth(NewTransactionPage)} />
 		<Route path='/signup' component={SignupPage} />
 		<Route path='/login' component={LoginPage} />
-		<Route path='/landing' component={LandingPage} />
-		<Route path='/' component={withAuth(TransactionPage)} />
+		<Route path='/transactions' component={withAuth(TransactionPage)} />
+		<Route path='/' component={LandingPage} />
 	</Switch>
 );
 

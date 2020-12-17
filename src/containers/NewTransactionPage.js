@@ -28,7 +28,7 @@ class NewTransactionPage extends Component {
 		this.props.createTransaction(transaction, this.props.userId, localStorage.getItem('token'))
 			.then(() => {
 				this.setState({...this.state, loading: false, err: ''});
-				this.props.history.push('/');
+				this.props.history.push('/transactions');
 			})
 			.catch(err => this.setState({...this.state, loading: false, err: err.message}));
 	}
@@ -65,7 +65,7 @@ class NewTransactionPage extends Component {
 				this.props.generateTransactions(+this.state.number, this.props.userId, localStorage.getItem('token'))
 					.then(() => {
 						this.setState({...this.state, loading: false, err: ''});
-						this.props.history.push('/');
+						this.props.history.push('/transactions');
 					})
 					.catch(err => this.setState({...this.state, loading: false, err: err.message}));
 				break;
