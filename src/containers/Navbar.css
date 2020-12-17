@@ -1,24 +1,24 @@
-header {
+.Navbar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 15px;
     height: 60px;
 }
 
-header a h1 {
+.Navbar-brand {
     margin: 0;
     font-size: 24px;
     font-weight: 700;
 }
 
-header a {
+.Navbar a {
     text-decoration: none;
     color: black;
 }
 
-header a:hover:not(.signup-btn){
+.Navbar a:hover:not(.signup-btn){
     text-decoration: underline;
 }
 
@@ -26,7 +26,7 @@ header a:hover:not(.signup-btn){
     margin-right: 10px;
 }
 
-.Navbar-signup-btn {
+.Navbar .Navbar-signup-btn {
     display: inline-block;
     text-align: center;
     line-height: 40px;
@@ -38,6 +38,18 @@ header a:hover:not(.signup-btn){
     color: white;
 }
 
-.Navbar-signup-btn:hover {
+.Navbar .Navbar-signup-btn:hover {
     background-color: #3E3E3E;
+}
+
+@media (max-width: 900px){
+    .Navbar-brand {
+        font-size: 18px;
+    }
+
+    .Navbar .Navbar-signup-btn {
+        width: 75px;
+        height: 35px;
+        line-height: 35px;
+    }
 }

@@ -5,8 +5,8 @@ import {logOut} from '../store/actions/auth';
 import './Navbar.css';
 
 const Navbar = props => (
-	<header>
-		<Link to='/landing'><h1>BANK OF WASSERSTEIN</h1></Link>
+	<header className='Navbar'>
+		<Link to='/landing'><h1 className='Navbar-brand'>BANK OF WASSERSTEIN</h1></Link>
 		{props.username ?
 			<div>
 				<Link to='/' className='Navbar-login-btn'>{props.username}</Link>

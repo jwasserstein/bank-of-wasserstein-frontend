@@ -4,4 +4,3 @@
 - Organize container and component folders
 - Fix responsiveness issues on mobile
 - Add pictures to placeholders on landing page
-- Replace width with max-width for responsiveness
