@@ -3,11 +3,10 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0 15px;
-    height: 60px;
+    padding: 10px 15px;
 }
 
-.Navbar-brand {
+.Navbar-brand h1 {
     margin: 0;
     font-size: 24px;
     font-weight: 700;
@@ -18,38 +17,92 @@
     color: black;
 }
 
-.Navbar a:hover:not(.signup-btn){
+.Navbar a:hover {
     text-decoration: underline;
 }
 
 .Navbar-login-btn {
-    margin-right: 10px;
+    padding-right: 10px;
 }
 
-.Navbar .Navbar-signup-btn {
-    display: inline-block;
-    text-align: center;
-    line-height: 40px;
-    margin: auto;
-    background-color: black;
-    width: 85px;
-    height: 40px;
-    border-radius: 5px;
-    color: white;
+.Navbar-burger {
+    width: 25px;
+    height: 20px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    top: 13px;
+    right: 15px;
 }
 
-.Navbar .Navbar-signup-btn:hover {
+.Navbar-burger:hover {
+    cursor: pointer;
+}
+
+.Navbar-burger:hover .Navbar-bar {
     background-color: #3E3E3E;
 }
 
+.Navbar-bar {
+    width: 100%;
+    height: 4px;
+    background-color: black;
+    border-radius: 5px;
+}
+
+.Navbar-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media (max-width: 900px){
-    .Navbar-brand {
-        font-size: 18px;
+    .Navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 15px 5px 15px;
     }
 
+    .Navbar.active {
+        background-color: #DAD8D8;
+    }
+
+    .Navbar-burger {
+        display: flex;
+    }
+
+    .Navbar-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .Navbar-links a {
+        padding: 7px 0;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #BFBFBF;
+    }
+
+    .Navbar-links a:last-of-type {
+        border: none;
+    }
+
+    .Navbar.active .Navbar-links {
+        display: flex;
+    }
+}
+
+@media (min-width: 900px){
     .Navbar .Navbar-signup-btn {
-        width: 75px;
-        height: 35px;
-        line-height: 35px;
+        background-color: black;
+        padding: 10px 15px;
+        border-radius: 5px;
+        color: white;
+    }
+
+    .Navbar .Navbar-signup-btn:hover {
+        background-color: #3E3E3E;
     }
 }

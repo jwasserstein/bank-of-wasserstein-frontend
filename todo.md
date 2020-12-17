@@ -4,4 +4,6 @@
 - Organize container and component folders
 - Fix responsiveness issues on mobile
 - Add pictures to placeholders on landing page
-- Reduce margin on LoginPage, SignupPage, and Hero
+- Rename "Account Balance" to "Balance" to save space
+- Clean up Navbar css
+- Fix coins-growing image squishing
