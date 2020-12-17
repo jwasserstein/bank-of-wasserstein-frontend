@@ -8,3 +8,5 @@
 - Fix coins-growing image squishing
 - Change routes around so you hit landing page first
 - Change links to make it clear you're going to the transaction list page
+- Reduce spacing on mobile after hero and after features
+- Increase spacing on burger menu items to give more space for finger (increase font too so it's not too bare?)

@@ -79,7 +79,8 @@
     }
 
     .Navbar-links a {
-        padding: 7px 0;
+        font-size: 20px;
+        padding: 15px 0;
         width: 100%;
         text-align: center;
         border-bottom: 1px solid #BFBFBF;
