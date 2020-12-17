@@ -7,7 +7,7 @@ const NewTransactionForm = props => (
             <label key='label' htmlFor='amount'>Amount:</label>,
             <input key='input' type='number' className='NewTransactionForm-field' name='amount' 
                     id='amount' placeholder='Amount' min='0.01' step='0.01' value={props.amount} 
-                    onChange={props.onChange} autoComplete='off' required autoFocus />
+                    onChange={props.onChange} autoComplete='off' required />
         ])}
 
         {['transfer'].includes(props.transactionType) && ([

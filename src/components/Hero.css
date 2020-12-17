@@ -47,10 +47,11 @@
 @media (max-width: 900px){
     .Hero-main-container {
         flex-direction: column-reverse;
+        justify-content: flex-end;
     }
 
     .Hero-coins-growing {
-        margin: 30px 0 10px 0;
+        margin: 40px 0 10px 0;
     }
     
     .Hero-main-text {
