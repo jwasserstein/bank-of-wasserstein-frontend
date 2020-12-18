@@ -1,0 +1,18 @@
+.AboutPage-container {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.AboutPage-title {
+    margin-top: 60px;
+}
+
+.AboutPage-heart {
+    color: red;
+}

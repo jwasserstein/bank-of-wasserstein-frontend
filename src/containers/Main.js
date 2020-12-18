@@ -5,9 +5,11 @@ import withAuth from '../hocs/withAuth';
 import SignupPage from './SignupPage';
 import NewTransactionPage from './NewTransactionPage';
 import LandingPage from './LandingPage';
+import AboutPage from '../components/AboutPage';
 
 const Main = () => (
 	<Switch>
+		<Route path='/about' component={AboutPage} />
 		<Route path='/transactions/new' component={withAuth(NewTransactionPage)} />
 		<Route path='/signup' component={SignupPage} />
 		<Route path='/login' component={LoginPage} />

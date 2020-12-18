@@ -4,6 +4,5 @@
 - Refactor to use rem
 - Make everything smaller
 - Add accounts page
-- Add about page
-- Add contact us page
 - Add profile page
+- Make a Button component
