@@ -4,9 +4,9 @@
 - Organize container and component folders
 - Fix responsiveness issues on mobile
 - Add pictures to placeholders on landing page
+- Rename "Account Balance" to "Balance" to save space
 - Fix coins-growing image squishing
+- Change routes around so you hit landing page first
 - Change links to make it clear you're going to the transaction list page
 - Refactor to use rem
 - Make everything smaller
-- Green background shows on sides on mobile in landscape mode
-- Put input tags inside label tags so they wrap together
