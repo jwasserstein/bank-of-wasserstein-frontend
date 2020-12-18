@@ -1,7 +1,9 @@
 - Organize container and component folders
 - Add pictures to placeholders on landing page
 - Fix coins-growing image squishing
-- Change links to make it clear you're going to the transaction list page
 - Refactor to use rem
 - Make everything smaller
 - Add accounts page
+- Add about page
+- Add contact us page
+- Add profile page

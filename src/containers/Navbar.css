@@ -21,8 +21,12 @@
     text-decoration: underline;
 }
 
-.Navbar-login-btn {
-    padding-right: 10px;
+.Navbar-links-right .Navbar-link {
+    padding-right: 20px;
+}
+
+.Navbar-links-left .Navbar-link {
+    padding-left: 40px;
 }
 
 .Navbar-burger {
@@ -51,7 +55,7 @@
     border-radius: 5px;
 }
 
-.Navbar-links {
+.Navbar-links-right, .Navbar-links-left {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -72,13 +76,13 @@
         display: flex;
     }
 
-    .Navbar-links {
+    .Navbar-links-right, .Navbar-links-left {
         display: none;
         flex-direction: column;
         width: 100%;
     }
 
-    .Navbar-links a {
+    .Navbar-links-right a.Navbar-link, .Navbar-links-left a.Navbar-link {
         font-size: 20px;
         padding: 15px 0;
         width: 100%;
@@ -86,11 +90,11 @@
         border-bottom: 1px solid #BFBFBF;
     }
 
-    .Navbar-links a:last-of-type {
+    .Navbar-links-right a:last-of-type {
         border: none;
     }
 
-    .Navbar.active .Navbar-links {
+    .Navbar.active .Navbar-links-right, .Navbar.active .Navbar-links-left {
         display: flex;
     }
 }

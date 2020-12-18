@@ -22,20 +22,26 @@ class Navbar extends Component{
 	render() {
 		return (
 			<header className={'Navbar ' + this.state.menuActive}>
-				<Link to='/' className='Navbar-brand'><h1>BANK OF WASSERSTEIN</h1></Link>
 				<div className='Navbar-burger' onClick={this.toggleMenu}>
 					<span className='Navbar-bar'></span>
 					<span className='Navbar-bar'></span>
 					<span className='Navbar-bar'></span>
 				</div>
+
+				<Link to='/' className='Navbar-brand'><h1>BANK OF WASSERSTEIN</h1></Link>
+				<div className='Navbar-links-left'>
+					<Link to='/' className='Navbar-link'>Home</Link>
+					<Link to='/transactions' className='Navbar-link'>Transactions</Link>
+					<Link to='/about' className='Navbar-link'>About</Link>
+				</div>
 				{this.props.username ?
-					<div className='Navbar-links'>
-						<Link to='/transactions' className='Navbar-login-btn'>{this.props.username}</Link>
-						<Link to='/login' className='Navbar-signup-btn' onClick={this.props.logOut}>Sign Out</Link>
+					<div className='Navbar-links-right'>
+						<Link to='/transactions' className='Navbar-link'>{this.props.username}</Link>
+						<Link to='/login' className='Navbar-link Navbar-signup-btn' onClick={this.props.logOut}>Sign Out</Link>
 					</div> : 
-					<div className='Navbar-links'>
-						<Link to='/login' className='Navbar-login-btn'>Log In</Link>
-						<Link to='/signup' className='Navbar-signup-btn'>Sign Up</Link>
+					<div className='Navbar-links-right'>
+						<Link to='/login' className='Navbar-link'>Log In</Link>
+						<Link to='/signup' className='Navbar-link Navbar-signup-btn'>Sign Up</Link>
 					</div>}
 			</header>
 		);
