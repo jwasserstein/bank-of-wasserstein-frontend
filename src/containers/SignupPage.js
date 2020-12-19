@@ -35,7 +35,7 @@ class SignupPage extends Component {
 				this.props.history.push('/transactions');
 			})
 			.catch(err => {
-				this.setState({...this.state, loading: false, error: err.message});
+				this.setState({...this.state, loading: false, error: err});
 			});
 	}
 	
