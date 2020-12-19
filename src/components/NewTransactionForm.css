@@ -23,6 +23,7 @@
     border-radius: 7px;
     color: white;
     font-family: 'Roboto', sans-serif;
+    font-size: 16px;
 }
 
 .NewTransactionForm-form-btn:hover {

@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {logIn} from '../store/actions/auth';
-import LoginForm from '../components/LoginForm';
 import Navbar from './Navbar';
 import Message from '../components/Message';
+import Form from '../components/Form';
 import './LoginPage.css';
 
 class LoginPage extends Component {
@@ -35,6 +35,11 @@ class LoginPage extends Component {
 	}
 	
 	render() {
+		const fields = [
+			{label: 'Username', name: 'username', type: 'text', value: this.state.username},
+			{label: 'Password', name: 'password', type: 'password', value: this.state.password},	
+		];
+
 		return (
 			<div>
 				<Navbar />
@@ -44,11 +49,10 @@ class LoginPage extends Component {
 						{this.state.error}
 					</Message>
 				)}
-				<LoginForm onSubmit={this.onSubmit} 
-							username={this.state.username}
-							password={this.state.password} 
-							onChange={this.onChange} 
-							loading={this.state.loading} />
+				<Form onSubmit={this.onSubmit} 
+						onChange={this.onChange} 
+						loading={this.state.loading}
+						fields={fields}	/>
 			</div>
 		);
 	}

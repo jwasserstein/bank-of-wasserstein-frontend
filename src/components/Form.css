@@ -1,4 +1,4 @@
-.LoginForm-form {
+.Form-form {
     width: 90%;
     margin: 0 auto;
     max-width: 400px;
@@ -6,16 +6,19 @@
     flex-direction: column;
 }
 
-.LoginForm-field {
+.Form-field {
     height: 30px;
     padding-left: 10px;
     border: 1px solid #000000;
     border-radius: 7px;
     margin: 5px 0;
     font-size: 16px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.LoginForm-btn {
+.Form-btn {
     margin: 10px 0 0 0;
     height: 40px;
     background: #000000;
@@ -23,9 +26,10 @@
     border-radius: 7px;
     color: white;
     font-family: 'Roboto', sans-serif;
+    font-size: 16px;
 }
 
-.LoginForm-btn:hover {
+.Form-btn:hover {
     background-color: #3E3E3E;
     cursor: pointer;
 }

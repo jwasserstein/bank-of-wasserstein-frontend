@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {signUp} from '../store/actions/auth';
-import SignupForm from '../components/SignupForm';
 import Navbar from './Navbar';
 import Message from '../components/Message';
+import Form from '../components/Form';
 import './SignupPage.css';
 
 class SignupPage extends Component {
@@ -40,6 +40,13 @@ class SignupPage extends Component {
 	}
 	
 	render() {
+		const fields = [
+			{label: 'Username', name: 'username', type: 'text', value: this.state.username},
+			{label: 'Email', name: 'email', type: 'email', value: this.state.email},
+			{label: 'Password', name: 'password', type: 'password', value: this.state.password},
+			{label: 'Repeat Password', name: 'repeatPassword', type: 'password', value: this.state.repeatPassword},
+		];
+
 		return (
 			<div>
 				<Navbar />
@@ -49,14 +56,10 @@ class SignupPage extends Component {
 						{this.state.error}
 					</Message>
 				)}
-				<SignupForm onSubmit={this.onSubmit} 
-							onChange={this.onChange}
-							username={this.state.username} 
-							password={this.state.password}
-							repeatPassword={this.state.repeatPassword}
-							email={this.state.email}
-							loading={this.state.loading}
-							/>
+				<Form onSubmit={this.onSubmit} 
+						onChange={this.onChange}
+						fields={fields}
+						loading={this.state.loading} />
 			</div>
 		);
 	}

@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import Navbar from './Navbar';
 import './ProfilePage.css';
 import dayjs from 'dayjs';
-import ChangePasswordForm from '../components/ChangePasswordForm';
 import {apiCall} from '../services/api';
 import Message from '../components/Message';
+import Form from '../components/Form';
 
 class ProfilePage extends Component{
     constructor(props){
@@ -60,6 +60,12 @@ class ProfilePage extends Component{
     }
 
     render() {
+        const fields = [
+            {label: 'Current Password', name: 'currentPassword', type: 'password', value: this.state.currentPassword},
+            {label: 'New Password', name: 'newPassword', type: 'password', value: this.state.newPassword},
+            {label: 'Repeat New Password', name: 'repeatNewPassword', type: 'password', value: this.state.repeatNewPassword}
+        ];
+
         return (
             <div>
                 <Navbar />
@@ -84,13 +90,10 @@ class ProfilePage extends Component{
                         {this.state.message}
                     </Message>
                 )}
-                <ChangePasswordForm onSubmit={this.onSubmit} 
-                                    onChange={this.onChange}
-                                    currentPassword={this.state.currentPassword} 
-                                    newPassword={this.state.newPassword}
-                                    repeatNewPassword={this.state.repeatNewPassword}
-                                    loading={this.state.loading}
-                                    />
+                <Form onSubmit={this.onSubmit} 
+                        onChange={this.onChange}
+                        fields={fields}
+                        loading={this.state.loading}/>
                 
             </div>
         );
