@@ -85,14 +85,14 @@ class NewTransactionPage extends Component {
 				<h2 className='NewTransactionPage-message'>Select a transaction type.</h2>
 				<TransactionType transactionType={this.state.transactionType} onChange={this.onChange} />
 				<h2 className='NewTransactionPage-message'>Enter your transaction details.</h2>
-				<NewTransactionForm transactionType={this.state.transactionType} amount={this.state.amount} 
-									counterparty={this.state.counterparty} number={this.state.number} 
-									loading={this.state.loading} onChange={this.onChange} onSubmit={this.onSubmit}/>
 				{this.state.err && (
 					<Message>
 						{this.state.err}
 					</Message>
 				)}
+				<NewTransactionForm transactionType={this.state.transactionType} amount={this.state.amount} 
+									counterparty={this.state.counterparty} number={this.state.number} 
+									loading={this.state.loading} onChange={this.onChange} onSubmit={this.onSubmit}/>
 			</div>
 		);
 	}

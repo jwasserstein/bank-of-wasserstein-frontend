@@ -44,6 +44,11 @@ class SignupPage extends Component {
 			<div>
 				<Navbar />
 				<h2 className='SignupPage-message'>Make an account.</h2>
+				{this.state.error && (
+					<Message>
+						{this.state.error}
+					</Message>
+				)}
 				<SignupForm onSubmit={this.onSubmit} 
 							onChange={this.onChange}
 							username={this.state.username} 
@@ -52,11 +57,6 @@ class SignupPage extends Component {
 							email={this.state.email}
 							loading={this.state.loading}
 							/>
-				{this.state.error && (
-					<Message>
-						{this.state.error}
-					</Message>
-				)}
 			</div>
 		);
 	}

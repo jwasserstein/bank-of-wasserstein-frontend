@@ -39,16 +39,16 @@ class LoginPage extends Component {
 			<div>
 				<Navbar />
 				<h2 className='LoginPage-message' key='LoginPage-message'>Log in to Bank of Wasserstein.</h2>
-				<LoginForm onSubmit={this.onSubmit} 
-							username={this.state.username}
-							password={this.state.password} 
-							onChange={this.onChange} 
-							loading={this.state.loading} />
 				{this.state.error && (
 					<Message color='red'>
 						{this.state.error}
 					</Message>
 				)}
+				<LoginForm onSubmit={this.onSubmit} 
+							username={this.state.username}
+							password={this.state.password} 
+							onChange={this.onChange} 
+							loading={this.state.loading} />
 			</div>
 		);
 	}
