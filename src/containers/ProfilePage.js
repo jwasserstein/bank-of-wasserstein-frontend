@@ -67,21 +67,21 @@ class ProfilePage extends Component{
         ];
 
         return (
-            <div>
+            <div style={{marginBottom: '20px'}}>
                 <Navbar />
                 <h2 className='ProfilePage-message'>View your profile.</h2>
                 <div className='ProfilePage-fields'>
                     <div>
                         <h3 className='ProfilePage-field-title'>Username</h3>
-                        <p>{this.props.username}</p>
+                        <p className='ProfilePage-field-value'>{this.props.username}</p>
                     </div>
                     <div>
                         <h3 className='ProfilePage-field-title'>Email</h3>
-                        <p>{this.props.email}</p>
+                        <p className='ProfilePage-field-value'>{this.props.email}</p>
                     </div>
                     <div>
                         <h3 className='ProfilePage-field-title'>Join Date</h3>
-                        <p>{dayjs(this.props.joinDate).format('MM/DD/YYYY h:mmA')}</p>
+                        <p className='ProfilePage-field-value'>{dayjs(this.props.joinDate).format('MM/DD/YYYY h:mmA')}</p>
                     </div>
                 </div>
                 <h2 className='ProfilePage-message'>Change your password.</h2>

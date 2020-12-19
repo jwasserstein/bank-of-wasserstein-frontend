@@ -1,6 +1,6 @@
 .ProfilePage-message {
     text-align: center;
-    margin: 10vh 0 30px 0;
+    margin: 7vh 0 20px 0;
 }
 
 .ProfilePage-fields {
@@ -17,6 +17,12 @@
 
 .ProfilePage-field-title {
     text-align: center;
+    margin: 5px 0;
+}
+
+.ProfilePage-field-value {
+    text-align: center;
+    margin: 5px 0 15px 0;
 }
 
 @media (max-width: 700px){
