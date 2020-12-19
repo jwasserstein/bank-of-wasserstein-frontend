@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {signUp} from '../store/actions/auth';
 import SignupForm from '../components/SignupForm';
 import Navbar from './Navbar';
-import ErrorMessage from '../components/ErrorMessage';
+import Message from '../components/Message';
 import './SignupPage.css';
 
 class SignupPage extends Component {
@@ -53,9 +53,9 @@ class SignupPage extends Component {
 							loading={this.state.loading}
 							/>
 				{this.state.error && (
-					<ErrorMessage>
+					<Message>
 						{this.state.error}
-					</ErrorMessage>
+					</Message>
 				)}
 			</div>
 		);

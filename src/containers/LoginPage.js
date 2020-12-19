@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {logIn} from '../store/actions/auth';
 import LoginForm from '../components/LoginForm';
 import Navbar from './Navbar';
-import ErrorMessage from '../components/ErrorMessage';
+import Message from '../components/Message';
 import './LoginPage.css';
 
 class LoginPage extends Component {
@@ -45,9 +45,9 @@ class LoginPage extends Component {
 							onChange={this.onChange} 
 							loading={this.state.loading} />
 				{this.state.error && (
-					<ErrorMessage>
+					<Message color='red'>
 						{this.state.error}
-					</ErrorMessage>
+					</Message>
 				)}
 			</div>
 		);

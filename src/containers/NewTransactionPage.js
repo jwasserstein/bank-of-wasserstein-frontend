@@ -4,7 +4,7 @@ import {generateTransactions, createTransaction} from '../store/actions/transact
 import TransactionType from '../components/TransactionType';
 import Navbar from './Navbar';
 import NewTransactionForm from '../components/NewTransactionForm';
-import ErrorMessage from '../components/ErrorMessage';
+import Message from '../components/Message';
 import './NewTransactionPage.css';
 
 class NewTransactionPage extends Component {
@@ -89,9 +89,9 @@ class NewTransactionPage extends Component {
 									counterparty={this.state.counterparty} number={this.state.number} 
 									loading={this.state.loading} onChange={this.onChange} onSubmit={this.onSubmit}/>
 				{this.state.err && (
-					<ErrorMessage>
+					<Message>
 						{this.state.err}
-					</ErrorMessage>
+					</Message>
 				)}
 			</div>
 		);

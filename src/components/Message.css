@@ -1,12 +1,21 @@
-.ErrorMessage {
+.Message {
     max-width: 400px;
     min-height: 40px;
     margin: 20px auto;
-    background-color: #FFCFCF;
     border-radius: 7px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.Message-red {
+    background-color: #FFCFCF;
     color: #BC0D0D;
     border: 1px solid #BC0D0D;
+}
+
+.Message-green {
+    background-color: #A1EB89;
+    color: #2C7712;
+    border: 1px solid #2C7712;
 }
