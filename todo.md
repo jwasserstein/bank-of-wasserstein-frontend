@@ -5,4 +5,3 @@
 - Make everything smaller
 - Add accounts page
 - Consider using common title classes
-- Pull out hard-coded back-end URL to a single location

@@ -5,7 +5,7 @@ export function getTransactions(userId, token){
 	return dispatch => {
 		return new Promise(async (resolve, reject) => {
 			try {
-				const resp = await apiCall('get', `https://bank-of-wasserstein-api.herokuapp.com/api/transactions/${userId}`, {}, token);
+				const resp = await apiCall('get', `/transactions/${userId}`, {}, token);
 				if(resp.error){
 					return reject(new Error(resp.error));
 				}
@@ -26,7 +26,7 @@ export function generateTransactions(num, userId, token){
 	return dispatch => {
 		return new Promise(async (resolve, reject) => {
 			try {
-				const resp = await apiCall('post', `https://bank-of-wasserstein-api.herokuapp.com/api/transactions/${userId}/generate/${num}`, {}, token);
+				const resp = await apiCall('post', `/transactions/${userId}/generate/${num}`, {}, token);
 				
 				if(resp.error) {
 					return reject(new Error(resp.error));
@@ -49,7 +49,7 @@ export function createTransaction(transaction, userId, token){
 	return dispatch => {
 		return new Promise(async (resolve, reject) => {
 			try {
-				const resp = await apiCall('post', `https://bank-of-wasserstein-api.herokuapp.com/api/transactions/${userId}`, transaction, token);
+				const resp = await apiCall('post', `/transactions/${userId}`, transaction, token);
 				
 				if(resp.error){
 					return reject(new Error(resp.error));
