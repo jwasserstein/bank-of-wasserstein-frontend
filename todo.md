@@ -10,3 +10,4 @@
 - Pull out forms into a single separate component
 - Pull out hard-coded back-end URL to a single location
 - Refactor navbar so it shows on top of other elements instead of shifting them down
+- Reduce spacing between fields on ProfilePage, add spacing below submit button
