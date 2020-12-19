@@ -9,9 +9,9 @@ const DEFAULT_STATE = {
 export function authReducer(state=DEFAULT_STATE, action){
 	switch (action.type){
 		case LOG_IN:
-			return {...state, userId: action.id, username: action.username, email: action.email, loggedInAt: Date.now()};
+			return {...state, userId: action.id, username: action.username, email: action.email, joinDate: action.joinDate, loggedInAt: Date.now()};
 		case LOG_OUT:
-			return {...state, userId: '', username: '', email: '', loggedInAt: 0};
+			return {...state, userId: '', username: '', email: '', joinDate: 0, loggedInAt: 0};
 		default: 
 			return state;
 	}

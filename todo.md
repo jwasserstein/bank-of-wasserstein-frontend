@@ -6,3 +6,9 @@
 - Add accounts page
 - Add profile page
 - Make a Button component
+- Consider using common title classes
+- Pull out forms into a single separate component
+- Pull out hard-coded back-end URL to a single location
+- Refactor navbar so it shows on top of other elements instead of shifting them down
+- Move messages above form
+- Add side margin to message

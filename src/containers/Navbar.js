@@ -36,7 +36,7 @@ class Navbar extends Component{
 				</div>
 				{this.props.username ?
 					<div className='Navbar-links-right'>
-						<Link to='/transactions' className='Navbar-link'>{this.props.username}</Link>
+						<Link to='/profile' className='Navbar-link'>{this.props.username}</Link>
 						<Link to='/login' className='Navbar-link Navbar-signup-btn' onClick={this.props.logOut}>Sign Out</Link>
 					</div> : 
 					<div className='Navbar-links-right'>
