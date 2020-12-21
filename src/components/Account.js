@@ -6,7 +6,7 @@ const Account = props => (
     <Link className='AccountPage-account' to={props.link}>
         <div>
             <div className='AccountPage-type'>
-                {props.type} 
+                {props.type} Account
             </div>
         </div>
         <div>
