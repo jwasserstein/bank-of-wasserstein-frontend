@@ -1,8 +1,9 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './Account.css';
 
 const Account = props => (
-    <a className='AccountPage-account' href={props.link}>
+    <Link className='AccountPage-account' to={props.link}>
         <div>
             <div className='AccountPage-type'>
                 {props.type} 
@@ -10,10 +11,10 @@ const Account = props => (
         </div>
         <div>
             <div className='AccountPage-balance'>
-                $0.00
+                ${props.accountBalance.toFixed(2)}
             </div>
         </div>
-    </a>
+    </Link>
 );
 
 export default Account;

@@ -1,17 +1,18 @@
 import {GET_TRANSACTIONS} from '../actionTypes';
 import {apiCall} from '../../services/api';
 
-export function getTransactions(userId, token){
+export function getTransactions(accountId, token){
 	return dispatch => {
 		return new Promise(async (resolve, reject) => {
 			try {
-				const resp = await apiCall('get', `/transactions/${userId}`, {}, token);
+				const resp = await apiCall('get', `/accounts/${accountId}/transactions/`, {}, token);
 				if(resp.error){
 					return reject(new Error(resp.error));
 				}
 				const transactions = resp.sort((a, b) => b.transactionNumber - a.transactionNumber);
 				dispatch({
 					type: GET_TRANSACTIONS,
+					accountId,
 					transactions
 				});
 				return resolve();
@@ -22,11 +23,11 @@ export function getTransactions(userId, token){
 	};
 }
 
-export function generateTransactions(num, userId, token){
+export function generateTransactions(num, accountId, token){
 	return dispatch => {
 		return new Promise(async (resolve, reject) => {
 			try {
-				const resp = await apiCall('post', `/transactions/${userId}/generate/${num}`, {}, token);
+				const resp = await apiCall('post', `/accounts/${accountId}/transactions/generate/${num}`, {}, token);
 				
 				if(resp.error) {
 					return reject(new Error(resp.error));
@@ -35,6 +36,7 @@ export function generateTransactions(num, userId, token){
 				const transactions = resp.sort((a, b) => b.transactionNumber - a.transactionNumber);
 				dispatch({
 					type: GET_TRANSACTIONS,
+					accountId,
 					transactions
 				});
 				return resolve();
@@ -45,11 +47,11 @@ export function generateTransactions(num, userId, token){
 	}
 }
 
-export function createTransaction(transaction, userId, token){
+export function createTransaction(transaction, accountId, token){
 	return dispatch => {
 		return new Promise(async (resolve, reject) => {
 			try {
-				const resp = await apiCall('post', `/transactions/${userId}`, transaction, token);
+				const resp = await apiCall('post', `/accounts/${accountId}/transactions/`, transaction, token);
 				
 				if(resp.error){
 					return reject(new Error(resp.error));
@@ -58,6 +60,7 @@ export function createTransaction(transaction, userId, token){
 				const transactions = resp.sort((a, b) => b.transactionNumber - a.transactionNumber);
 				dispatch({
 					type: GET_TRANSACTIONS,
+					accountId,
 					transactions
 				});
 				return resolve();

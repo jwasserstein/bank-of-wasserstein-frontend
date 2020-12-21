@@ -10,3 +10,5 @@
 - Make button and display a component (new account, account balances.  new transaction, transaction balances)
 - Verify that the componentDidMount() check for this.props.lastUpdated in TransactionPage is actually working.  It's not in the mapStateToProps() so I wonder if it's just sending a new request each time.
 - Consider moving the tokens into the actions themselves (or even the apiCall).  No point in getting it everytime.
+- Add back button from account show page to account list page
+- "Review your transactions." is smaller than everything else

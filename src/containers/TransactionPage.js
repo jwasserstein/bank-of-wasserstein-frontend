@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-// import Balance from '../components/Balance';
 import {connect} from 'react-redux';
 import {getTransactions} from '../store/actions/transactions';
 import TransactionList from '../components/TransactionList';
@@ -9,18 +8,28 @@ import './TransactionPage.css';
 
 class TransactionPage extends Component {
 	componentDidMount(){
-		if(!this.props.lastUpdated){
-			this.props.getTransactions(this.props.userId, localStorage.getItem('token'));
+		const accountId = this.props.match.params.accountId;
+		if(!this.props.transactionReducer[accountId]?.lastUpdated){
+			this.props.getTransactions(accountId, localStorage.getItem('token'));
 		}
 	}
 	
 	render(){
+		const accountId = this.props.match.params.accountId;
+		if(!this.props.transactionReducer[accountId]){
+			return <div></div>;
+		}
+
+		
+		const transactions = this.props.transactionReducer[accountId].transactions;
+		const lastUpdated = this.props.transactionReducer[accountId].lastUpdated;
+
 		return (
 			<div>
 				<Navbar />
 				<h2 className='TransactionPage-message'>Review your transactions.</h2>
-				<TransactionButtons accountBalance={this.props.transactions[0] ? this.props.transactions[0].accountBalance : 0} />
-				<TransactionList transactions={this.props.transactions} />
+				<TransactionButtons accountBalance={transactions[0] ? transactions[0].accountBalance : 0} />
+				<TransactionList transactions={transactions} />
 			</div>
 		);
 	}
@@ -28,7 +37,7 @@ class TransactionPage extends Component {
 
 function mapStateToProps(state){
 	return {
-		transactions: state.transactionReducer.transactions
+		transactionReducer: state.transactionReducer
 	};
 }
 
