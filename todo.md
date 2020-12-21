@@ -3,5 +3,12 @@
 - Fix coins-growing image squishing
 - Refactor to use rem
 - Make everything smaller
-- Add accounts page
-- Consider using common title classes
+- Add delete account button to profile page
+- Add proptypes
+- Make list of items a component (list of accounts, list of transactions, etc)
+- Make button and display a component (new account, account balances.  new transaction, transaction balances)
+- Consider moving the tokens into the actions themselves (or even the apiCall).  No point in getting it everytime.
+- Add back button from account show page to account list page
+- Consider replacing border-bottom on accounts list with an <hr /> with margin to leave gaps on either side so the styling matches transaction list
+- Break NewAcountPage and AccountsPage into components where possible
+- Replace accountType with dropdown
