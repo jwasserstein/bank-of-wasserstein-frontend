@@ -5,7 +5,7 @@ import './TransactionButtons.css'
 
 const TransactionButtons = props => (
     <div className="TransactionButtons-btn-container">
-        <Link to='/transactions/new' className='TransactionButtons-btn'>New Transaction</Link>
+        <Link to={`/accounts/${props.accountId}/transactions/new`} className='TransactionButtons-btn'>New Transaction</Link>
         <Balance {...props} />
     </div>
 );

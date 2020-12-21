@@ -24,17 +24,19 @@ class NewTransactionPage extends Component {
 	}
 	
 	create(transaction){
+		const accountId = this.props.match.params.accountId;
 		this.setState({...this.state, loading: true});
-		this.props.createTransaction(transaction, this.props.userId, localStorage.getItem('token'))
+		this.props.createTransaction(transaction, accountId, localStorage.getItem('token'))
 			.then(() => {
 				this.setState({...this.state, loading: false, err: ''});
-				this.props.history.push('/transactions');
+				this.props.history.push(`/accounts/${accountId}`);
 			})
 			.catch(err => this.setState({...this.state, loading: false, err: err.message}));
 	}
 
 	onSubmit(e){
 		e.preventDefault();
+		const accountId = this.props.match.params.accountId;
 		switch(this.state.transactionType){
 			case 'deposit':
 				this.create({
@@ -62,10 +64,10 @@ class NewTransactionPage extends Component {
 				break;
 			case 'generate':
 				this.setState({...this.state, loading: true});
-				this.props.generateTransactions(+this.state.number, this.props.userId, localStorage.getItem('token'))
+				this.props.generateTransactions(+this.state.number, accountId, localStorage.getItem('token'))
 					.then(() => {
 						this.setState({...this.state, loading: false, err: ''});
-						this.props.history.push('/transactions');
+						this.props.history.push(`/accounts/${accountId}`);
 					})
 					.catch(err => this.setState({...this.state, loading: false, err: err.message}));
 				break;
@@ -98,10 +100,4 @@ class NewTransactionPage extends Component {
 	}
 }
 
-function mapStateToProps(state){
-	return {
-		userId: state.authReducer.userId
-	}
-}
-
-export default connect(mapStateToProps, {generateTransactions, createTransaction})(NewTransactionPage);
+export default connect(null, {generateTransactions, createTransaction})(NewTransactionPage);

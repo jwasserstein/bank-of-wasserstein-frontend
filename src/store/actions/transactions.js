@@ -1,4 +1,4 @@
-import {GET_TRANSACTIONS} from '../actionTypes';
+import {GET_TRANSACTIONS, UPDATE_BALANCE} from '../actionTypes';
 import {apiCall} from '../../services/api';
 
 export function getTransactions(accountId, token){
@@ -39,6 +39,12 @@ export function generateTransactions(num, accountId, token){
 					accountId,
 					transactions
 				});
+				dispatch({
+					type: UPDATE_BALANCE,
+					accountId,
+					accountBalance: transactions[0].accountBalance
+				});
+				
 				return resolve();
 			} catch(err) {
 				return reject(err);
@@ -63,6 +69,12 @@ export function createTransaction(transaction, accountId, token){
 					accountId,
 					transactions
 				});
+				dispatch({
+					type: UPDATE_BALANCE,
+					accountId,
+					accountBalance: transactions[0].accountBalance
+				});
+
 				return resolve();
 			} catch(err){
 				return reject(err);

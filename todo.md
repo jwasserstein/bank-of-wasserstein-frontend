@@ -12,3 +12,5 @@
 - Consider moving the tokens into the actions themselves (or even the apiCall).  No point in getting it everytime.
 - Add back button from account show page to account list page
 - "Review your transactions." is smaller than everything else
+- Consider replacing border-bottom on accounts list with an <hr /> with margin to leave gaps on either side so the styling matches transaction list
+- Update NewTransactionPage to have an accountType field

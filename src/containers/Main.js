@@ -11,11 +11,11 @@ import AccountsPage from './AccountsPage';
 
 const Main = () => (
 	<Switch>
+		<Route path='/accounts/:accountId/transactions/new' component={withAuth(NewTransactionPage)} />
 		<Route path='/accounts/:accountId' component={withAuth(TransactionPage)} />
 		<Route path='/accounts' component={withAuth(AccountsPage)} />
 		<Route path='/profile' component={withAuth(ProfilePage)} />
 		<Route path='/about' component={AboutPage} />
-		<Route path='/transactions/new' component={withAuth(NewTransactionPage)} />
 		<Route path='/signup' component={SignupPage} />
 		<Route path='/login' component={LoginPage} />
 		<Route path='/' component={LandingPage} />

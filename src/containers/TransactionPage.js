@@ -28,7 +28,7 @@ class TransactionPage extends Component {
 			<div>
 				<Navbar />
 				<h2 className='TransactionPage-message'>Review your transactions.</h2>
-				<TransactionButtons accountBalance={transactions[0] ? transactions[0].accountBalance : 0} />
+				<TransactionButtons accountBalance={transactions[0] ? transactions[0].accountBalance : 0} accountId={accountId} />
 				<TransactionList transactions={transactions} />
 			</div>
 		);

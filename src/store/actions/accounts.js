@@ -1,4 +1,4 @@
-import {GET_ACCOUNTS} from '../actionTypes';
+import {GET_ACCOUNTS, UPDATE_BALANCE} from '../actionTypes';
 import {apiCall} from '../../services/api';
 
 export function getAccounts(token){
