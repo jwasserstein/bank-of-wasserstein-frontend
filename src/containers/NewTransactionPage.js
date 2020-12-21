@@ -5,6 +5,7 @@ import TransactionType from '../components/TransactionType';
 import Navbar from './Navbar';
 import NewTransactionForm from '../components/NewTransactionForm';
 import Message from '../components/Message';
+import {getAccounts} from '../store/actions/accounts';
 import './NewTransactionPage.css';
 
 class NewTransactionPage extends Component {
@@ -15,6 +16,7 @@ class NewTransactionPage extends Component {
 			amount: '',
 			counterparty: '',
 			transactionType: 'deposit',
+			accountType: '',
 			err: '',
 			loading: false
 		};
@@ -24,22 +26,23 @@ class NewTransactionPage extends Component {
 	}
 	
 	create(transaction){
+		const accountId = this.props.match.params.accountId;
 		this.setState({...this.state, loading: true});
-		this.props.createTransaction(transaction, this.props.userId, localStorage.getItem('token'))
+		return this.props.createTransaction(transaction, accountId, localStorage.getItem('token'))
 			.then(() => {
 				this.setState({...this.state, loading: false, err: ''});
-				this.props.history.push('/transactions');
+				this.props.history.push(`/accounts/${accountId}`);
 			})
 			.catch(err => this.setState({...this.state, loading: false, err: err.message}));
 	}
 
 	onSubmit(e){
 		e.preventDefault();
+		const accountId = this.props.match.params.accountId;
 		switch(this.state.transactionType){
 			case 'deposit':
 				this.create({
 					amount: this.state.amount,
-					counterparty: 'Deposit',
 					type: 'Deposit',
 					description: 'Deposit'
 				});
@@ -47,25 +50,35 @@ class NewTransactionPage extends Component {
 			case 'withdrawal':
 				this.create({
 					amount: -1*this.state.amount,
-					counterparty: 'Withdrawal',
 					type: 'Withdrawal',
 					description: 'Withdrawal'
 				});
 				break;
-			case 'transfer':
+			case 'transferAnotherUser':
 				this.create({
 					amount: -1*this.state.amount,
 					counterparty: this.state.counterparty,
+					accountType: this.state.accountType,
 					type: 'Transfer',
 					description: 'Transfer to ' + this.state.counterparty
 				});
 				break;
+			case 'transferBetweenAccounts':
+				this.create({
+					amount: -1*this.state.amount,
+					counterparty: this.props.username,
+					accountType: this.state.accountType,
+					type: 'Transfer',
+					description: `Transfer to my ${this.state.accountType} account`
+				})
+				.then(() => this.props.getAccounts(localStorage.token));
+				break;
 			case 'generate':
 				this.setState({...this.state, loading: true});
-				this.props.generateTransactions(+this.state.number, this.props.userId, localStorage.getItem('token'))
+				this.props.generateTransactions(+this.state.number, accountId, localStorage.getItem('token'))
 					.then(() => {
 						this.setState({...this.state, loading: false, err: ''});
-						this.props.history.push('/transactions');
+						this.props.history.push(`/accounts/${accountId}`);
 					})
 					.catch(err => this.setState({...this.state, loading: false, err: err.message}));
 				break;
@@ -92,7 +105,8 @@ class NewTransactionPage extends Component {
 				)}
 				<NewTransactionForm transactionType={this.state.transactionType} amount={this.state.amount} 
 									counterparty={this.state.counterparty} number={this.state.number} 
-									loading={this.state.loading} onChange={this.onChange} onSubmit={this.onSubmit}/>
+									loading={this.state.loading} accountType={this.state.accountType} 
+									onChange={this.onChange} onSubmit={this.onSubmit}/>
 			</div>
 		);
 	}
@@ -100,8 +114,8 @@ class NewTransactionPage extends Component {
 
 function mapStateToProps(state){
 	return {
-		userId: state.authReducer.userId
-	}
+		username: state.authReducer.username
+	};
 }
 
-export default connect(mapStateToProps, {generateTransactions, createTransaction})(NewTransactionPage);
+export default connect(mapStateToProps, {generateTransactions, createTransaction, getAccounts})(NewTransactionPage);

@@ -1,4 +1,4 @@
-import {LOG_IN, LOG_OUT, REMOVE_TRANSACTIONS} from '../actionTypes';
+import {LOG_IN, LOG_OUT, REMOVE_TRANSACTIONS, REMOVE_ACCOUNTS} from '../actionTypes';
 import {apiCall} from '../../services/api';
 
 export function logIn(username, password) {
@@ -6,7 +6,7 @@ export function logIn(username, password) {
 		return new Promise(async (resolve, reject) => {
 			try {
 				const resp = await apiCall('post', '/auth/signin', {username, password}, '');
-				if(resp.error){ // refactor this to check for status code
+				if(resp.error){
 					return reject(resp.error);
 				}
 				if(!resp.token){
@@ -48,5 +48,6 @@ export function logOut() {
 		localStorage.removeItem('token');
 		dispatch({type: LOG_OUT});
 		dispatch({type: REMOVE_TRANSACTIONS});
+		dispatch({type: REMOVE_ACCOUNTS});
 	}
 }

@@ -3,20 +3,20 @@ import dayjs from 'dayjs';
 import './Transaction.css';
 
 const Transaction = props => (
-    <div className='TransactionPage-transaction'>
+    <div className='Transaction-transaction'>
         <div>
-            <div className='TransactionPage-recipient'>
+            <div className='Transaction-recipient'>
                 {props.description} 
             </div>
-            <div className='TransactionPage-date'>
+            <div className='Transaction-date'>
                 {dayjs(props.date).format('MM/DD/YYYY h:mmA')} 
             </div>
         </div>
         <div>
-            <div className='TransactionPage-amount'>
+            <div className='Transaction-amount'>
                 ${props.amount.toFixed(2)}
             </div>
-            <div className='TransactionPage-balance'>
+            <div className='Transaction-balance'>
                 ${props.accountBalance.toFixed(2)}
             </div>
         </div>

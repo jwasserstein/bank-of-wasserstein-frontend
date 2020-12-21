@@ -4,6 +4,7 @@ import {logIn} from '../store/actions/auth';
 import Navbar from './Navbar';
 import Message from '../components/Message';
 import Form from '../components/Form';
+import {getAccounts} from '../store/actions/accounts';
 import './LoginPage.css';
 
 class LoginPage extends Component {
@@ -27,7 +28,7 @@ class LoginPage extends Component {
 		this.props.logIn(e.target.username.value, e.target.password.value)
 			.then(() => {
 				this.setState({...this.state, loading: false, error: ''});
-				this.props.history.push('/transactions');
+				this.props.history.push('/accounts');
 			})
 			.catch(err => {
 				this.setState({...this.state, loading: false, error: err});
@@ -58,4 +59,4 @@ class LoginPage extends Component {
 	}
 }
 
-export default connect(null, {logIn})(LoginPage);
+export default connect(null, {logIn, getAccounts})(LoginPage);
