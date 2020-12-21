@@ -15,3 +15,4 @@
 - Consider replacing border-bottom on accounts list with an <hr /> with margin to leave gaps on either side so the styling matches transaction list
 - When transferring to another of your own accounts, the receiving account doesn't get UPDATE_BALANCE
 - Break NewAcountPage and AccountsPage into components where possible
+- Replace accountType with dropdown
