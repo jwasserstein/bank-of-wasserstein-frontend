@@ -28,8 +28,7 @@ class LoginPage extends Component {
 		this.props.logIn(e.target.username.value, e.target.password.value)
 			.then(() => {
 				this.setState({...this.state, loading: false, error: ''});
-				this.props.getAccounts(localStorage.token);
-				this.props.history.push('/');
+				this.props.history.push('/accounts');
 			})
 			.catch(err => {
 				this.setState({...this.state, loading: false, error: err});

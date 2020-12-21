@@ -33,7 +33,7 @@ class Navbar extends Component{
 					<Link to='/' className='Navbar-brand'><h1>BANK OF WASSERSTEIN</h1></Link>
 					<div className='Navbar-links-left'>
 						<Link to='/' className='Navbar-link'>Home</Link>
-						<Link to='/transactions' className='Navbar-link'>Transactions</Link>
+						<Link to='/accounts' className='Navbar-link'>Accounts</Link>
 						<Link to='/about' className='Navbar-link'>About</Link>
 					</div>
 					{this.props.username ?

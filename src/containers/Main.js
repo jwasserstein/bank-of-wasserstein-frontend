@@ -7,9 +7,11 @@ import NewTransactionPage from './NewTransactionPage';
 import LandingPage from './LandingPage';
 import AboutPage from '../components/AboutPage';
 import ProfilePage from './ProfilePage';
+import AccountsPage from './AccountsPage';
 
 const Main = () => (
 	<Switch>
+		<Route path='/accounts' component={withAuth(AccountsPage)} />
 		<Route path='/profile' component={withAuth(ProfilePage)} />
 		<Route path='/about' component={AboutPage} />
 		<Route path='/transactions/new' component={withAuth(NewTransactionPage)} />

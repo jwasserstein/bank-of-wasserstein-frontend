@@ -6,3 +6,7 @@
 - Add delete account button to profile page
 - Add proptypes
 - Clarify that existing transfer is from one account to another.  Add option to transfer to one of my other accounts
+- Make list of items a component (list of accounts, list of transactions, etc)
+- Make button and display a component (new account, account balances.  new transaction, transaction balances)
+- Verify that the componentDidMount() check for this.props.lastUpdated in TransactionPage is actually working.  It's not in the mapStateToProps() so I wonder if it's just sending a new request each time.
+- Consider moving the tokens into the actions themselves (or even the apiCall).  No point in getting it everytime.
