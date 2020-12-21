@@ -11,9 +11,13 @@ const NewTransactionForm = props => (
         ])}
 
         {['transfer'].includes(props.transactionType) && ([
-            <label key='label' htmlFor='counterparty'>Counterparty:</label>,
-            <input key='input' type='text' className='NewTransactionForm-field' name='counterparty' 
+            <label key='label-counterparty' htmlFor='counterparty'>Counterparty:</label>,
+            <input key='input-counterparty' type='text' className='NewTransactionForm-field' name='counterparty' 
                     id='counterparty' placeholder='Counterparty' value={props.counterparty} 
+                    onChange={props.onChange} autoComplete='off' required />,
+            <label key='label-accountType' htmlFor='counterparty'>Account Type:</label>,
+            <input key='input-accountType' type='text' className='NewTransactionForm-field' name='accountType' 
+                    id='accountType' placeholder='Account Type' value={props.accountType} 
                     onChange={props.onChange} autoComplete='off' required />
         ])}
 

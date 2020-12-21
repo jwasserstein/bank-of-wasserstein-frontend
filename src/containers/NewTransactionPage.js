@@ -58,6 +58,7 @@ class NewTransactionPage extends Component {
 				this.create({
 					amount: -1*this.state.amount,
 					counterparty: this.state.counterparty,
+					accountType: this.state.accountType,
 					type: 'Transfer',
 					description: 'Transfer to ' + this.state.counterparty
 				});
@@ -94,7 +95,8 @@ class NewTransactionPage extends Component {
 				)}
 				<NewTransactionForm transactionType={this.state.transactionType} amount={this.state.amount} 
 									counterparty={this.state.counterparty} number={this.state.number} 
-									loading={this.state.loading} onChange={this.onChange} onSubmit={this.onSubmit}/>
+									loading={this.state.loading} accountType={this.state.accountType} 
+									onChange={this.onChange} onSubmit={this.onSubmit}/>
 			</div>
 		);
 	}
