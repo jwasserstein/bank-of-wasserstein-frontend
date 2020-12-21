@@ -20,7 +20,7 @@ class AccountsPage extends Component {
         return (
             <div>
                 <Navbar />
-                <h2 className='AccountsPage-message'>Select an Account.</h2>
+                <h2 className='AccountsPage-message'>Select an account.</h2>
                 <div className="AccountsPage-btn-container">
                     <Link to='/accounts/new' className='AccountsPage-btn'>New Account</Link>
                     <Balance accountBalance={totalBalance} />

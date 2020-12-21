@@ -13,4 +13,5 @@
 - Add back button from account show page to account list page
 - "Review your transactions." is smaller than everything else
 - Consider replacing border-bottom on accounts list with an <hr /> with margin to leave gaps on either side so the styling matches transaction list
-- Update NewTransactionPage to have an accountType field
+- When transferring to another of your own accounts, the receiving account doesn't get UPDATE_BALANCE
+- Break NewAcountPage and AccountsPage into components where possible
