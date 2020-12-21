@@ -1,7 +1,8 @@
 - Organize container and component folders
 - Add pictures to placeholders on landing page
 - Fix coins-growing image squishing
-- Refactor to use rem
 - Make everything smaller
 - Add accounts page
-- Consider using common title classes
+- Add delete account button to profile page
+- Add proptypes
+- Clarify that existing transfer is from one account to another.  Add option to transfer to one of my other accounts
