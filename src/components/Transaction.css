@@ -1,4 +1,4 @@
-.TransactionPage-transaction {
+.Transaction-transaction {
     border-bottom: 1px solid #BFBFBF;
     padding: 12px 0;
     display: flex;
@@ -6,15 +6,23 @@
     align-items: center;
 }
 
-.TransactionPage-transaction:last-of-type {
+.Transaction-transaction:last-of-type {
     border: none;
 }
 
-.TransactionPage-recipient, .TransactionPage-amount {
+.Transaction-recipient, .Transaction-amount {
     margin-bottom: 5px;
 }
 
-.TransactionPage-date, .TransactionPage-balance {
+.Transaction-date, .Transaction-balance {
     font-size: 14px;
     color: #575757;
+}
+
+.Transaction-amount, .Transaction-balance {
+    text-align: right;
+}
+
+.Transaction-recipient, .Transaction-date {
+    text-align: left;
 }
