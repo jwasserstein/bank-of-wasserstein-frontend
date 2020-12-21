@@ -19,10 +19,8 @@ class TransactionPage extends Component {
 		if(!this.props.transactionReducer[accountId]){
 			return <div></div>;
 		}
-
 		
 		const transactions = this.props.transactionReducer[accountId].transactions;
-		const lastUpdated = this.props.transactionReducer[accountId].lastUpdated;
 
 		return (
 			<div>
