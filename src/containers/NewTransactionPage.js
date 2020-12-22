@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {generateTransactions, createTransaction} from '../store/actions/transactions';
+import {generateTransactions, createTransaction, getTransactions} from '../store/actions/transactions';
 import TransactionType from '../components/TransactionType';
 import Navbar from './Navbar';
 import NewTransactionForm from '../components/NewTransactionForm';
@@ -72,7 +72,11 @@ class NewTransactionPage extends Component {
 					type: 'Transfer',
 					description: `Transfer to my ${this.state.accountTypeBetweenAcc} account`
 				})
-				.then(() => this.props.getAccounts());
+				.then(() => {
+					this.props.getAccounts();
+					const recipientAccountId = this.props.accounts.find(a => a.type === this.state.accountTypeBetweenAcc)._id;
+					this.props.getTransactions(recipientAccountId);
+				});
 				break;
 			case 'generate':
 				this.setState({...this.state, loading: true});
@@ -127,4 +131,4 @@ function mapStateToProps(state){
 	};
 }
 
-export default connect(mapStateToProps, {generateTransactions, createTransaction, getAccounts})(NewTransactionPage);
+export default connect(mapStateToProps, {generateTransactions, createTransaction, getAccounts, getTransactions})(NewTransactionPage);
