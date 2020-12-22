@@ -3,14 +3,12 @@ import {Link} from 'react-router-dom';
 import './Account.css';
 
 const Account = props => (
-    <Link className='AccountPage-account' to={props.link}>
-        <div>
-            <div className='AccountPage-type'>
+    <Link className='Account-account' to={props.link}>
+        <div className='Account-container'>
+            <div className='Account-type'>
                 {props.type} Account
             </div>
-        </div>
-        <div>
-            <div className='AccountPage-balance'>
+            <div className='Account-balance'>
                 ${props.accountBalance.toFixed(2)}
             </div>
         </div>
