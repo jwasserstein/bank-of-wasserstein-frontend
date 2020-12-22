@@ -30,6 +30,11 @@ class AccountsPage extends Component {
                     this.props.accounts.map(a => 
                         <Account type={a.type} link={`/accounts/${a._id}`} accountBalance={a.accountBalance} key={a.type} />
                     )}
+                    {!this.props.accounts.length && (
+                        <div className='AccountsPage-placeholder'>
+                            You don't have any accounts yet!
+                        </div>
+                    )}
                 </div>
             </div>
         );
