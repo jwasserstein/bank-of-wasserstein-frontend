@@ -10,7 +10,7 @@ class TransactionPage extends Component {
 	componentDidMount(){
 		const accountId = this.props.match.params.accountId;
 		if(!this.props.transactionReducer[accountId]?.lastUpdated){
-			this.props.getTransactions(accountId, localStorage.getItem('token'));
+			this.props.getTransactions(accountId);
 		}
 	}
 	

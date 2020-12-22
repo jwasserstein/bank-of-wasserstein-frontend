@@ -6,6 +6,4 @@
 - Add proptypes
 - Make list of items a component (list of accounts, list of transactions, etc)
 - Make button and display a component (new account, account balances.  new transaction, transaction balances)
-- Consider moving the tokens into the actions themselves (or even the apiCall).  No point in getting it everytime.
-- Add back button from account show page to account list page
 - Break NewAcountPage and AccountsPage into components where possible

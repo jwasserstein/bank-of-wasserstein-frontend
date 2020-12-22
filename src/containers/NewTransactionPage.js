@@ -28,7 +28,7 @@ class NewTransactionPage extends Component {
 	create(transaction){
 		const accountId = this.props.match.params.accountId;
 		this.setState({...this.state, loading: true});
-		return this.props.createTransaction(transaction, accountId, localStorage.getItem('token'))
+		return this.props.createTransaction(transaction, accountId)
 			.then(() => {
 				this.setState({...this.state, loading: false, err: ''});
 				this.props.history.push(`/accounts/${accountId}`);
@@ -71,11 +71,11 @@ class NewTransactionPage extends Component {
 					type: 'Transfer',
 					description: `Transfer to my ${this.state.accountType} account`
 				})
-				.then(() => this.props.getAccounts(localStorage.token));
+				.then(() => this.props.getAccounts());
 				break;
 			case 'generate':
 				this.setState({...this.state, loading: true});
-				this.props.generateTransactions(+this.state.number, accountId, localStorage.getItem('token'))
+				this.props.generateTransactions(+this.state.number, accountId)
 					.then(() => {
 						this.setState({...this.state, loading: false, err: ''});
 						this.props.history.push(`/accounts/${accountId}`);

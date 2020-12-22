@@ -10,7 +10,7 @@ import './AccountsPage.css';
 class AccountsPage extends Component {
     componentDidMount(){
         if(!this.props.lastUpdated){
-            this.props.getAccounts(localStorage.token);
+            this.props.getAccounts();
         }
     }
 

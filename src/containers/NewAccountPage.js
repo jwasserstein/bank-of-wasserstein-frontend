@@ -24,7 +24,7 @@ class NewAccountPage extends Component {
     onSubmit(e){
         e.preventDefault();
         this.setState({...this.state, loading: true});
-        this.props.createAccount(this.state.accountType, localStorage.token)
+        this.props.createAccount(this.state.accountType)
             .then(() => {
                 this.setState({...this.state, loading: false, err: ''});
                 this.props.history.push('/accounts');

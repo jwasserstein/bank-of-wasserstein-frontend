@@ -44,7 +44,7 @@ class ProfilePage extends Component{
             currentPassword: this.state.currentPassword,
             newPassword: this.state.newPassword,
             repeatNewPassword: this.state.repeatNewPassword
-        }, localStorage.token)
+        })
             .then(response => {
                     const message = 'error' in response ? response.error : response.message;
                     const color = 'error' in response ? 'red' : 'green';

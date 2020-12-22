@@ -1,11 +1,11 @@
 import {GET_TRANSACTIONS, UPDATE_BALANCE} from '../actionTypes';
 import {apiCall} from '../../services/api';
 
-export function getTransactions(accountId, token){
+export function getTransactions(accountId){
 	return dispatch => {
 		return new Promise(async (resolve, reject) => {
 			try {
-				const resp = await apiCall('get', `/accounts/${accountId}/transactions/`, {}, token);
+				const resp = await apiCall('get', `/accounts/${accountId}/transactions/`, {});
 				if(resp.error){
 					return reject(new Error(resp.error));
 				}
@@ -23,11 +23,11 @@ export function getTransactions(accountId, token){
 	};
 }
 
-export function generateTransactions(num, accountId, token){
+export function generateTransactions(num, accountId){
 	return dispatch => {
 		return new Promise(async (resolve, reject) => {
 			try {
-				const resp = await apiCall('post', `/accounts/${accountId}/transactions/generate/${num}`, {}, token);
+				const resp = await apiCall('post', `/accounts/${accountId}/transactions/generate/${num}`, {});
 				
 				if(resp.error) {
 					return reject(new Error(resp.error));
@@ -53,11 +53,11 @@ export function generateTransactions(num, accountId, token){
 	}
 }
 
-export function createTransaction(transaction, accountId, token){
+export function createTransaction(transaction, accountId){
 	return dispatch => {
 		return new Promise(async (resolve, reject) => {
 			try {
-				const resp = await apiCall('post', `/accounts/${accountId}/transactions/`, transaction, token);
+				const resp = await apiCall('post', `/accounts/${accountId}/transactions/`, transaction);
 				
 				if(resp.error){
 					return reject(new Error(resp.error));

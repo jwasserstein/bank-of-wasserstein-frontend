@@ -1,11 +1,11 @@
 import {GET_ACCOUNTS} from '../actionTypes';
 import {apiCall} from '../../services/api';
 
-export function getAccounts(token){
+export function getAccounts(){
     return dispatch => {
         return new Promise(async (resolve, reject) => {
             try  {
-                const resp = await apiCall('get', '/accounts', {}, token);
+                const resp = await apiCall('get', '/accounts', {});
                 if(resp.error){
                     return reject(new Error(resp.error));
                 }
@@ -21,11 +21,11 @@ export function getAccounts(token){
     }
 }
 
-export function createAccount(accountType, token){
+export function createAccount(accountType){
     return dispatch => {
         return new Promise(async (resolve, reject) => {
             try {
-                const resp = await apiCall('post', '/accounts', {type: accountType}, token);
+                const resp = await apiCall('post', '/accounts', {type: accountType});
                 if(resp.error){
                     return reject(new Error(resp.error));
                 }
