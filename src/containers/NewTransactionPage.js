@@ -16,7 +16,8 @@ class NewTransactionPage extends Component {
 			amount: '',
 			counterparty: '',
 			transactionType: 'deposit',
-			accountType: '',
+			accountTypeAnotherUser: '',
+			accountTypeBetweenAcc: '',
 			err: '',
 			loading: false
 		};
@@ -58,7 +59,7 @@ class NewTransactionPage extends Component {
 				this.create({
 					amount: -1*this.state.amount,
 					counterparty: this.state.counterparty,
-					accountType: this.state.accountType,
+					accountType: this.state.accountTypeAnotherUser,
 					type: 'Transfer',
 					description: 'Transfer to ' + this.state.counterparty
 				});
@@ -67,9 +68,9 @@ class NewTransactionPage extends Component {
 				this.create({
 					amount: -1*this.state.amount,
 					counterparty: this.props.username,
-					accountType: this.state.accountType,
+					accountType: this.state.accountTypeBetweenAcc,
 					type: 'Transfer',
-					description: `Transfer to my ${this.state.accountType} account`
+					description: `Transfer to my ${this.state.accountTypeBetweenAcc} account`
 				})
 				.then(() => this.props.getAccounts());
 				break;
@@ -92,6 +93,12 @@ class NewTransactionPage extends Component {
 	}
 	
 	render() {
+		const enabledAccounts = [];
+		this.props.accounts.forEach(a => {
+			if(a._id !== this.props.match.params.accountId) {
+				enabledAccounts.push(a.type);
+			}
+		});
 		return (
 			<div>
 				<Navbar />
@@ -105,7 +112,8 @@ class NewTransactionPage extends Component {
 				)}
 				<NewTransactionForm transactionType={this.state.transactionType} amount={this.state.amount} 
 									counterparty={this.state.counterparty} number={this.state.number} 
-									loading={this.state.loading} accountType={this.state.accountType} 
+									loading={this.state.loading} accountTypeAnotherUser={this.state.accountTypeAnotherUser} 
+									accountTypeBetweenAcc={this.state.accountTypeBetweenAcc} enabledAccounts={enabledAccounts} 
 									onChange={this.onChange} onSubmit={this.onSubmit}/>
 			</div>
 		);
@@ -114,7 +122,8 @@ class NewTransactionPage extends Component {
 
 function mapStateToProps(state){
 	return {
-		username: state.authReducer.username
+		username: state.authReducer.username,
+		accounts: state.accountReducer.accounts
 	};
 }
 
