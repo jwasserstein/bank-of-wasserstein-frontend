@@ -41,3 +41,9 @@
 .NewAccountPage-disabled {
     color: #CBCBCB;
 }
+
+@media (max-width: 600px){
+    .NewAccountPage-radio {
+        padding: 1px 0 0 1px;
+    }
+}
