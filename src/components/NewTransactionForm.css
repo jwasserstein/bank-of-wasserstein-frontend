@@ -57,9 +57,3 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
-
-@media (max-width: 600px){
-  .NewTransactionForm-radio {
-      padding: 1px 0 0 1px;
-  }
-}
