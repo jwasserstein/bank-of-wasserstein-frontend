@@ -10,3 +10,4 @@
 - Add back button from account show page to account list page
 - Break NewAcountPage and AccountsPage into components where possible
 - Replace accountType with dropdown
+- When the user doesn't have any accounts or transactions, add a line item telling them so

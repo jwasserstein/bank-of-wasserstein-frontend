@@ -9,7 +9,7 @@ class NewAccountPage extends Component {
     constructor(props){
         super(props);
         this.state = {
-            accountType: 'Checking',
+            accountType: '',
             err: '',
             loading: false
         };
@@ -35,6 +35,8 @@ class NewAccountPage extends Component {
     }
 
     render(){
+        const existingAccounts = this.props.accounts.map(a => a.type);
+
         return (
             <div>
                 <Navbar />
@@ -47,16 +49,22 @@ class NewAccountPage extends Component {
                 <form className='NewAccountForm-form' onSubmit={this.onSubmit}>
                     <div className='NewAccountPage-radio-container'>
                         <div>
-                            <input type='radio' id='Checking' className='NewAccountPage-radio' value='Checking' name='accountType' onChange={this.onChange} checked={this.state.accountType === 'Checking'}/>
-                            <label htmlFor='Checking'>Checking</label>
+                            <input type='radio' id='Checking' className='NewAccountPage-radio' value='Checking' name='accountType' 
+                                onChange={this.onChange} checked={this.state.accountType === 'Checking'} disabled={existingAccounts.includes('Checking')}/>
+
+                            <label htmlFor='Checking' className={existingAccounts.includes('Checking') ? 'NewAccountPage-disabled': ''}>Checking</label>
                         </div>
                         <div>
-                            <input type='radio' id='Savings' className='NewAccountPage-radio' value='Savings' name='accountType' onChange={this.onChange} checked={this.state.accountType === 'Savings'}/>
-                            <label htmlFor='Savings'>Savings</label>
+                            <input type='radio' id='Savings' className='NewAccountPage-radio' value='Savings' name='accountType' 
+                                onChange={this.onChange} checked={this.state.accountType === 'Savings'} disabled={existingAccounts.includes('Savings')}/>
+                                
+                            <label htmlFor='Savings' className={existingAccounts.includes('Savings') ? 'NewAccountPage-disabled': ''}>Savings</label>
                         </div>
                         <div>
-                            <input type='radio' id='Investing' className='NewAccountPage-radio' value='Investing' name='accountType' onChange={this.onChange} checked={this.state.accountType === 'Investing'}/>
-                            <label htmlFor='Investing'>Investing</label>
+                            <input type='radio' id='Investing' className='NewAccountPage-radio' value='Investing' name='accountType' 
+                                onChange={this.onChange} checked={this.state.accountType === 'Investing'} disabled={existingAccounts.includes('Investing')}/>
+                                
+                            <label htmlFor='Investing' className={existingAccounts.includes('Investing') ? 'NewAccountPage-disabled': ''}>Investing</label>
                         </div>
                     </div>
                     <button type='submit' className='NewAccountForm-form-btn'>
@@ -68,4 +76,10 @@ class NewAccountPage extends Component {
     }
 }
 
-export default connect(null, {createAccount})(NewAccountPage);
+function mapStateToProps(state){
+    return {
+        accounts: state.accountReducer.accounts
+    };
+}
+
+export default connect(mapStateToProps, {createAccount})(NewAccountPage);
