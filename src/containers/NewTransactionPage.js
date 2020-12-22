@@ -25,6 +25,12 @@ class NewTransactionPage extends Component {
 		this.onChange = this.onChange.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
 	}
+
+	componentDidMount(){
+        if(!this.props.lastUpdated){
+            this.props.getAccounts();
+        }
+    }
 	
 	create(transaction){
 		const accountId = this.props.match.params.accountId;
@@ -127,7 +133,8 @@ class NewTransactionPage extends Component {
 function mapStateToProps(state){
 	return {
 		username: state.authReducer.username,
-		accounts: state.accountReducer.accounts
+		accounts: state.accountReducer.accounts,
+		lastUpdated: state.accountReducer.lastUpdated
 	};
 }
 
