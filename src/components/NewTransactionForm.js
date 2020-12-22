@@ -19,7 +19,7 @@ const NewTransactionForm = props => {
             ])}
             {['transferAnotherUser'].includes(props.transactionType) && ([
                 <label key='label-accountType' htmlFor='accountTypeAnotherUser'>Account Type:</label>,
-                <div className='NewTransactionForm-radio-container'>
+                <div className='NewTransactionForm-radio-container' key='radio-container'>
                     <div>
                         <input type='radio' id='Checking' className='NewTransactionForm-radio' value='Checking' name='accountTypeAnotherUser' 
                             onChange={props.onChange} checked={props.accountTypeAnotherUser === 'Checking'} />
@@ -39,7 +39,7 @@ const NewTransactionForm = props => {
             ])}
             {['transferBetweenAccounts'].includes(props.transactionType) && ([
                 <label key='label-accountType' htmlFor='accountTypeBetweenAcc'>Account Type:</label>,
-                <div className='NewTransactionForm-radio-container'>
+                <div className='NewTransactionForm-radio-container' key='radio-container'>
                     <div>
                         <input type='radio' id='Checking' className='NewTransactionForm-radio' value='Checking' name='accountTypeBetweenAcc' 
                             onChange={props.onChange} checked={props.accountTypeBetweenAcc === 'Checking'} disabled={!props.enabledAccounts.includes('Checking')}/>
