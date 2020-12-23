@@ -1,6 +1,5 @@
 import React from 'react';
 import Hero from '../components/Hero';
-import Navbar from './Navbar';
 import Feature from '../components/Feature';
 import Join from '../components/Join';
 import './LandingPage.css';
@@ -9,7 +8,6 @@ const LandingPage = () => {
     return (
         <div>
             <main className='LandingPage-main'>
-                <Navbar />
                 <Hero />
             </main>
             <section className="LandingPage-secondary-container" key='LandingPage-secondary-container'>

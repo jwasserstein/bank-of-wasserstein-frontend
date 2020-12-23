@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getTransactions} from '../store/actions/transactions';
 import TransactionList from '../components/TransactionList';
-import Navbar from './Navbar';
 import TransactionButtons from '../components/TransactionButtons';
 import './TransactionPage.css';
 
@@ -24,7 +23,6 @@ class TransactionPage extends Component {
 
 		return (
 			<div>
-				<Navbar />
 				<h2 className='TransactionPage-message'>Review your transactions.</h2>
 				<TransactionButtons accountBalance={transactions[0] ? transactions[0].accountBalance : 0} accountId={accountId} />
 				<TransactionList transactions={transactions} />

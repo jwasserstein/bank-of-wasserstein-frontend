@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import Account from '../components/Account';
 import {Link} from 'react-router-dom';
 import Balance from '../components/Balance';
-import Navbar from './Navbar';
 import {getAccounts} from '../store/actions/accounts';
 import './AccountsPage.css';
 
@@ -19,7 +18,6 @@ class AccountsPage extends Component {
 
         return (
             <div>
-                <Navbar />
                 <h2 className='AccountsPage-message'>Select an account.</h2>
                 <div className="AccountsPage-btn-container">
                     <Link to='/accounts/new' className='AccountsPage-btn'>New Account</Link>

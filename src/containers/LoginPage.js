@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {logIn} from '../store/actions/auth';
-import Navbar from './Navbar';
 import Message from '../components/Message';
 import Form from '../components/Form';
 import {getAccounts} from '../store/actions/accounts';
@@ -43,7 +42,6 @@ class LoginPage extends Component {
 
 		return (
 			<div>
-				<Navbar />
 				<h2 className='LoginPage-message' key='LoginPage-message'>Log in to Bank of Wasserstein.</h2>
 				{this.state.error && (
 					<Message color='red'>

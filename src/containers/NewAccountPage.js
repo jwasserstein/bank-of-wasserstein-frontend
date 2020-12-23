@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import Navbar from './Navbar';
 import {createAccount} from '../store/actions/accounts';
 import Message from '../components/Message';
 import './NewAccountPage.css';
@@ -39,7 +38,6 @@ class NewAccountPage extends Component {
 
         return (
             <div>
-                <Navbar />
                 <h2 className='NewAccountPage-message'>Select an account type.</h2>
                 {this.state.err && (
                     <Message>

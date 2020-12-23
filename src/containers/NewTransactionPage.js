@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {generateTransactions, createTransaction, getTransactions} from '../store/actions/transactions';
 import TransactionType from '../components/TransactionType';
-import Navbar from './Navbar';
 import NewTransactionForm from '../components/NewTransactionForm';
 import Message from '../components/Message';
 import {getAccounts} from '../store/actions/accounts';
@@ -111,7 +110,6 @@ class NewTransactionPage extends Component {
 		});
 		return (
 			<div>
-				<Navbar />
 				<h2 className='NewTransactionPage-message'>Select a transaction type.</h2>
 				<TransactionType transactionType={this.state.transactionType} onChange={this.onChange} />
 				<h2 className='NewTransactionPage-message'>Enter your transaction details.</h2>
