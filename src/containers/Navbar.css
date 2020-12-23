@@ -9,6 +9,7 @@
     left: 0;
     width: 100%;
     box-sizing: border-box;
+    z-index: 1;
 }
 
 .Navbar-brand h1 {
