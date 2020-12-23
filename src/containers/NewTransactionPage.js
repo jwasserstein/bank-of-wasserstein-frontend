@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {generateTransactions, createTransaction, getTransactions} from '../store/actions/transactions';
-import TransactionType from '../components/TransactionType';
-import Navbar from './Navbar';
 import NewTransactionForm from '../components/NewTransactionForm';
 import Message from '../components/Message';
 import {getAccounts} from '../store/actions/accounts';
+import RadioContainer from '../components/RadioContainer';
 import './NewTransactionPage.css';
 
 class NewTransactionPage extends Component {
@@ -15,7 +14,7 @@ class NewTransactionPage extends Component {
 			number: '',
 			amount: '',
 			counterparty: '',
-			transactionType: 'deposit',
+			transactionType: 'Deposit',
 			accountTypeAnotherUser: '',
 			accountTypeBetweenAcc: '',
 			err: '',
@@ -47,21 +46,21 @@ class NewTransactionPage extends Component {
 		e.preventDefault();
 		const accountId = this.props.match.params.accountId;
 		switch(this.state.transactionType){
-			case 'deposit':
+			case 'Deposit':
 				this.create({
 					amount: this.state.amount,
 					type: 'Deposit',
 					description: 'Deposit'
 				});
 				break;
-			case 'withdrawal':
+			case 'Withdrawal':
 				this.create({
 					amount: -1*this.state.amount,
 					type: 'Withdrawal',
 					description: 'Withdrawal'
 				});
 				break;
-			case 'transferAnotherUser':
+			case 'Transfer to another user':
 				this.create({
 					amount: -1*this.state.amount,
 					counterparty: this.state.counterparty,
@@ -70,7 +69,7 @@ class NewTransactionPage extends Component {
 					description: 'Transfer to ' + this.state.counterparty
 				});
 				break;
-			case 'transferBetweenAccounts':
+			case 'Transfer between my accounts':
 				this.create({
 					amount: -1*this.state.amount,
 					counterparty: this.props.username,
@@ -84,7 +83,7 @@ class NewTransactionPage extends Component {
 					this.props.getTransactions(recipientAccountId);
 				});
 				break;
-			case 'generate':
+			case 'Generate':
 				this.setState({...this.state, loading: true});
 				this.props.generateTransactions(+this.state.number, accountId)
 					.then(() => {
@@ -109,11 +108,18 @@ class NewTransactionPage extends Component {
 				enabledAccounts.push(a.type);
 			}
 		});
+
+		const radios = [
+			{label: 'Deposit', checked: this.state.transactionType === 'Deposit'},
+			{label: 'Withdrawal', checked: this.state.transactionType === 'Withdrawal'},
+			{label: 'Transfer to another user', checked: this.state.transactionType === 'Transfer to another user'},
+			{label: 'Transfer between my accounts', checked: this.state.transactionType === 'Transfer between my accounts'},
+			{label: 'Generate', checked: this.state.transactionType === 'Generate'}
+		];
 		return (
 			<div>
-				<Navbar />
 				<h2 className='NewTransactionPage-message'>Select a transaction type.</h2>
-				<TransactionType transactionType={this.state.transactionType} onChange={this.onChange} />
+				<RadioContainer radios={radios} name='transactionType' onChange={this.onChange}/>
 				<h2 className='NewTransactionPage-message'>Enter your transaction details.</h2>
 				{this.state.err && (
 					<Message>

@@ -23,3 +23,20 @@
     padding: 15px;
     box-sizing: border-box;
 }
+
+.LandingPage-join {
+    margin: 160px auto 80px auto;
+    text-align: center;
+}
+
+.LandingPage-join h3 {
+    font-weight: 700;
+    font-size: 36px;
+    margin: 10px 0;
+}
+
+@media(max-width:900px) {
+    .LandingPage-join {
+        margin: 80px auto 40px auto;
+    }
+}

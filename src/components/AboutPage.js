@@ -1,10 +1,8 @@
 import React from 'react';
-import Navbar from '../containers/Navbar';
 import './AboutPage.css';
 
 const AboutPage = () => (
     <div>
-        <Navbar />
         <div className='AboutPage-container'>
             <h2 className='AboutPage-title'>About BANK OF WASSERSTEIN</h2>
             <p>BANK OF WASSERSTEIN is a demonstration banking application that allows users to create accounts and submit transactions.  

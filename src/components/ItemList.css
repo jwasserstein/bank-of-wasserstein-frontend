@@ -1,4 +1,4 @@
-.TransactionList-container {
+.ItemList-container {
     box-sizing: border-box;
     max-width: 550px;
     width: 90%;
@@ -7,10 +7,9 @@
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-    padding: 0 12px;
 }
 
-.TransactionList-placeholder {
+.ItemList-placeholder {
     height: 64px;
     display: flex;
     justify-content: center;

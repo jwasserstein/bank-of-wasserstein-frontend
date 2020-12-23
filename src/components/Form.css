@@ -19,17 +19,5 @@
 }
 
 .Form-btn {
-    margin: 10px 0 0 0;
-    height: 40px;
-    background: #000000;
-    border: none;
-    border-radius: 7px;
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-}
-
-.Form-btn:hover {
-    background-color: #3E3E3E;
-    cursor: pointer;
+    margin-top: 10px;
 }

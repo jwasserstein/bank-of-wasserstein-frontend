@@ -1,23 +1,24 @@
 import React from 'react';
+import Button from './Button';
 import './NewTransactionForm.css';
 
 const NewTransactionForm = props => {
     return (
         <form className='NewTransactionForm-form' onSubmit={props.onSubmit}>
-            {['deposit', 'withdrawal', 'transferAnotherUser', 'transferBetweenAccounts'].includes(props.transactionType) && ([
+            {['Deposit', 'Withdrawal', 'Transfer to another user', 'Transfer between my accounts'].includes(props.transactionType) && ([
                 <label key='label' htmlFor='amount'>Amount:</label>,
                 <input key='input' type='number' className='NewTransactionForm-field' name='amount' 
                         id='amount' placeholder='Amount' min='0.01' step='0.01' value={props.amount} 
-                        onChange={props.onChange} autoComplete='off' required />
+                        onChange={props.onChange} autoComplete='off' autoCorrect='off' autoCapitalize='none' required />
             ])}
 
-            {['transferAnotherUser'].includes(props.transactionType) && ([
+            {['Transfer to another user'].includes(props.transactionType) && ([
                 <label key='label-counterparty' htmlFor='counterparty'>Counterparty:</label>,
                 <input key='input-counterparty' type='text' className='NewTransactionForm-field' name='counterparty' 
                         id='counterparty' placeholder='Counterparty' value={props.counterparty} 
-                        onChange={props.onChange} autoComplete='off' required />
+                        onChange={props.onChange} autoComplete='off' autoCorrect='off' autoCapitalize='none' required />
             ])}
-            {['transferAnotherUser'].includes(props.transactionType) && ([
+            {['Transfer to another user'].includes(props.transactionType) && ([
                 <label key='label-accountType' htmlFor='accountTypeAnotherUser'>Account Type:</label>,
                 <div className='NewTransactionForm-radio-container' key='radio-container'>
                     <div>
@@ -37,7 +38,7 @@ const NewTransactionForm = props => {
                     </div>
                 </div>
             ])}
-            {['transferBetweenAccounts'].includes(props.transactionType) && ([
+            {['Transfer between my accounts'].includes(props.transactionType) && ([
                 <label key='label-accountType' htmlFor='accountTypeBetweenAcc'>Account Type:</label>,
                 <div className='NewTransactionForm-radio-container' key='radio-container'>
                     <div>
@@ -61,16 +62,16 @@ const NewTransactionForm = props => {
                 </div>
             ])}
 
-            {['generate'].includes(props.transactionType) && ([
+            {['Generate'].includes(props.transactionType) && ([
                 <label key='label' htmlFor='number'>Number:</label>,
                 <input key='input' type='number' className='NewTransactionForm-field' name='number' 
                         id='number' placeholder='Number' min='1' step='1' value={props.number} 
-                        onChange={props.onChange} autoComplete='off' required />
+                        onChange={props.onChange} autoComplete='off' autoCorrect='off' autoCapitalize='none' required />
             ])}
 
-            <button type='submit' className='NewTransactionForm-form-btn'>
+            <Button form className='NewTransactionForm-form-btn'>
                 {props.loading ? 'Loading...' : 'Create Transaction'}
-            </button>
+            </Button>
         </form>
     );
 }

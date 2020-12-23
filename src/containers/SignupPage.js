@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {signUp} from '../store/actions/auth';
-import Navbar from './Navbar';
 import Message from '../components/Message';
 import Form from '../components/Form';
 import './SignupPage.css';
@@ -49,7 +48,6 @@ class SignupPage extends Component {
 
 		return (
 			<div>
-				<Navbar />
 				<h2 className='SignupPage-message'>Make an account.</h2>
 				{this.state.error && (
 					<Message>

@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getTransactions} from '../store/actions/transactions';
-import TransactionList from '../components/TransactionList';
-import Navbar from './Navbar';
-import TransactionButtons from '../components/TransactionButtons';
+import Button from '../components/Button';
+import Balance from '../components/Balance';
+import ItemList from '../components/ItemList';
+import Transaction from '../components/Transaction';
 import './TransactionPage.css';
 
 class TransactionPage extends Component {
@@ -24,10 +25,18 @@ class TransactionPage extends Component {
 
 		return (
 			<div>
-				<Navbar />
 				<h2 className='TransactionPage-message'>Review your transactions.</h2>
-				<TransactionButtons accountBalance={transactions[0] ? transactions[0].accountBalance : 0} accountId={accountId} />
-				<TransactionList transactions={transactions} />
+				<div className='TransactionPage-btn-container'>
+					<Button to={`/accounts/${accountId}/transactions/new`}>New Transaction</Button>
+					<Balance accountBalance={transactions[0] ? transactions[0].accountBalance : 0} />
+				</div>
+				<ItemList items={transactions} ItemComponent={Transaction} itemName='transactions' itemProps={{
+					date: 'date',
+					description: 'description',
+					amount: 'amount',
+					accountBalance: 'accountBalance',
+					key: 'transactionNumber'
+				}} />
 			</div>
 		);
 	}

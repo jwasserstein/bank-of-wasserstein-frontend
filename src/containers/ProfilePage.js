@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import Navbar from './Navbar';
 import './ProfilePage.css';
 import dayjs from 'dayjs';
 import {apiCall} from '../services/api';
@@ -68,7 +67,6 @@ class ProfilePage extends Component{
 
         return (
             <div style={{marginBottom: '20px'}}>
-                <Navbar />
                 <h2 className='ProfilePage-message'>View your profile.</h2>
                 <div className='ProfilePage-fields'>
                     <div>

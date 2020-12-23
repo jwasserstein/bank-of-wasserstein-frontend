@@ -1,15 +1,19 @@
-.NewTransactionPage-radio-container {
+.RadioContainer-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.NewTransactionPage-radio {
+.RadioContainer-radio {
     margin-left: 15px;
 }
 
+.RadioContainer-disabled {
+    color: #CBCBCB;
+}
+
 @media (max-width:900px){
-    .NewTransactionPage-radio-container {
+    .RadioContainer-container {
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
