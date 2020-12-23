@@ -44,7 +44,10 @@ class Navbar extends Component{
 					{this.props.username ?
 						<div className='Navbar-links-right'>
 							<Link onClick={this.closeMenu} to='/profile' className='Navbar-link'>{this.props.username}</Link>
-							<Link onClick={this.closeMenu} to='/login' className='Navbar-link Navbar-signup-btn' onClick={this.props.logOut}>Sign Out</Link>
+							<Link onClick={() => {
+								this.closeMenu(); 
+								this.props.logOut();
+								}} to='/login' className='Navbar-link Navbar-signup-btn' >Sign Out</Link>
 						</div> : 
 						<div className='Navbar-links-right'>
 							<Link onClick={this.closeMenu} to='/login' className='Navbar-link'>Log In</Link>
