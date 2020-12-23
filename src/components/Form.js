@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from './Button';
 import './Form.css';
 
 const Form = props => {
@@ -12,9 +13,9 @@ const Form = props => {
     return (
         <form className='Form-form' onSubmit={props.onSubmit}>
             {fields}      
-            <button type='submit' className='Form-btn'>
+            <Button form className='Form-btn'>
                 {props.loading ? 'Loading...' : 'Submit'}
-            </button>
+            </Button>
         </form>
         );
 };

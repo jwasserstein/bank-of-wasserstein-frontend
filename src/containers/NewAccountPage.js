@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {createAccount} from '../store/actions/accounts';
 import Message from '../components/Message';
+import Button from '../components/Button';
 import './NewAccountPage.css';
 
 class NewAccountPage extends Component {
@@ -65,9 +66,9 @@ class NewAccountPage extends Component {
                             <label htmlFor='Investing' className={existingAccounts.includes('Investing') ? 'NewAccountPage-disabled': ''}>Investing</label>
                         </div>
                     </div>
-                    <button type='submit' className='NewAccountForm-form-btn'>
+                    <Button form className='NewAccountForm-form-btn'>
                         {this.state.loading ? 'Loading...' : 'Create Account'}
-                    </button>
+                    </Button>
                 </form>
             </div>
         );

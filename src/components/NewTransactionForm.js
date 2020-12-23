@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from './Button';
 import './NewTransactionForm.css';
 
 const NewTransactionForm = props => {
@@ -68,9 +69,9 @@ const NewTransactionForm = props => {
                         onChange={props.onChange} autoComplete='off' required />
             ])}
 
-            <button type='submit' className='NewTransactionForm-form-btn'>
+            <Button form className='NewTransactionForm-form-btn'>
                 {props.loading ? 'Loading...' : 'Create Transaction'}
-            </button>
+            </Button>
         </form>
     );
 }

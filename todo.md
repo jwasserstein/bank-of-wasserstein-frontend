@@ -5,10 +5,11 @@
 - Add delete account button to profile page
 - Add proptypes
 - Make list of items a component (list of accounts, list of transactions, etc)
-- Make button and display a component (new account, account balances.  new transaction, transaction balances)
+- Make display a component (new account, account balances.  new transaction, transaction balances)
 - Break NewAcountPage and AccountsPage into components where possible
 - Add a display to the transaction page showing which account you're looking at
 - Make different transfer types separate components
+- Increase z-index of navbar, disabled radio buttons show through on iOS
 
 
 # General Component Ideas

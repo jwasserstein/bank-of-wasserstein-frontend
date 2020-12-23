@@ -1,11 +1,11 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import Balance from './Balance';
+import Button from '../components/Button';
 import './TransactionButtons.css'
 
 const TransactionButtons = props => (
     <div className="TransactionButtons-btn-container">
-        <Link to={`/accounts/${props.accountId}/transactions/new`} className='TransactionButtons-btn'>New Transaction</Link>
+        <Button to={`/accounts/${props.accountId}/transactions/new`}>New Transaction</Button>
         <Balance {...props} />
     </div>
 );

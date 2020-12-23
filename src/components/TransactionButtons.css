@@ -5,20 +5,3 @@
     width: 90%;
     margin: 10px auto;
 }
-
-.TransactionButtons-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #000000;
-    border: none;
-    border-radius: 7px;
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-}
-
-.TransactionButtons-btn:hover {
-    background-color: #3E3E3E;
-    cursor: pointer;
-}

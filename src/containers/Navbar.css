@@ -111,9 +111,13 @@
         padding: 10px 15px;
         border-radius: 5px;
         color: white;
+        text-decoration: none;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
     }
 
     .Navbar .Navbar-signup-btn:hover {
         background-color: #3E3E3E;
+        cursor: pointer;
     }
 }

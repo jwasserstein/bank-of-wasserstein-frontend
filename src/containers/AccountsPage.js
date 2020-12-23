@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Account from '../components/Account';
-import {Link} from 'react-router-dom';
+import Button from '../components/Button';
 import Balance from '../components/Balance';
 import {getAccounts} from '../store/actions/accounts';
 import './AccountsPage.css';
@@ -20,7 +20,7 @@ class AccountsPage extends Component {
             <div>
                 <h2 className='AccountsPage-message'>Select an account.</h2>
                 <div className="AccountsPage-btn-container">
-                    <Link to='/accounts/new' className='AccountsPage-btn'>New Account</Link>
+                    <Button to='/accounts/new'>New Account</Button>
                     <Balance accountBalance={totalBalance} />
                 </div>
                 <div className="AccountsPage-container">

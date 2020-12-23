@@ -1,7 +1,7 @@
 import React from 'react';
 import Hero from '../components/Hero';
 import Feature from '../components/Feature';
-import Join from '../components/Join';
+import Button from '../components/Button';
 import './LandingPage.css';
 
 const LandingPage = () => {
@@ -14,7 +14,10 @@ const LandingPage = () => {
                 <Feature title='Make Deposits.' description='Deposit your spare cash with our easy-to-use system.' />
                 <Feature title='Make Withdrawals.' description='Access your cash when you need it, from the convenience of your laptop.' />
                 <Feature title='Make Transfers.' description='Transfer money to your friends with the click of a button.' />
-                <Join />
+                <div className="LandingPage-join">
+                    <h3>Join Today!</h3>
+                    <Button to="/signup">Sign Up</Button>
+                </div>
             </section>
             <footer className='LandingPage-footer'>
                 For demonstration purposes only, not a real bank.  Made by Justin Wasserstein in 2020.
