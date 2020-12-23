@@ -9,8 +9,3 @@
 - Make different transfer types separate components
 - Increase z-index of navbar, disabled radio buttons show through on iOS
 - Consider replacing all width: 90%, max-width: 550px with a single container that has those properties
-
-
-# General Component Ideas
-- Radio button input form (TransactionType and NewAccountPage)
-- Break up NewTransactionForm so each field is a separate instance of the Form component
