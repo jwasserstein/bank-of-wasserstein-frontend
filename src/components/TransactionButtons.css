@@ -1,7 +1,0 @@
-.TransactionButtons-btn-container {
-    display: flex;
-    justify-content: space-between;
-    max-width: 550px;
-    width: 90%;
-    margin: 10px auto;
-}

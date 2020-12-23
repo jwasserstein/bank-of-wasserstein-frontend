@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getTransactions} from '../store/actions/transactions';
 import TransactionList from '../components/TransactionList';
-import TransactionButtons from '../components/TransactionButtons';
+import Button from '../components/Button';
+import Balance from '../components/Balance';
 import './TransactionPage.css';
 
 class TransactionPage extends Component {
@@ -24,7 +25,10 @@ class TransactionPage extends Component {
 		return (
 			<div>
 				<h2 className='TransactionPage-message'>Review your transactions.</h2>
-				<TransactionButtons accountBalance={transactions[0] ? transactions[0].accountBalance : 0} accountId={accountId} />
+				<div className='TransactionPage-btn-container'>
+					<Button to={`/accounts/${accountId}/transactions/new`}>New Transaction</Button>
+					<Balance accountBalance={transactions[0] ? transactions[0].accountBalance : 0} />
+				</div>
 				<TransactionList transactions={transactions} />
 			</div>
 		);
