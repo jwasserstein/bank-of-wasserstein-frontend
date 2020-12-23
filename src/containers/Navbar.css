@@ -66,6 +66,10 @@
     align-items: center;
 }
 
+.Navbar-spacer {
+    height: 30px;
+}
+
 @media (max-width: 900px){
     .Navbar {
         flex-direction: column;
