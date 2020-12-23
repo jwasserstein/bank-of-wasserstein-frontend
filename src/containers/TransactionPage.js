@@ -22,10 +22,12 @@ class TransactionPage extends Component {
 		}
 		
 		const transactions = this.props.transactionReducer[accountId].transactions;
+		const accountType = this.props.accounts.find(a => a._id === accountId).type;
 
 		return (
 			<div>
 				<h2 className='TransactionPage-message'>Review your transactions.</h2>
+				<p className='TransactionPage-account-type'>{accountType} Account</p>
 				<div className='TransactionPage-btn-container'>
 					<Button to={`/accounts/${accountId}/transactions/new`}>New Transaction</Button>
 					<Balance accountBalance={transactions[0] ? transactions[0].accountBalance : 0} />
@@ -44,7 +46,8 @@ class TransactionPage extends Component {
 
 function mapStateToProps(state){
 	return {
-		transactionReducer: state.transactionReducer
+		transactionReducer: state.transactionReducer,
+		accounts: state.accountReducer.accounts,
 	};
 }
 

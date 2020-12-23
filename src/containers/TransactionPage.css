@@ -1,6 +1,6 @@
 .TransactionPage-message {
     text-align: center;
-    margin: 10vh 0 20px 0;
+    margin: 10vh 0 5px 0;
 }
 
 .TransactionPage-btn-container {
@@ -9,4 +9,10 @@
     max-width: 550px;
     width: 90%;
     margin: 10px auto;
+}
+
+.TransactionPage-account-type {
+    text-align: center;
+    margin: 0 0 15px 0;
+    font-size: 20px;
 }
