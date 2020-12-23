@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import Account from '../components/Account';
 import Button from '../components/Button';
 import Balance from '../components/Balance';
+import ItemList from '../components/ItemList';
 import {getAccounts} from '../store/actions/accounts';
 import './AccountsPage.css';
 
@@ -15,6 +16,7 @@ class AccountsPage extends Component {
 
     render() {
         const totalBalance = this.props.accounts && this.props.accounts.reduce((acc, next) => acc + next.accountBalance, 0);
+        const accountArray = this.props.accounts && this.props.accounts.map(a => ({...a, link: `/accounts/${a._id}`}));  //create a link property to make it easier to pass data to ItemList
 
         return (
             <div>
@@ -23,17 +25,12 @@ class AccountsPage extends Component {
                     <Button to='/accounts/new'>New Account</Button>
                     <Balance accountBalance={totalBalance} />
                 </div>
-                <div className="AccountsPage-container">
-                    {this.props.accounts && 
-                    this.props.accounts.map(a => 
-                        <Account type={a.type} link={`/accounts/${a._id}`} accountBalance={a.accountBalance} key={a.type} />
-                    )}
-                    {!this.props.accounts.length && (
-                        <div className='AccountsPage-placeholder'>
-                            You don't have any accounts yet!
-                        </div>
-                    )}
-                </div>
+                <ItemList items={accountArray} ItemComponent={Account} itemName='accounts' itemProps={{
+                        type: 'type',
+                        link: 'link',
+                        accountBalance: 'accountBalance',
+                        key: 'type'
+                    }}/>
             </div>
         );
     }
