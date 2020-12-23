@@ -4,7 +4,6 @@
 - Make everything smaller
 - Add delete account button to profile page
 - Add proptypes
-- Make list of items a component (list of accounts, list of transactions, etc)
 - Break NewAcountPage and AccountsPage into components where possible
 - Add a display to the transaction page showing which account you're looking at
 - Make different transfer types separate components

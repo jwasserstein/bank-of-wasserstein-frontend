@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {createAccount} from '../store/actions/accounts';
 import Message from '../components/Message';
 import Button from '../components/Button';
+import RadioContainer from '../components/RadioContainer';
 import './NewAccountPage.css';
 
 class NewAccountPage extends Component {
@@ -36,6 +37,11 @@ class NewAccountPage extends Component {
 
     render(){
         const existingAccounts = this.props.accounts.map(a => a.type);
+        const radios = [
+            {label: 'Checking', checked: this.state.accountType === 'Checking', disabled: existingAccounts.includes('Checking')},
+            {label: 'Savings', checked: this.state.accountType === 'Savings', disabled: existingAccounts.includes('Savings')},
+            {label: 'Investing', checked: this.state.accountType === 'Investing', disabled: existingAccounts.includes('Investing')},
+        ];
 
         return (
             <div>
@@ -46,26 +52,7 @@ class NewAccountPage extends Component {
                     </Message>
                 )}
                 <form className='NewAccountForm-form' onSubmit={this.onSubmit}>
-                    <div className='NewAccountPage-radio-container'>
-                        <div>
-                            <input type='radio' id='Checking' className='NewAccountPage-radio' value='Checking' name='accountType' 
-                                onChange={this.onChange} checked={this.state.accountType === 'Checking'} disabled={existingAccounts.includes('Checking')}/>
-
-                            <label htmlFor='Checking' className={existingAccounts.includes('Checking') ? 'NewAccountPage-disabled': ''}>Checking</label>
-                        </div>
-                        <div>
-                            <input type='radio' id='Savings' className='NewAccountPage-radio' value='Savings' name='accountType' 
-                                onChange={this.onChange} checked={this.state.accountType === 'Savings'} disabled={existingAccounts.includes('Savings')}/>
-                                
-                            <label htmlFor='Savings' className={existingAccounts.includes('Savings') ? 'NewAccountPage-disabled': ''}>Savings</label>
-                        </div>
-                        <div>
-                            <input type='radio' id='Investing' className='NewAccountPage-radio' value='Investing' name='accountType' 
-                                onChange={this.onChange} checked={this.state.accountType === 'Investing'} disabled={existingAccounts.includes('Investing')}/>
-                                
-                            <label htmlFor='Investing' className={existingAccounts.includes('Investing') ? 'NewAccountPage-disabled': ''}>Investing</label>
-                        </div>
-                    </div>
+                    <RadioContainer radios={radios} name='accountType' onChange={this.onChange} />
                     <Button form className='NewAccountForm-form-btn'>
                         {this.state.loading ? 'Loading...' : 'Create Account'}
                     </Button>
