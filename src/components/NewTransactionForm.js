@@ -9,14 +9,14 @@ const NewTransactionForm = props => {
                 <label key='label' htmlFor='amount'>Amount:</label>,
                 <input key='input' type='number' className='NewTransactionForm-field' name='amount' 
                         id='amount' placeholder='Amount' min='0.01' step='0.01' value={props.amount} 
-                        onChange={props.onChange} autoComplete='off' required />
+                        onChange={props.onChange} autoComplete='off' autoCorrect='off' autoCapitalize='none' required />
             ])}
 
             {['transferAnotherUser'].includes(props.transactionType) && ([
                 <label key='label-counterparty' htmlFor='counterparty'>Counterparty:</label>,
                 <input key='input-counterparty' type='text' className='NewTransactionForm-field' name='counterparty' 
                         id='counterparty' placeholder='Counterparty' value={props.counterparty} 
-                        onChange={props.onChange} autoComplete='off' required />
+                        onChange={props.onChange} autoComplete='off' autoCorrect='off' autoCapitalize='none' required />
             ])}
             {['transferAnotherUser'].includes(props.transactionType) && ([
                 <label key='label-accountType' htmlFor='accountTypeAnotherUser'>Account Type:</label>,
@@ -66,7 +66,7 @@ const NewTransactionForm = props => {
                 <label key='label' htmlFor='number'>Number:</label>,
                 <input key='input' type='number' className='NewTransactionForm-field' name='number' 
                         id='number' placeholder='Number' min='1' step='1' value={props.number} 
-                        onChange={props.onChange} autoComplete='off' required />
+                        onChange={props.onChange} autoComplete='off' autoCorrect='off' autoCapitalize='none' required />
             ])}
 
             <Button form className='NewTransactionForm-form-btn'>
