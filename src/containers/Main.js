@@ -4,7 +4,7 @@ import TransactionPage from './TransactionPage';
 import withAuth from '../hocs/withAuth';
 import SignupPage from './SignupPage';
 import NewTransactionPage from './NewTransactionPage';
-import LandingPage from './LandingPage';
+import LandingPage from '../components/LandingPage';
 import AboutPage from '../components/AboutPage';
 import ProfilePage from './ProfilePage';
 import AccountsPage from './AccountsPage';

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {logOut} from '../store/actions/auth';
+import PropTypes from 'prop-types';
 import './Navbar.css';
 
 class Navbar extends Component{
@@ -25,10 +26,13 @@ class Navbar extends Component{
 	}
 
 	render() {
+		const {username, logOut} = this.props;
+		const {menuActive} = this.state;
+
 		return (
 			<div>
 				<div className='Navbar-spacer'></div>
-				<header className={'Navbar ' + this.state.menuActive}>
+				<header className={'Navbar ' + menuActive}>
 					<div className='Navbar-burger' onClick={this.toggleMenu}>
 						<span className='Navbar-bar'></span>
 						<span className='Navbar-bar'></span>
@@ -41,12 +45,12 @@ class Navbar extends Component{
 						<Link onClick={this.closeMenu} to='/accounts' className='Navbar-link'>Accounts</Link>
 						<Link onClick={this.closeMenu} to='/about' className='Navbar-link'>About</Link>
 					</div>
-					{this.props.username ?
+					{username ?
 						<div className='Navbar-links-right'>
-							<Link onClick={this.closeMenu} to='/profile' className='Navbar-link'>{this.props.username}</Link>
+							<Link onClick={this.closeMenu} to='/profile' className='Navbar-link'>{username}</Link>
 							<Link onClick={() => {
 								this.closeMenu(); 
-								this.props.logOut();
+								logOut();
 								}} to='/login' className='Navbar-link Navbar-signup-btn' >Sign Out</Link>
 						</div> : 
 						<div className='Navbar-links-right'>
@@ -64,5 +68,10 @@ function mapStateToProps(state){
 		username: state.authReducer.username
 	};
 }
+
+Navbar.propTypes = {
+	username: PropTypes.string,
+	logOut: PropTypes.func.isRequired
+};
 
 export default connect(mapStateToProps, {logOut})(Navbar);

@@ -6,6 +6,7 @@ import Button from '../components/Button';
 import Balance from '../components/Balance';
 import ItemList from '../components/ItemList';
 import Transaction from '../components/Transaction';
+import PropTypes from 'prop-types';
 import './TransactionPage.css';
 
 class TransactionPage extends Component {
@@ -28,13 +29,15 @@ class TransactionPage extends Component {
 	}
 	
 	render(){
-		const accountId = this.props.match.params.accountId;
-		if(!this.props.transactionReducer[accountId]){
+		const {match, transactionReducer, accounts} = this.props;
+
+		const accountId = match.params.accountId;
+		if(!transactionReducer[accountId]){
 			return <div></div>;
 		}
 		
-		const transactions = this.props.transactionReducer[accountId].transactions;
-		const accountType = this.props.accounts.find(a => a._id === accountId)?.type;
+		const transactions = transactionReducer[accountId].transactions;
+		const accountType = accounts.find(a => a._id === accountId)?.type;
 
 		return (
 			<div>
@@ -66,5 +69,14 @@ function mapStateToProps(state){
 		accounts: state.accountReducer.accounts,
 	};
 }
+
+TransactionPage.propTypes = {
+	transactionReducer: PropTypes.object.isRequired,
+	accounts: PropTypes.array.isRequired,
+	getTransactions: PropTypes.func.isRequired,
+	deleteAccount: PropTypes.func.isRequired,
+	match: PropTypes.object.isRequired,
+	history: PropTypes.object.isRequired
+};
 
 export default connect(mapStateToProps, {getTransactions, deleteAccount})(TransactionPage);

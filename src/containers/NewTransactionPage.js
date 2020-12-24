@@ -5,6 +5,7 @@ import NewTransactionForm from '../components/NewTransactionForm';
 import Message from '../components/Message';
 import {getAccounts} from '../store/actions/accounts';
 import RadioContainer from '../components/RadioContainer';
+import PropTypes from 'prop-types';
 import './NewTransactionPage.css';
 
 class NewTransactionPage extends Component {
@@ -102,34 +103,38 @@ class NewTransactionPage extends Component {
 	}
 	
 	render() {
+		const {accounts, match} = this.props;
+		const {transactionType, err, amount, counterparty, number, 
+			loading, accountTypeAnotherUser, accountTypeBetweenAcc} = this.state;
+
 		const enabledAccounts = [];
-		this.props.accounts.forEach(a => {
-			if(a._id !== this.props.match.params.accountId) {
+		accounts.forEach(a => {
+			if(a._id !== match.params.accountId) {
 				enabledAccounts.push(a.type);
 			}
 		});
 
 		const radios = [
-			{label: 'Deposit', checked: this.state.transactionType === 'Deposit'},
-			{label: 'Withdrawal', checked: this.state.transactionType === 'Withdrawal'},
-			{label: 'Transfer to another user', checked: this.state.transactionType === 'Transfer to another user'},
-			{label: 'Transfer between my accounts', checked: this.state.transactionType === 'Transfer between my accounts'},
-			{label: 'Generate', checked: this.state.transactionType === 'Generate'}
+			{label: 'Deposit', checked: transactionType === 'Deposit'},
+			{label: 'Withdrawal', checked: transactionType === 'Withdrawal'},
+			{label: 'Transfer to another user', checked: transactionType === 'Transfer to another user'},
+			{label: 'Transfer between my accounts', checked: transactionType === 'Transfer between my accounts'},
+			{label: 'Generate', checked: transactionType === 'Generate'}
 		];
 		return (
 			<div>
 				<h2 className='NewTransactionPage-message'>Select a transaction type.</h2>
 				<RadioContainer radios={radios} name='transactionType' onChange={this.onChange}/>
 				<h2 className='NewTransactionPage-message'>Enter your transaction details.</h2>
-				{this.state.err && (
+				{err && (
 					<Message>
-						{this.state.err}
+						{err}
 					</Message>
 				)}
-				<NewTransactionForm transactionType={this.state.transactionType} amount={this.state.amount} 
-									counterparty={this.state.counterparty} number={this.state.number} 
-									loading={this.state.loading} accountTypeAnotherUser={this.state.accountTypeAnotherUser} 
-									accountTypeBetweenAcc={this.state.accountTypeBetweenAcc} enabledAccounts={enabledAccounts} 
+				<NewTransactionForm transactionType={transactionType} amount={amount} 
+									counterparty={counterparty} number={number} 
+									loading={loading} accountTypeAnotherUser={accountTypeAnotherUser} 
+									accountTypeBetweenAcc={accountTypeBetweenAcc} enabledAccounts={enabledAccounts} 
 									onChange={this.onChange} onSubmit={this.onSubmit}/>
 			</div>
 		);
@@ -143,5 +148,17 @@ function mapStateToProps(state){
 		lastUpdated: state.accountReducer.lastUpdated
 	};
 }
+
+NewTransactionPage.propTypes = {
+	lastUpdated: PropTypes.number,
+	getAccounts: PropTypes.func.isRequired,
+	match: PropTypes.object.isRequired,
+	createTransaction: PropTypes.func.isRequired,
+	history: PropTypes.object.isRequired,
+	username: PropTypes.string.isRequired,
+	accounts: PropTypes.array.isRequired,
+	getTransactions: PropTypes.func.isRequired,
+	generateTransactions: PropTypes.func.isRequired
+};
 
 export default connect(mapStateToProps, {generateTransactions, createTransaction, getAccounts, getTransactions})(NewTransactionPage);

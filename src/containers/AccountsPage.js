@@ -5,6 +5,7 @@ import Button from '../components/Button';
 import Balance from '../components/Balance';
 import ItemList from '../components/ItemList';
 import {getAccounts} from '../store/actions/accounts';
+import PropTypes from 'prop-types';
 import './AccountsPage.css';
 
 class AccountsPage extends Component {
@@ -15,8 +16,10 @@ class AccountsPage extends Component {
     }
 
     render() {
-        const totalBalance = this.props.accounts && this.props.accounts.reduce((acc, next) => acc + next.accountBalance, 0);
-        const accountArray = this.props.accounts && this.props.accounts.map(a => ({...a, link: `/accounts/${a._id}`}));  //create a link property to make it easier to pass data to ItemList
+        const {accounts} = this.props;
+
+        const totalBalance = accounts && accounts.reduce((acc, next) => acc + next.accountBalance, 0);
+        const accountArray = accounts && accounts.map(a => ({...a, link: `/accounts/${a._id}`}));  //create a link property to make it easier to pass data to ItemList
 
         return (
             <div>
@@ -42,5 +45,11 @@ function mapStateToProps(state){
         lastUpdated: state.accountReducer.lastUpdated
     };
 }
+
+AccountsPage.propTypes = {
+    accounts: PropTypes.array,
+    lastUpdated: PropTypes.number,
+    getAccounts: PropTypes.func.isRequired
+};
 
 export default connect(mapStateToProps, {getAccounts})(AccountsPage);

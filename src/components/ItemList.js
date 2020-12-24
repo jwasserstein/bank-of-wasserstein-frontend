@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './ItemList.css';
 
 const ItemList = ({items, itemProps, ItemComponent, itemName}) => (
@@ -16,5 +17,12 @@ const ItemList = ({items, itemProps, ItemComponent, itemName}) => (
         )}
     </div>
 );
+
+ItemList.propTypes = {
+    items: PropTypes.array.isRequired,
+    itemProps: PropTypes.object,
+    ItemComponent: PropTypes.elementType.isRequired,
+    itemName: PropTypes.string.isRequired
+};
 
 export default ItemList;

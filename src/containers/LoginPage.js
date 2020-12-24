@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {logIn} from '../store/actions/auth';
 import Message from '../components/Message';
 import Form from '../components/Form';
-import {getAccounts} from '../store/actions/accounts';
+import PropTypes from 'prop-types';
 import './LoginPage.css';
 
 class LoginPage extends Component {
@@ -35,26 +35,33 @@ class LoginPage extends Component {
 	}
 	
 	render() {
+		const {username, password, loading, error} = this.state;
+		
 		const fields = [
-			{label: 'Username', name: 'username', type: 'text', value: this.state.username},
-			{label: 'Password', name: 'password', type: 'password', value: this.state.password},	
+			{label: 'Username', name: 'username', type: 'text', value: username},
+			{label: 'Password', name: 'password', type: 'password', value: password},	
 		];
 
 		return (
 			<div>
 				<h2 className='LoginPage-message' key='LoginPage-message'>Log in to Bank of Wasserstein.</h2>
-				{this.state.error && (
+				{error && (
 					<Message color='red'>
-						{this.state.error}
+						{error}
 					</Message>
 				)}
 				<Form onSubmit={this.onSubmit} 
 						onChange={this.onChange} 
-						loading={this.state.loading}
+						loading={loading}
 						fields={fields}	/>
 			</div>
 		);
 	}
 }
 
-export default connect(null, {logIn, getAccounts})(LoginPage);
+LoginPage.propTypes = {
+	logIn: PropTypes.func.isRequired,
+	history: PropTypes.object.isRequired
+};
+
+export default connect(null, {logIn})(LoginPage);

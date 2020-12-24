@@ -1,7 +1,7 @@
 import React from 'react';
-import Hero from '../components/Hero';
-import Feature from '../components/Feature';
-import Button from '../components/Button';
+import Hero from './Hero';
+import Feature from './Feature';
+import Button from './Button';
 import './LandingPage.css';
 import atm from '../images/atm.jpeg';
 import piggyBank from '../images/piggybank.jpeg';

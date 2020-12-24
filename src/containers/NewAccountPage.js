@@ -4,6 +4,7 @@ import {createAccount} from '../store/actions/accounts';
 import Message from '../components/Message';
 import Button from '../components/Button';
 import RadioContainer from '../components/RadioContainer';
+import PropTypes from 'prop-types';
 import './NewAccountPage.css';
 
 class NewAccountPage extends Component {
@@ -36,25 +37,28 @@ class NewAccountPage extends Component {
     }
 
     render(){
-        const existingAccounts = this.props.accounts.map(a => a.type);
+        const {accounts} = this.props;
+        const {accountType, err, loading} = this.state;
+
+        const existingAccounts = accounts.map(a => a.type);
         const radios = [
-            {label: 'Checking', checked: this.state.accountType === 'Checking', disabled: existingAccounts.includes('Checking')},
-            {label: 'Savings', checked: this.state.accountType === 'Savings', disabled: existingAccounts.includes('Savings')},
-            {label: 'Investing', checked: this.state.accountType === 'Investing', disabled: existingAccounts.includes('Investing')},
+            {label: 'Checking', checked: accountType === 'Checking', disabled: existingAccounts.includes('Checking')},
+            {label: 'Savings', checked: accountType === 'Savings', disabled: existingAccounts.includes('Savings')},
+            {label: 'Investing', checked: accountType === 'Investing', disabled: existingAccounts.includes('Investing')},
         ];
 
         return (
             <div>
                 <h2 className='NewAccountPage-message'>Select an account type.</h2>
-                {this.state.err && (
+                {err && (
                     <Message>
-                        {this.state.err}
+                        {err}
                     </Message>
                 )}
                 <form className='NewAccountForm-form' onSubmit={this.onSubmit}>
                     <RadioContainer radios={radios} name='accountType' onChange={this.onChange} />
                     <Button form className='NewAccountForm-form-btn'>
-                        {this.state.loading ? 'Loading...' : 'Create Account'}
+                        {loading ? 'Loading...' : 'Create Account'}
                     </Button>
                 </form>
             </div>
@@ -67,5 +71,11 @@ function mapStateToProps(state){
         accounts: state.accountReducer.accounts
     };
 }
+
+NewAccountPage.propTypes = {
+    accounts: PropTypes.array.isRequired,
+    createAccount: PropTypes.func.isRequired,
+    history: PropTypes.object.isRequired
+};
 
 export default connect(mapStateToProps, {createAccount})(NewAccountPage);

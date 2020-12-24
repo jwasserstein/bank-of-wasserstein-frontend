@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './RadioContainer.css';
 
 const RadioContainer = ({radios, name, onChange}) => {
@@ -18,6 +19,12 @@ const RadioContainer = ({radios, name, onChange}) => {
             </div>
         </div>
     )
+};
+
+RadioContainer.propTypes = {
+    radios: PropTypes.array.isRequired,
+    name: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired
 };
 
 export default RadioContainer;

@@ -5,6 +5,7 @@ import dayjs from 'dayjs';
 import {apiCall} from '../services/api';
 import Message from '../components/Message';
 import Form from '../components/Form';
+import PropTypes from 'prop-types';
 
 class ProfilePage extends Component{
     constructor(props){
@@ -59,10 +60,14 @@ class ProfilePage extends Component{
     }
 
     render() {
+        const {currentPassword, newPassword, repeatNewPassword, 
+            message, messageColor, loading} = this.state;
+        const {username, email, joinDate} = this.props;
+
         const fields = [
-            {label: 'Current Password', name: 'currentPassword', type: 'password', value: this.state.currentPassword},
-            {label: 'New Password', name: 'newPassword', type: 'password', value: this.state.newPassword},
-            {label: 'Repeat New Password', name: 'repeatNewPassword', type: 'password', value: this.state.repeatNewPassword}
+            {label: 'Current Password', name: 'currentPassword', type: 'password', value: currentPassword},
+            {label: 'New Password', name: 'newPassword', type: 'password', value: newPassword},
+            {label: 'Repeat New Password', name: 'repeatNewPassword', type: 'password', value: repeatNewPassword}
         ];
 
         return (
@@ -71,27 +76,27 @@ class ProfilePage extends Component{
                 <div className='ProfilePage-fields'>
                     <div>
                         <h3 className='ProfilePage-field-title'>Username</h3>
-                        <p className='ProfilePage-field-value'>{this.props.username}</p>
+                        <p className='ProfilePage-field-value'>{username}</p>
                     </div>
                     <div>
                         <h3 className='ProfilePage-field-title'>Email</h3>
-                        <p className='ProfilePage-field-value'>{this.props.email}</p>
+                        <p className='ProfilePage-field-value'>{email}</p>
                     </div>
                     <div>
                         <h3 className='ProfilePage-field-title'>Join Date</h3>
-                        <p className='ProfilePage-field-value'>{dayjs(this.props.joinDate).format('MM/DD/YYYY h:mmA')}</p>
+                        <p className='ProfilePage-field-value'>{dayjs(joinDate).format('MM/DD/YYYY h:mmA')}</p>
                     </div>
                 </div>
                 <h2 className='ProfilePage-message'>Change your password.</h2>
-                {this.state.message && (
-                    <Message color={this.state.messageColor} >
-                        {this.state.message}
+                {message && (
+                    <Message color={messageColor} >
+                        {message}
                     </Message>
                 )}
                 <Form onSubmit={this.onSubmit} 
                         onChange={this.onChange}
                         fields={fields}
-                        loading={this.state.loading}/>
+                        loading={loading}/>
                 
             </div>
         );
@@ -106,5 +111,12 @@ function mapStateToProps(state){
         joinDate: state.authReducer.joinDate
     };
 }
+
+ProfilePage.propTypes = {
+    userId: PropTypes.string.isRequired,
+    username: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    joinDate: PropTypes.string.isRequired
+};
 
 export default connect(mapStateToProps, null)(ProfilePage);

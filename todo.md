@@ -1,4 +1,2 @@
 - Organize container and component folders
-- Add pictures to placeholders on landing page
-- Add proptypes
 - Make different transfer types separate components
