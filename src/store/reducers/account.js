@@ -1,4 +1,4 @@
-import {GET_ACCOUNTS, REMOVE_ACCOUNTS, UPDATE_BALANCE} from '../actionTypes';
+import {GET_ACCOUNTS, REMOVE_ACCOUNTS, UPDATE_BALANCE, CLOSE_ACCOUNT} from '../actionTypes';
 
 const DEFAULT_STATE = {
     accounts: []
@@ -16,6 +16,9 @@ export function accountReducer(state=DEFAULT_STATE, action){
                 return {...a, accountBalance: action.accountBalance, lastUpdated: Date.now()};
             });
             return {...state, accounts};
+        case CLOSE_ACCOUNT:
+            const remainingAccounts = state.accounts.filter(a => a._id !== action.accountId);
+            return {...state, accounts: remainingAccounts};
         default:
             return state;
     }
