@@ -1,12 +1,12 @@
 import React from 'react';
 import './Feature.css';
 
-const Feature = props => (
+const Feature = ({title, description, img}) => (
     <div className="Feature">
-        <div className="Feature-image-placeholder"></div>
+        <img className="Feature-image" src={img} />
         <div className="Feature-text">
-            <h3>{props.title}</h3>
-            <p>{props.description}</p>
+            <h3>{title}</h3>
+            <p>{description}</p>
         </div>
     </div>
 );

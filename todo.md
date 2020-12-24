@@ -1,6 +1,4 @@
 - Organize container and component folders
 - Add pictures to placeholders on landing page
-- Fix coins-growing image squishing
-- Add delete account button to profile page
 - Add proptypes
 - Make different transfer types separate components
