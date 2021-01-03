@@ -46,7 +46,7 @@ class SignupPage extends Component {
 			{label: 'Username', name: 'username', type: 'text', value: username},
 			{label: 'Email', name: 'email', type: 'email', value: email},
 			{label: 'Password', name: 'password', type: 'password', value: password},
-			{label: 'Repeat Password', name: 'repeatPassword', type: 'password', value: repeatPassword},
+			{label: 'Repeat Password', name: 'repeatPassword', type: 'password', value: repeatPassword}
 		];
 
 		return (
