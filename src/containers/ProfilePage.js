@@ -40,7 +40,7 @@ class ProfilePage extends Component{
         }
 
         this.setState({...this.state, loading: true});
-        apiCall('POST', `/auth/changePassword/${this.props.userId}`, {
+        apiCall('POST', `/auth/changePassword`, {
             currentPassword: this.state.currentPassword,
             newPassword: this.state.newPassword,
             repeatNewPassword: this.state.repeatNewPassword
