@@ -1,5 +1,4 @@
 import React from 'react';
-import coinsGrowing from '../images/coins-growing.jpeg';
 import './Hero.css';
 
 const Hero = () => (
@@ -8,7 +7,7 @@ const Hero = () => (
             <h2>Banking Reimagined.</h2>
             <p>Start saving for the future of your dreams.</p>
         </div>
-        <img className="Hero-coins-growing" src={coinsGrowing} alt="coins growing" />
+        <img className="Hero-coins-growing" src={'https://bank-of-wasserstein.s3.amazonaws.com/coins-growing.jpeg'} alt="coins growing" />
     </div>
 );
 
