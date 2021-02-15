@@ -20,7 +20,7 @@ const LandingPage = () => {
                 </div>
             </section>
             <footer className='LandingPage-footer'>
-                For demonstration purposes only, not a real bank.  Made by Justin Wasserstein in 2020.
+                Copyright © 2021, Justin Wasserstein
             </footer>
         </div>
         );

@@ -5,14 +5,13 @@ const AboutPage = () => (
     <div>
         <div className='AboutPage-container'>
             <h2 className='AboutPage-title'>About BANK OF WASSERSTEIN</h2>
-            <p>BANK OF WASSERSTEIN is a demonstration banking application made for the purposes of learning React and Redux.  
-                It allows users to create accounts, submit transactions, and transfer money to other users.  It was designed in Figma and uses the following technologies:</p>
-            <ul>
-                <li><strong>Front-end</strong>: React and Redux</li>
-                <li><strong>Back-end</strong>: Node.js and Express</li>
-                <li><strong>Database</strong>: MongoDB</li>
-            </ul>
-            <p>Hand-crafted with <span className='AboutPage-heart'>❤</span> in Glastonbury, Connecticut.</p>
+            <p>BANK OF WASSERSTEIN is a demonstration banking application that allows users to create 
+                checking, savings, and investing accounts, submit deposits and withdrawals, and transfer 
+                money to other users. It’s a single page, fullstack application that uses React and 
+                Redux on the frontend and Node.js, Express, and MongoDB on the backend. The frontend is 
+                served by GitHub Pages and the backend runs on Heroku with a managed database provided by 
+                MongoDB Atlas. It was designed using Figma.</p>
+            <p>Hand-rafted with <span className='AboutPage-heart'>❤</span> in Glastonbury, Connecticut.</p>
         </div>
     </div>
 );
