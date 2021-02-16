@@ -11,7 +11,6 @@ class SignupPage extends Component {
 		super(props);
 		this.state = {
 			username: '',
-			email: '',
 			password: '',
 			repeatPassword: '',
 			loading: false,
@@ -29,7 +28,7 @@ class SignupPage extends Component {
 		if(this.state.password !== this.state.repeatPassword){
 			return this.setState({...this.state, loading: false, error: "Your passwords don't match"});
 		}
-		this.props.signUp(this.state.username, this.state.email, this.state.password)
+		this.props.signUp(this.state.username, this.state.password)
 			.then(() => {
 				this.setState({...this.state, loading: false, error: ''});
 				this.props.history.push('/accounts');
@@ -40,11 +39,10 @@ class SignupPage extends Component {
 	}
 	
 	render() {
-		const {username, email, password, repeatPassword, error, loading} = this.state;
+		const {username, password, repeatPassword, error, loading} = this.state;
 
 		const fields = [
 			{label: 'Username', name: 'username', type: 'text', value: username},
-			{label: 'Email', name: 'email', type: 'email', value: email},
 			{label: 'Password', name: 'password', type: 'password', value: password},
 			{label: 'Repeat Password', name: 'repeatPassword', type: 'password', value: repeatPassword}
 		];

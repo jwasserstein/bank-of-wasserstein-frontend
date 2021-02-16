@@ -62,7 +62,7 @@ class ProfilePage extends Component{
     render() {
         const {currentPassword, newPassword, repeatNewPassword, 
             message, messageColor, loading} = this.state;
-        const {username, email, joinDate} = this.props;
+        const {username, joinDate} = this.props;
 
         const fields = [
             {label: 'Current Password', name: 'currentPassword', type: 'password', value: currentPassword},
@@ -77,10 +77,6 @@ class ProfilePage extends Component{
                     <div>
                         <h3 className='ProfilePage-field-title'>Username</h3>
                         <p className='ProfilePage-field-value'>{username}</p>
-                    </div>
-                    <div>
-                        <h3 className='ProfilePage-field-title'>Email</h3>
-                        <p className='ProfilePage-field-value'>{email}</p>
                     </div>
                     <div>
                         <h3 className='ProfilePage-field-title'>Join Date</h3>
@@ -107,7 +103,6 @@ function mapStateToProps(state){
     return {
         userId: state.authReducer.userId,
         username: state.authReducer.username,
-        email: state.authReducer.email,
         joinDate: state.authReducer.joinDate
     };
 }
@@ -115,7 +110,6 @@ function mapStateToProps(state){
 ProfilePage.propTypes = {
     userId: PropTypes.string.isRequired,
     username: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
     joinDate: PropTypes.string.isRequired
 };
 
