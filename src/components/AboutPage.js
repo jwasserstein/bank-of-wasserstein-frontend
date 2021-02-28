@@ -11,7 +11,31 @@ const AboutPage = () => (
                 Redux on the frontend and Node.js, Express, and MongoDB on the backend. The frontend is 
                 served by GitHub Pages and the backend runs on Heroku with a managed database provided by 
                 MongoDB Atlas. It was designed using Figma.</p>
-            <p>Hand-rafted with <span className='AboutPage-heart'>❤</span> in Glastonbury, Connecticut.</p>
+            <p>Hand-crafted with <span className='AboutPage-heart'>❤</span> in Glastonbury, Connecticut.</p>
+            <div className='AboutPage-icon-container'>
+                <a href='https://github.com/jwasserstein/bank-of-wasserstein-frontend' target='_blank' rel='noreferrer'>
+                    <span className="iconify" data-icon="ant-design:github-filled" data-inline="false"></span>
+                    <p>GitHub</p>
+                    <p>frontend</p>
+                </a>
+                <a href='https://github.com/jwasserstein/bank-of-wasserstein-backend' target='_blank' rel='noreferrer'>
+                    <span className="iconify" data-icon="ant-design:github-filled" data-inline="false"></span>
+                    <p>GitHub</p>
+                    <p>backend</p>
+                </a>
+                <a href='https://www.wasserstein.dev/' target='_blank' rel='noreferrer'>
+                    <span className="iconify" data-icon="ant-design:folder-outlined" data-inline="false"></span>
+                    <p>Portfolio</p>
+                </a>
+                <a href='https://www.linkedin.com/in/justin-wasserstein' target='_blank' rel='noreferrer'>
+                    <span className="iconify" data-icon="ant-design:linkedin-filled" data-inline="false"></span>
+                    <p>LinkedIn</p>
+                </a>
+                <a href='https://jwasserstein.s3.amazonaws.com/Resume+-+Wasserstein.pdf' target='_blank' rel='noreferrer'>
+                    <span className="iconify" data-icon="fa-regular:clipboard" data-inline="false"></span>
+                    <p>Resume</p>
+                </a>
+            </div>
         </div>
     </div>
 );
