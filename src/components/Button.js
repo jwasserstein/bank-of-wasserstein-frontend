@@ -6,9 +6,9 @@ import './Button.css';
 const Button = ({className, form, children, to, onClick}) => {
     const classes = className ? `Button ${className}` : 'Button';
     if(form){
-        return <button type='submit' className={classes + ' Button-form'} onClick={onClick}>{children}</button>;
+        return <button type='submit' className={classes + ' Button-form'} onClick={onClick} data-testid='button'>{children}</button>;
     } else {
-        return <Link className={classes} to={to} onClick={onClick}>{children}</Link>;
+        return <Link className={classes} to={to} onClick={onClick} data-testid='button'>{children}</Link>;
     }
 };
 
