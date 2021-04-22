@@ -62,7 +62,14 @@ it('invokes callback', () => {
     act(() => {
         ReactDOM.render(<Button className='Button-test' form onClick={callback}>Click Me!</Button>, container);
     });
-    const node = document.querySelector("[data-testid='button']");
+    let node = document.querySelector("[data-testid='button']");
     node.dispatchEvent(new MouseEvent('click', {bubbles: true}));
-    expect(callback).toHaveBeenCalled();
+    expect(callback).toHaveBeenCalledTimes(1);
+
+    act(() => {
+        ReactDOM.render(<Router><Button className='Button-test' to='/test' onClick={callback}>Click Me!</Button></Router>, container);
+    });
+    node = document.querySelector("[data-testid='button']");
+    node.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+    expect(callback).toHaveBeenCalledTimes(2);
 });

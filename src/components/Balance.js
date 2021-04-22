@@ -4,7 +4,7 @@ import './Balance.css';
 
 const Balance = ({accountBalance}) => {
 	return (
-		<div className="Balance">
+		<div className="Balance" data-testid='balance'>
             <strong>Balance</strong>: ${accountBalance.toFixed(2)}
         </div>
 	);
