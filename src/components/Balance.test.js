@@ -1,45 +1,28 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {act} from 'react-dom/test-utils';
+import {render, screen, cleanup} from '@testing-library/react';
 import Balance from './Balance';
 
-let container;
-beforeEach(() => {
-    container = document.createElement('div');
-    document.body.appendChild(container);
-});
-
-afterEach(() => {
-    ReactDOM.unmountComponentAtNode(container);
-    container.remove();
-});
-
 it('renders without crashing', () => {
-    ReactDOM.render(<Balance accountBalance={16}/>, container);
+    render(<Balance accountBalance={16}/>);
 });
 
 it('displays the correct amount', () => {
-    act(() => {
-        ReactDOM.render(<Balance accountBalance={0}/>, container);
-    });
-    let node = document.querySelector("[data-testid='balance']");
+    render(<Balance accountBalance={0}/>);
+    let node = screen.getByTestId('balance');
     expect(node.textContent).toBe('Balance: $0.00');
+    cleanup();
 
-    act(() => {
-        ReactDOM.render(<Balance accountBalance={16}/>, container);
-    });
-    node = document.querySelector("[data-testid='balance']");
+    render(<Balance accountBalance={16}/>);
+    node = screen.getByTestId('balance');
     expect(node.textContent).toBe('Balance: $16.00');
+    cleanup();
 
-    act(() => {
-        ReactDOM.render(<Balance accountBalance={123456789.01}/>, container);
-    });
-    node = document.querySelector("[data-testid='balance']");
+    render(<Balance accountBalance={123456789.01}/>);
+    node = screen.getByTestId('balance');
     expect(node.textContent).toBe('Balance: $123456789.01');
+    cleanup();
 
-    act(() => {
-        ReactDOM.render(<Balance accountBalance={-24.66}/>, container);
-    });
-    node = document.querySelector("[data-testid='balance']");
+    render(<Balance accountBalance={-24.66}/>);
+    node = screen.getByTestId('balance');
     expect(node.textContent).toBe('Balance: $-24.66');
 });
