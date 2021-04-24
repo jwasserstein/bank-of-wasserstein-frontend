@@ -5,15 +5,15 @@ import './Form.css';
 
 const Form = ({fields, loading, onSubmit, onChange}) => {
     const fieldElements = fields.map(f => (
-        <label htmlFor={f.name} key={f.name} className='Form-label'>
+        <label htmlFor={f.name} key={f.name} className='Form-label' data-testid='label'>
             {f.label}:
-            <input type={f.type} className='Form-field' value={f.value} onChange={onChange} id={f.name} 
+            <input type={f.type} className='Form-field' value={f.value} onChange={onChange} id={f.name} data-testid='label-input'
             name={f.name} placeholder={f.label} autoComplete='off' autoCorrect='off' autoCapitalize='none' required />
         </label>
     ));
 
     return (
-        <form className='Form-form' onSubmit={onSubmit}>
+        <form className='Form-form' onSubmit={onSubmit} data-testid='form'>
             {fieldElements}      
             <Button form className='Form-btn'>
                 {loading ? 'Loading...' : 'Submit'}

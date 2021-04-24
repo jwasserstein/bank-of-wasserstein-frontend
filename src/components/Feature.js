@@ -4,10 +4,10 @@ import './Feature.css';
 
 const Feature = ({title, description, img, alt}) => (
     <div className="Feature">
-        <img className="Feature-image" src={img} alt={alt} />
+        <img className="Feature-image" src={img} alt={alt} data-testid='feature-image'/>
         <div className="Feature-text">
-            <h3>{title}</h3>
-            <p>{description}</p>
+            <h3 data-testid='feature-title'>{title}</h3>
+            <p data-testid='feature-description'>{description}</p>
         </div>
     </div>
 );
