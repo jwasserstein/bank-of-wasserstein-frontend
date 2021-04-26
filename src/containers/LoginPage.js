@@ -24,7 +24,7 @@ class LoginPage extends Component {
 	onSubmit = e => {
 		e.preventDefault();
 		this.setState({...this.state, loading: true})
-		this.props.logIn(e.target.username.value, e.target.password.value)
+		this.props.logIn(this.state.username, this.state.password)
 			.then(() => {
 				this.setState({...this.state, loading: false, error: ''});
 				this.props.history.push('/accounts');

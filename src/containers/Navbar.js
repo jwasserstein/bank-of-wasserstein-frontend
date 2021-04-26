@@ -32,8 +32,8 @@ class Navbar extends Component{
 		return (
 			<div>
 				<div className='Navbar-spacer'></div>
-				<header className={'Navbar ' + menuActive}>
-					<div className='Navbar-burger' onClick={this.toggleMenu}>
+				<header className={'Navbar ' + menuActive} data-testid='header'>
+					<div className='Navbar-burger' onClick={this.toggleMenu} data-testid='burger'>
 						<span className='Navbar-bar'></span>
 						<span className='Navbar-bar'></span>
 						<span className='Navbar-bar'></span>
