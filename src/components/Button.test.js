@@ -2,7 +2,6 @@ import React from 'react';
 import {render, screen, cleanup, fireEvent} from '@testing-library/react';
 import Button from './Button';
 import {BrowserRouter as Router} from 'react-router-dom';
-import '@testing-library/jest-dom/extend-expect';
 
 it('renders without crashing', () => {
     render(<Button form>test</Button>);
