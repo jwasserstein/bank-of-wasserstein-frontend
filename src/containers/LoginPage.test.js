@@ -43,8 +43,7 @@ it('handles errors correctly', async () => {
             json: () => Promise.resolve({error: "It didn't work"})
         });
     });
-    const form = screen.getByTestId('form');
-    fireEvent.submit(form);
+    fireEvent.click(screen.getByText('Submit'));
     
     await waitFor(() => expect(screen.queryByText("It didn't work")).toBeTruthy());
 });
@@ -59,8 +58,7 @@ it('redirects on successful login', async () => {
             json: () => Promise.resolve({token: "123"})
         });
     });
-    const form = screen.getByTestId('form');
-    fireEvent.submit(form);
+    fireEvent.click(screen.getByText('Submit'));
     
     await waitFor(() => expect(history.push).toBeCalled());
 });

@@ -2,7 +2,9 @@ import {LOG_OUT, LOG_IN} from '../actionTypes';
 
 const DEFAULT_STATE = {
 	userId: '',
-	username: ''
+	username: '',
+	joinDate: '',
+	loggedInAt: 0
 }
 
 export function authReducer(state=DEFAULT_STATE, action){
@@ -10,7 +12,7 @@ export function authReducer(state=DEFAULT_STATE, action){
 		case LOG_IN:
 			return {...state, userId: action.id, username: action.username, joinDate: action.joinDate, loggedInAt: Date.now()};
 		case LOG_OUT:
-			return {...state, userId: '', username: '', joinDate: 0, loggedInAt: 0};
+			return DEFAULT_STATE;
 		default: 
 			return state;
 	}
